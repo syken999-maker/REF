@@ -229,6 +229,10 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .fig figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--muted); }
 .fig figcaption .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: 0; }
 .fig.on figcaption .t { opacity: 1; }
+.stDates { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; justify-content: safe center; gap: 18px; overflow-x: auto; padding: 10px 22px calc(12px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); scrollbar-width: none; }
+.stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
+.stDates button:hover { color: var(--ink); }
+.stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
 .stMore { margin-top: 30px; }
@@ -279,6 +283,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
     <div class="rail" id="sRail" role="group" aria-label="카테고리"></div>
   </div>
   <div class="sCol" id="sCol"></div>
+  <div class="stDates" id="stDates" role="group" aria-label="날짜 선택"></div>
 </div>
 
 <div class="wrap" id="logView">
@@ -388,7 +393,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
       <input id="fTitle" type="text" placeholder="작품 제목 (YouTube·Vimeo는 링크에서 가져오기를 시도해요)">
     </div>
     <div class="row2">
-      <div class="field"><label for="fCredit">감독 · 아티스트 · 브랜드</label><input id="fCredit" type="text"></div>
+      <div class="field" hidden><label for="fCredit">감독 · 아티스트 · 브랜드</label><input id="fCredit" type="text"></div>
       <div class="field"><label for="fDate">정리한 날짜</label><input id="fDate" type="date"></div>
     </div>
     <div class="row2">
@@ -403,11 +408,11 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
       </div>
     </div>
     <div class="quick" id="catQuick"></div>
-    <div class="field">
+    <div class="field" hidden>
       <label for="fTags">태그</label>
       <input id="fTags" type="text" placeholder="쉼표로 구분 · 예: 핸드헬드, 네온, 롱테이크">
     </div>
-    <div class="field">
+    <div class="field" hidden>
       <label for="fNote">메모</label>
       <textarea id="fNote" rows="3" placeholder="어디가 좋았는지, 가져다 쓸 포인트"></textarea>
     </div>
@@ -443,7 +448,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241063854
+  "createdAt": 1794246276112
  },
  {
   "id": "b788f35bfb8",
@@ -461,7 +466,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241064854
+  "createdAt": 1794246277112
  },
  {
   "id": "b116f423c3a",
@@ -479,7 +484,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241065854
+  "createdAt": 1794246278112
  },
  {
   "id": "b773f84e964",
@@ -497,7 +502,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241066854
+  "createdAt": 1794246279112
  },
  {
   "id": "b62c89b33e9",
@@ -516,7 +521,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241067854
+  "createdAt": 1794246280112
  },
  {
   "id": "be5da6d39f1",
@@ -535,7 +540,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241068854
+  "createdAt": 1794246281112
  },
  {
   "id": "b15ea467418",
@@ -553,7 +558,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241069854
+  "createdAt": 1794246282112
  },
  {
   "id": "b2f0ab2f292",
@@ -571,7 +576,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241070854
+  "createdAt": 1794246283112
  },
  {
   "id": "b53daa598e8",
@@ -591,7 +596,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241071854
+  "createdAt": 1794246284112
  },
  {
   "id": "bab16188b64",
@@ -611,7 +616,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241072854
+  "createdAt": 1794246285112
  },
  {
   "id": "b872d637627",
@@ -631,7 +636,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241073854
+  "createdAt": 1794246286112
  },
  {
   "id": "b2b212e5e39",
@@ -651,7 +656,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794241074854
+  "createdAt": 1794246287112
  },
  {
   "id": "b0f28eb629d",
@@ -671,7 +676,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794241075854
+  "createdAt": 1794246288112
  },
  {
   "id": "b9ca6421b85",
@@ -691,7 +696,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241076854
+  "createdAt": 1794246289112
  },
  {
   "id": "b94839daa7e",
@@ -711,7 +716,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241077854
+  "createdAt": 1794246290112
  },
  {
   "id": "bf769f7ee32",
@@ -731,7 +736,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241078854
+  "createdAt": 1794246291112
  },
  {
   "id": "b6c020bd000",
@@ -750,7 +755,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241079854
+  "createdAt": 1794246292112
  },
  {
   "id": "b7d55c220b3",
@@ -770,7 +775,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241080854
+  "createdAt": 1794246293112
  },
  {
   "id": "bf10705d9fb",
@@ -789,7 +794,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241081854
+  "createdAt": 1794246294112
  },
  {
   "id": "be1c412efc3",
@@ -808,7 +813,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241082854
+  "createdAt": 1794246295112
  },
  {
   "id": "bd9f80ef1a3",
@@ -827,7 +832,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241083854
+  "createdAt": 1794246296112
  },
  {
   "id": "b27a7b48db5",
@@ -846,7 +851,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241084854
+  "createdAt": 1794246297112
  },
  {
   "id": "b9652534508",
@@ -865,7 +870,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241085854
+  "createdAt": 1794246298112
  },
  {
   "id": "b8a84d5f627",
@@ -884,7 +889,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241086854
+  "createdAt": 1794246299112
  },
  {
   "id": "b7f4f8ef8d6",
@@ -903,7 +908,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241087854
+  "createdAt": 1794246300112
  },
  {
   "id": "b99fb9c1d82",
@@ -922,7 +927,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794241088854
+  "createdAt": 1794246301112
  },
  {
   "id": "b4fb06bed2d",
@@ -941,7 +946,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794241089854
+  "createdAt": 1794246302112
  },
  {
   "id": "b6be94f80a0",
@@ -961,7 +966,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241090854
+  "createdAt": 1794246303112
  },
  {
   "id": "b50d1bdada1",
@@ -979,7 +984,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794241091854
+  "createdAt": 1794246304112
  }
 ];
 </script>
@@ -988,12 +993,12 @@ var BAKED = [
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
 
-  var DEFAULT_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', 'FILM', '단편·영화', '브랜드 필름', '미분류'];
+  var DEFAULT_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션', 'FILM', '단편·영화', '브랜드 필름', '미분류'];
   var SRC_ORDER = ['YOUTUBE', 'VIMEO', 'AI', '기타'];
-  var SRC_CATS = { YOUTUBE: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'], VIMEO: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'], AI: ['FILM'] };
+  var SRC_CATS = { YOUTUBE: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'], VIMEO: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'], AI: ['FILM'] };
   /* 왼쪽 분류용 묶음: FILM은 AI, 나머지는 올라온 사이트 기준 */
   function groupOf(it) { return it.category === 'FILM' ? 'AI' : it.p.key === 'youtube' ? 'YOUTUBE' : it.p.key === 'vimeo' ? 'VIMEO' : '기타'; }
-  var FIND_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'];
+  var FIND_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'];
   var PLATFORM_ORDER = ['youtube', 'vimeo', 'tvcf', 'other'];
   var PLATFORM_LABEL = { youtube: 'YouTube', vimeo: 'Vimeo', tvcf: 'TVCF', other: '기타' };
   var WEEK = ['일', '월', '화', '수', '목', '금', '토'];
@@ -1301,16 +1306,11 @@ var BAKED = [
       h('span', { class: 'sp' }),
       h('button', { type: 'button', class: 'ib', 'aria-pressed': String(it.fav), 'aria-label': '즐겨찾기', onclick: function () { saveItem(Object.assign({}, it, { fav: !it.fav })); } }, it.fav ? '★' : '☆'),
       h('button', { type: 'button', class: 'ib', onclick: function () { openDialog('edit', { item: it }); } }, '편집'));
-    var regYear = [it.region, it.year ? String(it.year) : ''].filter(Boolean).join(' · ');
     return h('article', { class: 'card' }, media,
       h('div', { class: 'cbody' },
         h('h3', { class: 'ctitle' + (it.title ? '' : ' untitled') }, it.title || '제목 없음'),
-        it.credit ? h('div', { class: 'credit' }, it.credit) : null,
         h('div', { class: 'meta' }, h('span', { class: 'cat' }, it.category),
-          regYear ? h('span', { class: 'cdate' }, regYear) : null,
           state.group !== 'date' ? h('span', { class: 'cdate' }, it.date.replace(/-/g, '.')) : null),
-        it.tags.length ? h('div', { class: 'tags' }, it.tags.map(function (t) { return h('span', null, '#' + t); })) : null,
-        it.note ? h('p', { class: 'note' }, it.note) : null,
         acts));
   }
   function renderGroups() {
@@ -1425,8 +1425,8 @@ var BAKED = [
     teardown();
     var tok = ++playTok; curId = inLog ? it.id : null;
     $('pTitle').textContent = it.title || '제목 없음';
-    $('pCredit').textContent = [it.credit, it.category, it.region].filter(Boolean).join(' · ');
-    $('pNote').textContent = it.note || ''; $('pNote').hidden = !it.note;
+    $('pCredit').textContent = it.category;
+    $('pNote').hidden = true;
     $('pFail').hidden = true;
     var open = $('pOpen'); open.href = normUrl(it.url) || '#'; open.textContent = it.p.label + '에서 열기 ↗';
     var stage = $('stage'); stage.replaceChildren();
@@ -1493,6 +1493,18 @@ var BAKED = [
         rail.append(h('button', { type: 'button', class: 'sub', 'aria-pressed': String(state.category === c), onclick: function () { state.category = c; go(); } }, c));
       });
     });
+    var dc = {};
+    state.items.forEach(function (it) { if (matches(it, 'date')) dc[it.date] = (dc[it.date] || 0) + 1; });
+    var dk = Object.keys(dc).sort().reverse();
+    if (state.date && !dc[state.date]) dk.unshift(state.date);
+    var db = $('stDates'); db.replaceChildren();
+    var pickDate = function (k) { state.date = k; render(); window.scrollTo(0, 0); updateFocus(); };
+    db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, '전체 날짜'));
+    dk.forEach(function (k) {
+      var d = parseYmd(k);
+      db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
+        k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()] + ' · ' + (dc[k] || 0)));
+    });
     var col = $('sCol'); col.replaceChildren();
     var note = blockedText();
     if (note) col.append(h('p', { class: 'stNote' }, note));
@@ -1508,7 +1520,7 @@ var BAKED = [
       else if (url) media = h('a', { class: 'sf', href: url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': (it.title || it.p.label) + ' 열기', onclick: click }, thumb);
       else media = h('div', { class: 'sf' }, thumb);
       col.append(h('figure', { class: 'fig' + (i === 0 ? ' on' : '') }, media,
-        h('figcaption', null, h('span', null, '(' + (i + 1) + ')'), h('span', { class: 't' }, [it.title, it.credit].filter(Boolean).join(' — ')))));
+        h('figcaption', null, h('span', null, '(' + (i + 1) + ')'), h('span', { class: 't' }, it.title))));
     });
     if (list.length) col.append(h('button', { type: 'button', class: 'lk stMore', onclick: openFinder }, '✦ 더 찾기'));
     updateFocus();
@@ -1647,13 +1659,15 @@ var BAKED = [
       '뮤직비디오': { q: 'official music video', music: true },
       '광고': { q: 'official commercial ad campaign film' },
       '시네마틱 필름': { q: 'cinematic short film' },
-      '모션그래픽': { q: 'motion graphics title sequence' }
+      '모션그래픽': { q: 'motion graphics title sequence' },
+      '애니메이션': { q: 'animated short film cinematic animation' }
     },
     kr: {
       '뮤직비디오': { q: '공식 뮤직비디오 MV', music: true },
       '광고': { q: '광고 캠페인 CF 영상' },
       '시네마틱 필름': { q: '단편영화 시네마틱' },
-      '모션그래픽': { q: '모션그래픽 타이틀' }
+      '모션그래픽': { q: '모션그래픽 타이틀' },
+      '애니메이션': { q: '애니메이션 단편 시네마틱 애니메이션' }
     }
   };
   var keys = lsGet(LS_KEYS, { yt: '', vimeo: '' });
@@ -1852,9 +1866,8 @@ var BAKED = [
       addBtn.addEventListener('click', function () {
         var yr = r.date ? Number(r.date.slice(0, 4)) : 0;
         var item = {
-          id: newId(), url: r.url, title: r.title, credit: r.credit, category: sel.value, date: todayStr(), region: finder.region === 'kr' ? '국내' : '', year: yr,
-          tags: r.source === 'Vimeo 스태프픽' ? ['스태프픽', '자동 추천'] : ['자동 추천'],
-          note: [r.source, fmtViews(r.views), r.date ? r.date.slice(0, 10).replace(/-/g, '.') + ' 업로드' : ''].filter(Boolean).join(' · '),
+          id: newId(), url: r.url, title: r.title, credit: '', category: sel.value, date: todayStr(), region: finder.region === 'kr' ? '국내' : '', year: yr,
+          tags: [], note: '',
           fav: false, thumb: r.thumb || '', createdAt: Date.now()
         };
         saveItem(clean(item.id, item));

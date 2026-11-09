@@ -6,7 +6,7 @@ import hashlib, json, re, sys, time
 from pathlib import Path
 
 base, cand_path, date = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
-CATS = {"뮤직비디오", "광고", "시네마틱 필름", "모션그래픽", "FILM"}
+CATS = {"뮤직비디오", "광고", "시네마틱 필름", "모션그래픽", "애니메이션", "FILM"}
 feed_path = base / "feed.json"
 feed = json.loads(feed_path.read_text(encoding="utf8")) if feed_path.exists() else []
 
