@@ -1,1 +1,4201 @@
-[]
+[
+ {
+  "id": "f76d395dca1",
+  "url": "https://vimeo.com/1171808834",
+  "title": "PERSONA — AI Short Film (EN)",
+  "credit": "Bora",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "단편",
+   "Kling",
+   "Veo",
+   "자동 수집"
+  ],
+  "note": "가면 같은 일상의 역할과 진짜 정체성의 긴장을 다룬 65초 실험 단편. Nano Banana, Kling, Veo 3.1로 제작.",
+  "fav": false,
+  "createdAt": 1794245620656
+ },
+ {
+  "id": "fd5ee27c8c7",
+  "url": "https://vimeo.com/1090172756",
+  "title": "SHORELiNE 7",
+  "credit": "Roxanne Ducharme",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "단편",
+   "SF",
+   "영화제수상",
+   "자동 수집"
+  ],
+  "note": "안개 속 정체불명 생명체를 기록한 아카이브 영상 콘셉트의 AI 단편. 서울국제AI영화제 등 수상.",
+  "fav": false,
+  "createdAt": 1794245620657
+ },
+ {
+  "id": "ffeaeaf7079",
+  "url": "https://vimeo.com/1124044556",
+  "title": "Sora Demo - But created with Runway .",
+  "credit": "20 Media",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "Runway",
+   "Sora",
+   "재현",
+   "자동 수집"
+  ],
+  "note": "Sora 데모 영상을 Runway로 재현한 비교 작업. Runway 활용 사례 참고용.",
+  "fav": false,
+  "createdAt": 1794245620658
+ },
+ {
+  "id": "f9978489a81",
+  "url": "https://vimeo.com/1113065869",
+  "title": "Introducing Concept [AI Fashion Film]",
+  "credit": "Pardelion Films",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "패션",
+   "필름",
+   "브랜드",
+   "자동 수집"
+  ],
+  "note": "AI 스튜디오가 만든 패션 필름. 생성형 AI 비주얼 룩 참고용.",
+  "fav": false,
+  "createdAt": 1794245620659
+ },
+ {
+  "id": "f3bce00ea6e",
+  "url": "https://vimeo.com/1004202323",
+  "title": "ALONE - AI short film",
+  "credit": "Daniel Ti",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2024,
+  "tags": [
+   "AI",
+   "단편",
+   "Runway",
+   "고독",
+   "자동 수집"
+  ],
+  "note": "Runway, Midjourney, ElevenLabs, Udio로 만든 고독을 다룬 AI 단편.",
+  "fav": false,
+  "createdAt": 1794245620660
+ },
+ {
+  "id": "f763b518dd1",
+  "url": "https://vimeo.com/1128299675",
+  "title": "YASSELY - post-apocalyptic vibe",
+  "credit": "Roxanne Ducharme",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "뮤직비디오",
+   "Suno",
+   "아포칼립스",
+   "자동 수집"
+  ],
+  "note": "Suno로 만든 음악의 리듬에 맞춘 포스트 아포칼립스 분위기의 AI 비주얼 클립.",
+  "fav": false,
+  "createdAt": 1794245620661
+ },
+ {
+  "id": "fe0253fae56",
+  "url": "https://vimeo.com/1179489063",
+  "title": "HiggsField AI example",
+  "credit": "Mayed alromaithi",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Higgsfield",
+   "예시",
+   "영상",
+   "자동 수집"
+  ],
+  "note": "Higgsfield로 만든 AI 영상 예시.",
+  "fav": false,
+  "createdAt": 1794245620662
+ },
+ {
+  "id": "fa1452bb3de",
+  "url": "https://vimeo.com/1161136235",
+  "title": "Ai - World Cup '26 & Adidas- 1970's track suit & sneakers campaign",
+  "credit": "Ismael Medina",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "광고",
+   "Kling",
+   "Higgsfield",
+   "자동 수집"
+  ],
+  "note": "1970년대 트랙수트 콘셉트의 월드컵 아디다스 AI 광고. Kling 2.6, Higgsfield, Midjourney 등 활용.",
+  "fav": false,
+  "createdAt": 1794245620663
+ },
+ {
+  "id": "fe3a0bce760",
+  "url": "https://vimeo.com/1169848236",
+  "title": "The Epic of Ninmah - AI short film.",
+  "credit": "13 Productions",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "단편",
+   "판타지",
+   "Kling",
+   "자동 수집"
+  ],
+  "note": "고대 바빌론을 배경으로 한 이라크 최초 전편 AI 단편. Midjourney, Kling 사용.",
+  "fav": false,
+  "createdAt": 1794245620664
+ },
+ {
+  "id": "f2e3ba5a359",
+  "url": "https://vimeo.com/1041240775",
+  "title": "Daft Punk \"Technologic\" A.I. Generated Music Video",
+  "credit": "Matassa",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2024,
+  "tags": [
+   "AI",
+   "뮤직비디오",
+   "Kling",
+   "Midjourney",
+   "자동 수집"
+  ],
+  "note": "Daft Punk 곡을 AI로 만든 비공식 팬 뮤직비디오. Midjourney, Kling 사용.",
+  "fav": false,
+  "createdAt": 1794245620665
+ },
+ {
+  "id": "fd789d574e4",
+  "url": "https://vimeo.com/1091936897",
+  "title": "Exploring Google’s Veo 3 for GenAI Videos",
+  "credit": "Groove Jones",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "Veo3",
+   "실험",
+   "프롬프트",
+   "자동 수집"
+  ],
+  "note": "Veo 3 프롬프트 구조에 따른 시네마틱 결과를 실험한 테스트 영상.",
+  "fav": false,
+  "createdAt": 1794245620666
+ },
+ {
+  "id": "fa82f721fe2",
+  "url": "https://vimeo.com/1081883396",
+  "title": "KI-Show-Teaser: BBD / KI-Video Ad / AI-Video Ad // MEDIADRIVE Filmproduktion Braunschweig",
+  "credit": "MEDIADRIVE Film & Video",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "광고",
+   "Kling",
+   "Veo",
+   "자동 수집"
+  ],
+  "note": "LoRA 학습 캐릭터와 AI 세트로 만든 쇼 티저 광고. Kling, Runway, Veo 2 활용.",
+  "fav": false,
+  "createdAt": 1794245620667
+ },
+ {
+  "id": "fbba95d1ddf",
+  "url": "https://vimeo.com/1043117915",
+  "title": "The Ultimate Drive (Proof of Concept)",
+  "credit": "stefan aberer",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2024,
+  "tags": [
+   "AI",
+   "자동차",
+   "PoC",
+   "VFX",
+   "자동 수집"
+  ],
+  "note": "포르쉐풍 레이싱 45초 AI 영상 PoC. 80시간 이상 편집, VFX 병행.",
+  "fav": false,
+  "createdAt": 1794245620668
+ },
+ {
+  "id": "f2b6e16759f",
+  "url": "https://vimeo.com/1017276188",
+  "title": "\"Random\" Brand Film",
+  "credit": "Waldemar Borth",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2024,
+  "tags": [
+   "AI",
+   "브랜드필름",
+   "풍자",
+   "Runway",
+   "자동 수집"
+  ],
+  "note": "가상 기업을 풍자한 브랜드 필름. Midjourney, Runway로 영상과 음성 생성.",
+  "fav": false,
+  "createdAt": 1794245620669
+ },
+ {
+  "id": "f13793ad573",
+  "url": "https://vimeo.com/1077189083",
+  "title": "YEA Higgsfield AI Creative Partner Program Showreel",
+  "credit": "Yilmaz Erman Anit",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "Higgsfield",
+   "쇼릴",
+   "카메라무브",
+   "자동 수집"
+  ],
+  "note": "Higgsfield 카메라 프리셋을 활용한 AI 쇼릴.",
+  "fav": false,
+  "createdAt": 1794245620670
+ },
+ {
+  "id": "f4da3590e16",
+  "url": "https://www.youtube.com/watch?v=US2gO7UYEfY",
+  "title": "We Tested Google Veo and Runway to Create This AI Film. It Was Wild. | WSJ",
+  "credit": "The Wall Street Journal",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2024,
+  "tags": [
+   "AI",
+   "Veo",
+   " Runway",
+   "자동 수집"
+  ],
+  "note": "WSJ가 Google Veo와 Runway로 직접 AI 단편을 제작한 과정을 담은 영상.",
+  "fav": false,
+  "createdAt": 1794245620671
+ },
+ {
+  "id": "f8e5f83e7db",
+  "url": "https://www.youtube.com/watch?v=zpAeygE4d1A",
+  "title": "Total Pixel Space",
+  "credit": "Jacob Adler",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "런웨이",
+   "영화제",
+   "수상작",
+   "자동 수집"
+  ],
+  "note": "Runway AI Film Festival 2025 그랑프리 수상작. 생성형 AI 시각 에세이 형식의 단편.",
+  "fav": false,
+  "createdAt": 1794245620672
+ },
+ {
+  "id": "fc86086e309",
+  "url": "https://www.youtube.com/watch?v=_QlUUb5UMvA",
+  "title": "Not My Dog | Horror Short Film",
+  "credit": "CIAK COMPANY",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "호러",
+   "VFX",
+   "실사합성",
+   "자동 수집"
+  ],
+  "note": "실사 촬영분에 Pippit으로 AI 이펙트를 입힌 호러 단편(약 5분).",
+  "fav": false,
+  "createdAt": 1794245620673
+ },
+ {
+  "id": "f9a40f69989",
+  "url": "https://www.youtube.com/watch?v=0PuwVYlOoW4",
+  "title": "City of Light - Shortfilm made with Seedance 2.5",
+  "credit": "Jean Raymond",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Seedance",
+   "SF",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "Seedance 2.5로 제작한 약 7분 30초 단편.",
+  "fav": false,
+  "createdAt": 1794245620674
+ },
+ {
+  "id": "f0c994476ef",
+  "url": "https://www.youtube.com/watch?v=T9L2nvOC5W8",
+  "title": "THE ARGONAUTS — Part 1 | AI-Generated Mythological Short Film",
+  "credit": "Filofilm",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Runway",
+   "Seedance",
+   "신화",
+   "자동 수집"
+  ],
+  "note": "Runway와 Seedance로 영상을, Suno로 음악을 만든 16분 신화 단편.",
+  "fav": false,
+  "createdAt": 1794245620675
+ },
+ {
+  "id": "fc2d3c72fc4",
+  "url": "https://www.youtube.com/watch?v=SkseeGwbBvM",
+  "title": "GENESIS — A Robot Raises the Last Two Children on Earth | AI Short Film",
+  "credit": "Tales from the Phantom",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Seedance",
+   "SF",
+   "로봇",
+   "자동 수집"
+  ],
+  "note": "Seedance 2.5로 만든 9분 SF 단편. 로봇이 마지막 아이들을 키우는 이야기.",
+  "fav": false,
+  "createdAt": 1794245620676
+ },
+ {
+  "id": "fe771238b50",
+  "url": "https://www.youtube.com/watch?v=Z9KZ4L1vThQ",
+  "title": "Short Film \"NOTHING\" (2026)",
+  "credit": "Tatiana Aryzhakova / iTanya",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Seedance",
+   "Higgsfield",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "Seedance, Suno와 Higgsfield Soul, Nano Banana Pro 등으로 만든 단편.",
+  "fav": false,
+  "createdAt": 1794245620677
+ },
+ {
+  "id": "f83248a3851",
+  "url": "https://www.youtube.com/watch?v=1Pyp9dXleUE",
+  "title": "It Woke Up After 1,000 Years | Dystopian Sci-Fi AI Short Film",
+  "credit": "ByMosX",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Seedance",
+   "디스토피아",
+   "SF",
+   "자동 수집"
+  ],
+  "note": "Seedance 2.5로 제작한 디스토피아 SF 단편.",
+  "fav": false,
+  "createdAt": 1794245620678
+ },
+ {
+  "id": "fdb05470914",
+  "url": "https://www.youtube.com/watch?v=V9u2gbEmdK8",
+  "title": "Honeydew | Higgsfield Global Film Festival Entry | Seedance 2.5 Short Film",
+  "credit": "Charles Gunn",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Higgsfield",
+   "Seedance",
+   "영화제",
+   "자동 수집"
+  ],
+  "note": "Higgsfield Global Film Festival 출품작. Higgsfield에서 Seedance 2.5로 전 과정을 제작.",
+  "fav": false,
+  "createdAt": 1794245620679
+ },
+ {
+  "id": "fddf336184b",
+  "url": "https://www.youtube.com/watch?v=zLpFNMg--Mo",
+  "title": "THE MUSEUM OF EXTINCT EMOTIONS | AI Sci-Fi Short Film | Higgsfield Global Film Festival 2026",
+  "credit": "Flicker Tale Studio (Simrat Sandhu & Akansha Sukhija)",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Higgsfield",
+   "SF",
+   "영화제",
+   "자동 수집"
+  ],
+  "note": "Higgsfield Cinema Studio와 Seedance로 만든 15분 SF 단편. Higgsfield 영화제 출품작.",
+  "fav": false,
+  "createdAt": 1794245620680
+ },
+ {
+  "id": "f1630863d79",
+  "url": "https://www.youtube.com/watch?v=6D4_ZMnPx7I",
+  "title": "BONE THRONE | AI Short Film Made with Seedance 2.0 & Kling 3.0",
+  "credit": "Lennard Smith",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Kling",
+   "Seedance",
+   "판타지",
+   "자동 수집"
+  ],
+  "note": "Kling 3.0과 Seedance 2.0으로 만든 판타지 단편(약 5분).",
+  "fav": false,
+  "createdAt": 1794245620681
+ },
+ {
+  "id": "feb5b54a65d",
+  "url": "https://www.youtube.com/watch?v=BMLTQ0ouz1U",
+  "title": "RESET | AI Sci-Fi Short Film | Higgsfield Film Festival",
+  "credit": "Max Barskih",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "Higgsfield",
+   "SF",
+   "영화제",
+   "자동 수집"
+  ],
+  "note": "Higgsfield로 제작한 11분 SF 단편. Higgsfield 영화제 출품작.",
+  "fav": false,
+  "createdAt": 1794245620682
+ },
+ {
+  "id": "f9bb4907e41",
+  "url": "https://www.youtube.com/watch?v=9nmDrRyScZw",
+  "title": "대학생이 클링 AI로 2주 만에 만든 영화, 이 정도일 줄은...? 클링 AI 대학생 공모전 수상작",
+  "credit": "라이너의 컬쳐쇼크",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "Kling",
+   "공모전",
+   "수상작",
+   "자동 수집"
+  ],
+  "note": "Kling AI 대학생 공모전 수상작을 소개하는 영상. 작품 감상과 해설이 함께 담김.",
+  "fav": false,
+  "createdAt": 1794245620683
+ },
+ {
+  "id": "f84b8048ec9",
+  "url": "https://www.youtube.com/watch?v=spLg0nKQ0xM",
+  "title": "국제영화제 3관왕 작품 [2025년 4월 제작] 나노바나나 이전 작품",
+  "credit": "프롬프트 시네마",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "영화제",
+   "수상작",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "국내 AI 영화 '라엘라'로 국제영화제 3관왕을 한 작품. 사용 툴은 미확인.",
+  "fav": false,
+  "createdAt": 1794245620684
+ },
+ {
+  "id": "ff2ba547373",
+  "url": "https://www.youtube.com/watch?v=niPwYhKWfSM",
+  "title": "3일 만에 AI로 '이걸' 만들었습니다",
+  "credit": "기묘한 케이지",
+  "category": "FILM",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "AI",
+   "제작기",
+   "단편",
+   "크리에이터",
+   "자동 수집"
+  ],
+  "note": "국내 크리에이터가 3일 만에 AI로 영화를 만든 과정과 결과물. 사용 툴은 미확인.",
+  "fav": false,
+  "createdAt": 1794245620685
+ },
+ {
+  "id": "f76f184c6ba",
+  "url": "https://vimeo.com/1191019630",
+  "title": "[갤럭시 S26] 이 룩을 찾아보세요 - 남친룩 편 삼성전자",
+  "credit": "삼성전자 / 업로더 readymodel",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "삼성",
+   "갤럭시",
+   "숏폼",
+   "유머",
+   "자동 수집"
+  ],
+  "note": "35초 안에 공감 포인트를 던지는 짧은 포맷의 한국 제품 광고입니다. 유머와 제품 노출의 균형을 참고하세요.",
+  "fav": false,
+  "createdAt": 1794245620686
+ },
+ {
+  "id": "fec1dc82076",
+  "url": "https://vimeo.com/1178338868",
+  "title": "[갤럭시 S26 시리즈] 찬란하게 열리는 한국의 힘 - 백자 편｜삼성전자",
+  "credit": "삼성전자 / 업로더 readymodel",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "삼성",
+   "전통",
+   "백자",
+   "비주얼",
+   "자동 수집"
+  ],
+  "note": "백자라는 한국적 소재로 제품을 풀어낸 비주얼 중심의 광고입니다. 전통 모티프와 테크의 결합 방식이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620687
+ },
+ {
+  "id": "fd8b6c1e0bd",
+  "url": "https://vimeo.com/1232054973",
+  "title": "HEINEKEN - Could Have Been a Heineken",
+  "credit": "LEPUB / Heineken (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "맥주",
+   "케이스필름",
+   "카피",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620688
+ },
+ {
+  "id": "fa83eb977c2",
+  "url": "https://vimeo.com/1232018827",
+  "title": "IKEA ALSULAIMAN - IKEA Affordable Masterpieces",
+  "credit": "MEMAC Ogilvy / IKEA Alsulaiman (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "가구",
+   "아이디어",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620689
+ },
+ {
+  "id": "f7eb8bc2b53",
+  "url": "https://vimeo.com/1232306496",
+  "title": "COLUMBIA SPORTSWEAR - Expedition Impossible",
+  "credit": "adam&eveTBWA / Columbia Sportswear (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "아웃도어",
+   "어드벤처",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620690
+ },
+ {
+  "id": "f08c7860922",
+  "url": "https://vimeo.com/1238409787",
+  "title": "HEINZ KETCHUP - Heinz Dipper",
+  "credit": "Rethink / Heinz (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "식품",
+   "제품 인사이트",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620691
+ },
+ {
+  "id": "f36cc49e9f3",
+  "url": "https://vimeo.com/1237654040",
+  "title": "VASELINE - Vaseline Verified",
+  "credit": "Ogilvy Singapore / Vaseline (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "뷰티",
+   "소셜 이슈",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620692
+ },
+ {
+  "id": "f60e2f3ed69",
+  "url": "https://vimeo.com/1232018601",
+  "title": "HEINEKEN - Rooftop Revival",
+  "credit": "LEPUB / Heineken (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "맥주",
+   "공간 캠페인",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620693
+ },
+ {
+  "id": "f707ee60dfc",
+  "url": "https://vimeo.com/1201785288",
+  "title": "HEINEKEN - Tocayos",
+  "credit": "LEPUB / Heineken (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "맥주",
+   "스토리텔링",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620694
+ },
+ {
+  "id": "f12693ab658",
+  "url": "https://vimeo.com/1162084228",
+  "title": "McDonalds - Drool Film",
+  "credit": "Sonal Batra (Director's Cut)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "맥도날드",
+   "푸드",
+   "편집",
+   "감독판",
+   "자동 수집"
+  ],
+  "note": "먹음직스러운 푸드 샷과 리듬감 있는 편집이 돋보이는 맥도날드 필름입니다. 식욕 자극 연출의 레퍼런스로 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620695
+ },
+ {
+  "id": "fc5efff323c",
+  "url": "https://vimeo.com/1181527630",
+  "title": "Callaway - Nothing Beats This",
+  "credit": "Simon Lane / Callaway",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "골프",
+   "스포츠",
+   "브랜드",
+   "카피",
+   "자동 수집"
+  ],
+  "note": "스포츠 브랜드 광고의 톤과 카피 호흡을 참고하기 좋은 작품입니다. 간결한 메시지가 인상적입니다.",
+  "fav": false,
+  "createdAt": 1794245620696
+ },
+ {
+  "id": "fbb8db57a5c",
+  "url": "https://vimeo.com/1171634445",
+  "title": "Calvin Klein Summer 2026 Campaign",
+  "credit": "PVH / Calvin Klein",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "패션",
+   "캠페인",
+   "미니멀",
+   "룩북",
+   "자동 수집"
+  ],
+  "note": "패션 시즌 캠페인의 미니멀한 비주얼과 룩북형 영상 구성을 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620697
+ },
+ {
+  "id": "fe6f22a7eea",
+  "url": "https://vimeo.com/1138220305",
+  "title": "AMAZON PRIME VIDEO - Brand Campaign (ACTION)",
+  "credit": "Nathan Baldassero / Amazon Prime Video",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "아마존",
+   "OTT",
+   "액션",
+   "몽타주",
+   "자동 수집"
+  ],
+  "note": "액션 장르 몽타주로 서비스 브랜딩을 만드는 캠페인입니다. 빠른 컷 편집과 사운드 활용이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620698
+ },
+ {
+  "id": "f0530fd861c",
+  "url": "https://vimeo.com/1230177738",
+  "title": "HEINEKEN - The Pub That Refused to Die",
+  "credit": "LEPUB / Heineken (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "맥주",
+   "로컬 스토리",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620699
+ },
+ {
+  "id": "f5956ba3366",
+  "url": "https://vimeo.com/1206111587",
+  "title": "COMANDO CON VENEZUELA - 600K NETWORK",
+  "credit": "Rainbow Lobster (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "사회 캠페인",
+   "네트워크",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620700
+ },
+ {
+  "id": "f9297eaee05",
+  "url": "https://vimeo.com/1217439436",
+  "title": "JEEP - Jeep Rescue Squad",
+  "credit": "Publicis Middle East / Jeep (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "자동차",
+   "구조",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620701
+ },
+ {
+  "id": "ff0657bb3a5",
+  "url": "https://vimeo.com/1167198648",
+  "title": "Dulux Weathershield 2026 TVC",
+  "credit": "Clemenger BBDO / Dulux",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "페인트",
+   "TVC",
+   "호주",
+   "제품 시연",
+   "자동 수집"
+  ],
+  "note": "호주 페인트 브랜드의 시즌 TVC로 제품 효능을 시각적으로 전달하는 방식이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620702
+ },
+ {
+  "id": "fd98e790b61",
+  "url": "https://vimeo.com/1232016389",
+  "title": "CLUB DEPORTIVO MUNICIPAL - The Thousand Sponsors of Muni",
+  "credit": "McCann Lima (Cannes Lions 2026)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "칸라이언즈",
+   "스포츠",
+   "스폰서십",
+   "케이스필름",
+   "자동 수집"
+  ],
+  "note": "Cannes Lions 2026 케이스 필름이라 아이디어, 실행, 결과를 짧게 보여주는 구성을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620703
+ },
+ {
+  "id": "f1d91ab9342",
+  "url": "https://vimeo.com/1197514785",
+  "title": "Cerveza Indio - The Mexican Dream",
+  "credit": "NONO / Cerveza Indio",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "맥주",
+   "멕시코",
+   "브랜드필름",
+   "문화",
+   "자동 수집"
+  ],
+  "note": "멕시코 맥주의 정서를 담은 브랜드 필름으로 문화적 상징 활용이 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620704
+ },
+ {
+  "id": "f50c5797a77",
+  "url": "https://vimeo.com/1211952426",
+  "title": "PRADA 2026AW CAMPAIGN",
+  "credit": "Mastered_TV / Prada",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "프라다",
+   "럭셔리",
+   "패션",
+   "FW 캠페인",
+   "자동 수집"
+  ],
+  "note": "럭셔리 패션 캠페인의 세련된 컬러와 모션 연출 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620705
+ },
+ {
+  "id": "fc7e255d358",
+  "url": "https://vimeo.com/1156526947",
+  "title": "Lidl x LGFA TV ad 2026",
+  "credit": "Lidl Ireland",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "리들",
+   "스포츠",
+   "TV광고",
+   "공감",
+   "자동 수집"
+  ],
+  "note": "스포츠 후원 소재의 따뜻한 TV 광고로 공감형 스토리 구성이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620706
+ },
+ {
+  "id": "f86f9a9301d",
+  "url": "https://vimeo.com/1200487081",
+  "title": "Duru - Sadece Duruladım (TVC - 2026)",
+  "credit": "Civil Editors / Duru",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "뷰티",
+   "터키",
+   "TVC",
+   "제품샷",
+   "자동 수집"
+  ],
+  "note": "터키 퍼스널 케어 브랜드 TVC로 제품 중심의 깔끔한 비주얼과 편집을 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620707
+ },
+ {
+  "id": "fc86f249610",
+  "url": "https://vimeo.com/1178820061",
+  "title": "OTTO Markenkampagne 2026",
+  "credit": "Setzkorn Kemper / OTTO",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "독일",
+   "이커머스",
+   "브랜드캠페인",
+   "TV",
+   "자동 수집"
+  ],
+  "note": "독일 이커머스 브랜드 캠페인으로 브랜드 메시지를 일관되게 전달하는 구성이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620708
+ },
+ {
+  "id": "f78fe931e9f",
+  "url": "https://vimeo.com/1200479172",
+  "title": "Samsung Galaxy S26 Ultra",
+  "credit": "Garage, Do You Play?",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "삼성",
+   "제품영상",
+   "모션",
+   "스마트폰",
+   "자동 수집"
+  ],
+  "note": "갤럭시 울트라 제품 영상으로 제품 클로즈업과 모션그래픽 연출이 참고됩니다.",
+  "fav": false,
+  "createdAt": 1794245620709
+ },
+ {
+  "id": "ffe5b26986e",
+  "url": "https://vimeo.com/1152865784",
+  "title": "Samsung Galaxy S25 Ultra Concept Ad.",
+  "credit": "Opera Creatives / Samsung",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "삼성",
+   "컨셉광고",
+   "CG",
+   "트랜지션",
+   "자동 수집"
+  ],
+  "note": "컨셉 광고 형태의 스마트폰 제품 영상으로 CG와 트랜지션 아이디어가 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620710
+ },
+ {
+  "id": "fd2f928949d",
+  "url": "https://vimeo.com/1083549816",
+  "title": "27",
+  "credit": "Flóra Anna Buda",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2023,
+  "tags": [
+   "애니메이션",
+   "몽환",
+   "영화제",
+   "청춘",
+   "자동 수집"
+  ],
+  "note": "베를린 계열 영화제를 거친 헝가리 애니메이션으로, 꿈과 현실을 넘나드는 연출과 색감이 뛰어납니다.",
+  "fav": false,
+  "createdAt": 1794245620711
+ },
+ {
+  "id": "f23a0a9bc29",
+  "url": "https://vimeo.com/1138248349",
+  "title": "A Bear Remembers",
+  "credit": "Zhang + Knight",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "스태프픽",
+   "설화",
+   "서정",
+   "드라마",
+   "자동 수집"
+  ],
+  "note": "기억과 설화를 잇는 서정적 이야기와 차분한 촬영이 돋보이는 2025 스태프픽 선정작입니다.",
+  "fav": false,
+  "createdAt": 1794245620712
+ },
+ {
+  "id": "f883a57851a",
+  "url": "https://vimeo.com/1087658066",
+  "title": "A Kind of Testament",
+  "credit": "Stephen Vuillemin",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2023,
+  "tags": [
+   "애니메이션",
+   "베를린",
+   "정체성",
+   "실험",
+   "자동 수집"
+  ],
+  "note": "베를린영화제 상영작으로 셀피 애니메이션과 정체성 주제를 결합한 실험적 연출 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620713
+ },
+ {
+  "id": "f6bd7c0a6c4",
+  "url": "https://vimeo.com/1064411918",
+  "title": "Beyond Failure",
+  "credit": "Marissa Losoya",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "수상작",
+   "드라마",
+   "SOTW",
+   "인물",
+   "자동 수집"
+  ],
+  "note": "Short of the Week 2026 심사위원상 수상작으로 간결한 서사와 톤 설계가 좋은 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620714
+ },
+ {
+  "id": "fd9f80ef1a3",
+  "url": "https://vimeo.com/1140004517",
+  "title": "CHICO",
+  "credit": "미확인",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "코미디",
+   "핸드헬드",
+   "로맨스",
+   "브뤼셀",
+   "자동 수집"
+  ],
+  "note": "브뤼셀 거리를 달리는 핸드헬드 질감과 유쾌한 로맨틱 코미디 호흡이 살아있는 스태프픽입니다.",
+  "fav": false,
+  "createdAt": 1794245620715
+ },
+ {
+  "id": "f663372d23b",
+  "url": "https://vimeo.com/1053959997",
+  "title": "Christmas, Every Day",
+  "credit": "Faye Tsakas",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐",
+   "관찰",
+   "인물",
+   "스태프픽",
+   "자동 수집"
+  ],
+  "note": "미국 시골 소녀들을 따라가는 관찰형 다큐로 인물 중심 촬영과 편집 참고에 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620716
+ },
+ {
+  "id": "f10c297a567",
+  "url": "https://vimeo.com/1082377130",
+  "title": "Dissolution",
+  "credit": "Anthony Saxe",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "드라마",
+   "절제",
+   "관계",
+   "스태프픽",
+   "자동 수집"
+  ],
+  "note": "이혼 서류 서명 장면을 절제된 연기와 카메라로 풀어낸 정통 드라마 단편입니다.",
+  "fav": false,
+  "createdAt": 1794245620717
+ },
+ {
+  "id": "f9552bd72e2",
+  "url": "https://vimeo.com/1079623899",
+  "title": "La Perra",
+  "credit": "Carla Melo Gampert",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2023,
+  "tags": [
+   "애니메이션",
+   "칸",
+   "가족",
+   "수상작",
+   "자동 수집"
+  ],
+  "note": "칸 영화제 선정 애니메이션으로 모녀 관계를 강렬한 비주얼로 표현한 작품입니다.",
+  "fav": false,
+  "createdAt": 1794245620718
+ },
+ {
+  "id": "fcab121bb55",
+  "url": "https://vimeo.com/1091012065",
+  "title": "Talking Heads - Psycho Killer",
+  "credit": "Mike Mills",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "뮤직비디오",
+   "편집",
+   "리듬",
+   "감독작",
+   "자동 수집"
+  ],
+  "note": "마이크 밀스 연출의 뮤직비디오로 영상미와 리듬감 있는 편집이 인상적입니다.",
+  "fav": false,
+  "createdAt": 1794245620719
+ },
+ {
+  "id": "f9652534508",
+  "url": "https://vimeo.com/1139491180",
+  "title": "We Were the Scenery",
+  "credit": "Christopher Radcliff",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "선댄스",
+   "다큐",
+   "아카이브",
+   "수상작",
+   "자동 수집"
+  ],
+  "note": "선댄스 2025 논픽션 단편 심사위원상 수상작으로 아카이브와 재연을 엮는 구성이 뛰어납니다.",
+  "fav": false,
+  "createdAt": 1794245620720
+ },
+ {
+  "id": "f6a36b048ca",
+  "url": "https://vimeo.com/1139666352",
+  "title": "Arctic Alchemy",
+  "credit": "Wild Confluence",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐",
+   "자연",
+   "탐사",
+   "로케이션",
+   "자동 수집"
+  ],
+  "note": "북극 탐사를 담은 장편급 다큐로 대자연 촬영과 개인적 서사의 균형이 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620721
+ },
+ {
+  "id": "fdddfa53baa",
+  "url": "https://vimeo.com/1088484712",
+  "title": "AllTrails - Feels (Director's Cut)",
+  "credit": "Spencer MacDonald",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "브랜디드",
+   "풍경",
+   "자연",
+   "감독판",
+   "자동 수집"
+  ],
+  "note": "자연 풍광을 감각적으로 담은 브랜드 필름으로 시네마틱 로케이션 촬영 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620722
+ },
+ {
+  "id": "f94839daa7e",
+  "url": "https://vimeo.com/1070109559",
+  "title": "The Final Copy of Ilon Specht",
+  "credit": "Breakwater Studios Ltd.",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐",
+   "인터뷰",
+   "브랜디드",
+   "스태프픽",
+   "자동 수집"
+  ],
+  "note": "광고 카피라이터의 마지막 이야기를 친밀하게 풀어낸 인터뷰 다큐 연출 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620723
+ },
+ {
+  "id": "f71d67ec8c6",
+  "url": "https://vimeo.com/1047790821",
+  "title": "Thế Giới",
+  "credit": "Anh Phi Trần",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐",
+   "클럽",
+   "베트남",
+   "색감",
+   "자동 수집"
+  ],
+  "note": "사이공 퀴어 클럽 문화를 맥시멀한 비주얼로 담은 단편 다큐입니다.",
+  "fav": false,
+  "createdAt": 1794245620724
+ },
+ {
+  "id": "f27a7b48db5",
+  "url": "https://vimeo.com/1089693714",
+  "title": "HAQQIM BOR",
+  "credit": "Lado Kvataniya",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "은유",
+   "미장센",
+   "아동",
+   "스태프픽",
+   "자동 수집"
+  ],
+  "note": "건물 모양 배낭이라는 시각적 은유가 강한 조지아 계열 단편으로 상징적 미장센이 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620725
+ },
+ {
+  "id": "f8570dd3200",
+  "url": "https://vimeo.com/1110267241",
+  "title": "Olga Basha - New Jeans",
+  "credit": "Matias & Mathias",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "뮤직비디오",
+   "내러티브",
+   "스태프픽",
+   "촬영",
+   "자동 수집"
+  ],
+  "note": "내러티브 감각이 강한 뮤직비디오로 캐스팅과 촬영 톤 참고에 적합합니다.",
+  "fav": false,
+  "createdAt": 1794245620726
+ },
+ {
+  "id": "f5b3e55bc49",
+  "url": "https://vimeo.com/1113169877",
+  "title": "Hornbach - No Project Without Drama",
+  "credit": "Lope Serrano",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "브랜디드",
+   "시네마틱",
+   "유머",
+   "광고",
+   "자동 수집"
+  ],
+  "note": "DIY를 영화적으로 과장해 찬미한 브랜드 필름으로 드라마틱한 연출이 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620727
+ },
+ {
+  "id": "f72d2013c25",
+  "url": "https://vimeo.com/1066526515",
+  "title": "Severance Season 2 - Intro Title Sequence",
+  "credit": "Oliver Latta",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "타이틀",
+   "모션",
+   "초현실",
+   "시리즈",
+   "자동 수집"
+  ],
+  "note": "애플TV+ 시리즈 오프닝 시퀀스로 초현실적 모션 디자인 참고에 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620728
+ },
+ {
+  "id": "f1850d4dbac",
+  "url": "https://vimeo.com/1136616464",
+  "title": "Some Interesting Apples",
+  "credit": "Elena Heatherwick",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐",
+   "자연",
+   "따뜻함",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "작은 과수원을 따뜻한 시선으로 담은 3분 커뮤니티 필름으로 짧은 다큐 구성 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620729
+ },
+ {
+  "id": "f580eb5f80a",
+  "url": "https://vimeo.com/1163632744",
+  "title": "Devoured, EUN YOUNG Lee and Son Heui Song",
+  "credit": "EUN YOUNG Lee, Son Heui Song",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "한국",
+   "바디호러",
+   "애니메이션",
+   "2026",
+   "자동 수집"
+  ],
+  "note": "한국 도시 생활의 구석을 배경으로 한 바디 호러 애니메이션 앤솔로지로 독특한 질감이 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620730
+ },
+ {
+  "id": "f6f90dc0178",
+  "url": "https://vimeo.com/1146762518",
+  "title": "Far Away",
+  "credit": "Emily Murnane",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "드라마",
+   "수상작",
+   "SOTW",
+   "감정",
+   "자동 수집"
+  ],
+  "note": "Short of the Week 2026 드라마 부문 올해의 단편으로 감정선 연출 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620731
+ },
+ {
+  "id": "f4522d25ac5",
+  "url": "https://vimeo.com/1135745504",
+  "title": "I'm Really Scared I'm Dying TBH",
+  "credit": "Lindsay Calleran",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "수상작",
+   "불안",
+   "SOTW",
+   "인디",
+   "자동 수집"
+  ],
+  "note": "SOTW 2026 트레일블레이저 상 수상작으로 불안을 다룬 대담한 톤이 특징입니다.",
+  "fav": false,
+  "createdAt": 1794245620732
+ },
+ {
+  "id": "f72e48b2130",
+  "url": "https://vimeo.com/1048869506",
+  "title": "A Body Called Life",
+  "credit": "Spencer MacDonald",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다큐픽션",
+   "마이크로",
+   "관객상",
+   "SOTW",
+   "자동 수집"
+  ],
+  "note": "SOTW 관객상 수상작으로 다큐와 픽션을 섞은 마이크로 촬영 비주얼이 독창적입니다.",
+  "fav": false,
+  "createdAt": 1794245620733
+ },
+ {
+  "id": "fe1c412efc3",
+  "url": "https://vimeo.com/1096005227",
+  "title": "You Know You Wanna Stay",
+  "credit": "Alex Heller",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "청춘",
+   "코미디",
+   "수상작",
+   "스태프픽",
+   "자동 수집"
+  ],
+  "note": "팜스프링스 쇼트페스트 Vimeo 스태프픽 상 수상작으로 청춘 코미디 톤이 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620734
+ },
+ {
+  "id": "f27a4de8232",
+  "url": "https://vimeo.com/1203218575",
+  "title": "FrenchConnection - Title Sequence Design - Han",
+  "credit": "Guo Hanyuan",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "타이틀시퀀스",
+   "타이포",
+   "리듬",
+   "영화",
+   "자동 수집"
+  ],
+  "note": "영화 타이틀 시퀀스의 타이포 구성과 리듬감을 참고하기 좋은 작업입니다.",
+  "fav": false,
+  "createdAt": 1794245620735
+ },
+ {
+  "id": "fb80405cd67",
+  "url": "https://vimeo.com/1198013718",
+  "title": "OBVERSE | TITLE SEQUENCE | EDITFEST 2026",
+  "credit": "André Kosasih",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "타이틀시퀀스",
+   "편집",
+   "전환",
+   "타이포",
+   "자동 수집"
+  ],
+  "note": "60초 안에 분위기를 압축하는 타이틀 시퀀스로 컷 전환과 텍스트 연출이 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620736
+ },
+ {
+  "id": "fc280c4ec38",
+  "url": "https://vimeo.com/1176850060",
+  "title": "Cinema Cinema - Opening Title",
+  "credit": "Navdesignstv",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "오프닝",
+   "타이틀",
+   "텍스트리빌",
+   "숏폼",
+   "자동 수집"
+  ],
+  "note": "짧은 18초 오프닝 타이틀로 로고/텍스트 리빌 연출 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620737
+ },
+ {
+  "id": "fe92b365c97",
+  "url": "https://vimeo.com/1164651897",
+  "title": "Identity — Storytelling Motion Reel",
+  "credit": "Vit Zemcik",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "아이덴티티",
+   "브랜드",
+   "스토리텔링",
+   "릴",
+   "자동 수집"
+  ],
+  "note": "브랜드 아이덴티티를 스토리텔링 모션으로 풀어낸 릴로 그래픽 일관성이 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620738
+ },
+ {
+  "id": "f70aea6c15b",
+  "url": "https://vimeo.com/1167282577",
+  "title": "Showreel 2026 — CGI, 3D Motion Design for Global Brands",
+  "credit": "Kineza",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "3D",
+   "CGI",
+   "브랜드",
+   "쇼릴",
+   "자동 수집"
+  ],
+  "note": "글로벌 브랜드용 CGI·3D 모션 작업의 질감과 라이팅 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620739
+ },
+ {
+  "id": "f5164326d40",
+  "url": "https://vimeo.com/1090369109",
+  "title": "[이노즈] 모션그래픽 / 지성산업개발 모듈수로",
+  "credit": "영상제작 전문기업 이노즈 INNOZ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "국내",
+   "기업홍보",
+   "설명영상",
+   "2D",
+   "자동 수집"
+  ],
+  "note": "국내 기업 홍보용 모션그래픽으로 제품·구조 설명 방식을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620740
+ },
+ {
+  "id": "f55f93aa5cb",
+  "url": "https://vimeo.com/1112988858",
+  "title": "3D Social Media Animation | Short Promo for Brands",
+  "credit": "Samat Mind",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "3D",
+   "소셜",
+   "프로모",
+   "숏폼",
+   "자동 수집"
+  ],
+  "note": "10초 내외 3D 소셜 프로모로 짧은 호흡의 브랜드 모션 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620741
+ },
+ {
+  "id": "f1cdfa6c300",
+  "url": "https://vimeo.com/1202244318",
+  "title": "Motion design / demo reel / showreel / 2026",
+  "credit": "Inbar Kranz",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "데모릴",
+   "모션디자인",
+   "2D",
+   "3D",
+   "자동 수집"
+  ],
+  "note": "다양한 2D·3D 모션 스타일을 짧게 훑어볼 수 있는 데모릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620742
+ },
+ {
+  "id": "f60c382b9c5",
+  "url": "https://vimeo.com/864705290",
+  "title": "[이노즈] 2D모션그래픽/ 맥도날드 M오더",
+  "credit": "영상제작 전문기업 이노즈 INNOZ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2023,
+  "tags": [
+   "국내",
+   "2D",
+   "앱안내",
+   "브랜드",
+   "자동 수집"
+  ],
+  "note": "앱 사용 흐름을 2D 모션으로 쉽게 안내하는 국내 브랜드 사례입니다.",
+  "fav": false,
+  "createdAt": 1794245620743
+ },
+ {
+  "id": "fc8f764ba8b",
+  "url": "https://vimeo.com/1075589453",
+  "title": "[이노즈] 2D모션그래픽/ 탑코어시스템 디지털트윈",
+  "credit": "영상제작 전문기업 이노즈 INNOZ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "국내",
+   "디지털트윈",
+   "인포그래픽",
+   "2D",
+   "자동 수집"
+  ],
+  "note": "디지털트윈 같은 복잡한 기술 개념을 2D로 시각화한 설명 영상입니다.",
+  "fav": false,
+  "createdAt": 1794245620744
+ },
+ {
+  "id": "f58224a7b21",
+  "url": "https://vimeo.com/1169339907",
+  "title": "MOTION DESIGN SHOWREEL 2026",
+  "credit": "Alexandre Menuge",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "트랜지션",
+   "타이포",
+   "모션디자인",
+   "자동 수집"
+  ],
+  "note": "타이포와 트랜지션 위주의 모션디자인 쇼릴로 전환 아이디어 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620745
+ },
+ {
+  "id": "f6efddcf23a",
+  "url": "https://vimeo.com/1108527073",
+  "title": "Demo Reel Motion Graphics 2026",
+  "credit": "Nicolas Reyes Hernandez",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "데모릴",
+   "쉐이프",
+   "애니메이션",
+   "2D",
+   "자동 수집"
+  ],
+  "note": "기본기가 탄탄한 모션그래픽 데모릴로 쉐이프 애니메이션 참고에 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620746
+ },
+ {
+  "id": "f776f926f68",
+  "url": "https://vimeo.com/1161560388",
+  "title": "2D Character Animation Demo Reel 2026",
+  "credit": "Rafael Peclat",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "2D",
+   "캐릭터",
+   "애니메이션",
+   "릴",
+   "자동 수집"
+  ],
+  "note": "2D 캐릭터 애니메이션과 모션그래픽을 결합한 연출 참고용 릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620747
+ },
+ {
+  "id": "fe64241b65d",
+  "url": "https://vimeo.com/1176905448",
+  "title": "Stepdraw・Animation Showreel'26",
+  "credit": "Stepdraw",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "스튜디오",
+   "쇼릴",
+   "애니메이션",
+   "스타일",
+   "자동 수집"
+  ],
+  "note": "스튜디오 단위의 다양한 애니메이션 스타일을 비교해볼 수 있는 쇼릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620748
+ },
+ {
+  "id": "ffd6c7480d3",
+  "url": "https://vimeo.com/1063427510",
+  "title": "Shape Motion Graphics",
+  "credit": "Picto Design Studio",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "쉐이프",
+   "미니멀",
+   "2D",
+   "기초",
+   "자동 수집"
+  ],
+  "note": "도형 기반의 단순하고 깔끔한 모션으로 기초 쉐이프 모션 레퍼런스입니다.",
+  "fav": false,
+  "createdAt": 1794245620749
+ },
+ {
+  "id": "fb046fc64c3",
+  "url": "https://vimeo.com/1151917235",
+  "title": "A+C Product Stop-Motion Animation - 2026",
+  "credit": "A+C Studios",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "스톱모션",
+   "제품",
+   "브랜드",
+   "촬영",
+   "자동 수집"
+  ],
+  "note": "스톱모션 기법으로 제품을 보여주는 브랜드 애니메이션 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620750
+ },
+ {
+  "id": "fea91f390a8",
+  "url": "https://vimeo.com/1103697125",
+  "title": "Best SaaS Explainer Video For Kula | Motion Graphics | 2D Animation",
+  "credit": "Picto Design Studio",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "SaaS",
+   "설명영상",
+   "2D",
+   "UI",
+   "자동 수집"
+  ],
+  "note": "SaaS 설명 영상의 정석적인 2D 구성과 UI 모션 흐름 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620751
+ },
+ {
+  "id": "f29e9eca919",
+  "url": "https://vimeo.com/1144837360",
+  "title": "Motion Graphics + UI Animation | SAAS Explainer Video | B2B Tech",
+  "credit": "HexaVideos",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "UI모션",
+   "B2B",
+   "설명영상",
+   "테크",
+   "자동 수집"
+  ],
+  "note": "UI 애니메이션과 모션그래픽을 섞은 B2B 테크 영상의 구성 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620752
+ },
+ {
+  "id": "f9170b21b8d",
+  "url": "https://vimeo.com/1092184289",
+  "title": "MOTION MOTION AWARDS 2025 - TRAILER",
+  "credit": "Motion Motion",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "어워드",
+   "트레일러",
+   "타이포",
+   "편집",
+   "자동 수집"
+  ],
+  "note": "모션 어워드 트레일러로 타이포·컷 편집 중심의 에너지 있는 연출 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620753
+ },
+ {
+  "id": "f7ebb577297",
+  "url": "https://vimeo.com/1083912803",
+  "title": "The Story Behind The Motion Awards™ 2025",
+  "credit": "Motionographer®",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "Motionographer",
+   "어워드",
+   "아이덴티티",
+   "큐레이션",
+   "자동 수집"
+  ],
+  "note": "Motionographer가 만든 어워드 아이덴티티 영상으로 큐레이션 매체의 시각 톤을 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620754
+ },
+ {
+  "id": "f34068d5abd",
+  "url": "https://vimeo.com/1116246381",
+  "title": "2025 MOTION DESIGN REEL",
+  "credit": "Hasan Dadah",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "릴",
+   "트렌드",
+   "모션디자인",
+   "2025",
+   "자동 수집"
+  ],
+  "note": "최근 모션디자인 트렌드를 압축해 볼 수 있는 개인 릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620755
+ },
+ {
+  "id": "fb1a0375365",
+  "url": "https://vimeo.com/1118529671",
+  "title": "Kinetic Typography | Animated Text That Speaks Volumes | NullPearl Systems",
+  "credit": "NullPearl Systems",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "키네틱타이포",
+   "텍스트",
+   "숏폼",
+   "타이포",
+   "자동 수집"
+  ],
+  "note": "10초짜리 키네틱 타이포그래피로 텍스트 애니메이션 기본기 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620756
+ },
+ {
+  "id": "f9f14bc3a0b",
+  "url": "https://vimeo.com/1059659807",
+  "title": "Motion To Mars - Demo 2025",
+  "credit": "MotionToMars",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "스튜디오",
+   "데모",
+   "2D3D",
+   "믹스",
+   "자동 수집"
+  ],
+  "note": "스튜디오 데모로 2D·3D 혼합 모션 작업의 폭을 확인할 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620757
+ },
+ {
+  "id": "fb45863e101",
+  "url": "https://vimeo.com/1003062457",
+  "title": "[이노즈] 모션그래픽 제작/ 국립중앙도서관 코리안메모리 홍보영상",
+  "credit": "영상제작 전문기업 이노즈 INNOZ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2024,
+  "tags": [
+   "국내",
+   "공공기관",
+   "아카이브",
+   "홍보",
+   "자동 수집"
+  ],
+  "note": "공공기관 홍보 영상의 아카이브 소재 시각화 방식을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620758
+ },
+ {
+  "id": "f1faaa1a632",
+  "url": "https://vimeo.com/881960632",
+  "title": "[이노즈] 2D모션그래픽 / 드림어필 앱사용 설명 홍보영상",
+  "credit": "영상제작 전문기업 이노즈 INNOZ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2023,
+  "tags": [
+   "국내",
+   "앱설명",
+   "2D",
+   "홍보",
+   "자동 수집"
+  ],
+  "note": "앱 사용법을 간결한 2D 모션으로 설명하는 국내 사례입니다.",
+  "fav": false,
+  "createdAt": 1794245620759
+ },
+ {
+  "id": "fcabbbb4656",
+  "url": "https://vimeo.com/1230811867",
+  "title": "Coeur Cerise",
+  "credit": "Cissi Efraimsson (감독) / Marc Laidlaw",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "스톱모션",
+   "수공예",
+   "인디",
+   "VFX",
+   "자동 수집"
+  ],
+  "note": "감독이 직접 애니메이션과 소품 제작까지 맡은 스톱모션 뮤직비디오입니다. 수작업 질감과 촬영·VFX 합성 방식을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620760
+ },
+ {
+  "id": "f288a4f0374",
+  "url": "https://vimeo.com/1194673343",
+  "title": "LE SSERAFIM 'BOOMPALA' MV",
+  "credit": "LE SSERAFIM (감독 미확인)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "컴백",
+   "안무",
+   "컨셉",
+   "자동 수집"
+  ],
+  "note": "2026년 K-pop 대형 컴백 MV로 컨셉 연출과 안무 카메라워크 레퍼런스로 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620761
+ },
+ {
+  "id": "f92e0f033f1",
+  "url": "https://vimeo.com/1204056741",
+  "title": "Stray Kids(스트레이 키즈) \"RUN IT\" MV",
+  "credit": "Stray Kids (감독 미확인)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "퍼포먼스",
+   "군무",
+   "편집",
+   "자동 수집"
+  ],
+  "note": "강한 퍼포먼스 중심의 K-pop MV로 군무 샷 구성과 컷 리듬을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620762
+ },
+ {
+  "id": "f761eefc236",
+  "url": "https://vimeo.com/1188593540",
+  "title": "ILLIT (아일릿) 'It's Me' Official MV",
+  "credit": "ILLIT (감독 미확인)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "색감",
+   "세트",
+   "걸그룹",
+   "자동 수집"
+  ],
+  "note": "밝은 색감과 소품 중심 세트 연출이 돋보이는 MV입니다. 걸그룹 비주얼 톤 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620763
+ },
+ {
+  "id": "f8a2254da8f",
+  "url": "https://vimeo.com/1166616351",
+  "title": "Hearts2Hearts - 'RUDE!' MV",
+  "credit": "Hearts2Hearts (감독 미확인)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "신인",
+   "스타일링",
+   "콘셉트",
+   "자동 수집"
+  ],
+  "note": "신인 그룹 MV의 비주얼 콘셉트와 스타일링 방향을 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620764
+ },
+ {
+  "id": "f2b6afdbe4f",
+  "url": "https://vimeo.com/1155943438",
+  "title": "엑소 EXO - 'Crown' Official M/V",
+  "credit": "EXO (감독 미확인)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "시네마틱",
+   "조명",
+   "카메라워크",
+   "자동 수집"
+  ],
+  "note": "시네마틱한 무드의 K-pop MV로 조명과 카메라 무빙 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620765
+ },
+ {
+  "id": "f0dd72bf5d0",
+  "url": "https://vimeo.com/1116390325",
+  "title": "BTS (방탄소년단) 'MIC DROP (STEVE AOKI REMIX)' OFFICIAL MV",
+  "credit": "BTS / Steve Aoki",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2025,
+  "tags": [
+   "K-pop",
+   "리믹스",
+   "편집",
+   "퍼포먼스",
+   "자동 수집"
+  ],
+  "note": "글로벌 히트 곡의 리믹스 MV로 속도감 있는 편집과 강렬한 퍼포먼스 연출 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620766
+ },
+ {
+  "id": "f03e2b42221",
+  "url": "https://vimeo.com/1128927466",
+  "title": "Bambie Thug - REDRUM [Official Music Video]",
+  "credit": "Jake Ringsell (업로더) / Bambie Thug",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "다크",
+   "아트디렉션",
+   "코스튬",
+   "해외",
+   "자동 수집"
+  ],
+  "note": "오컬트풍 아트 디렉션과 과감한 코스튬이 인상적인 해외 MV입니다. 세계관 구축 레퍼런스로 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620767
+ },
+ {
+  "id": "fa8fd87902e",
+  "url": "https://vimeo.com/1177951553",
+  "title": "ทำทรง (Acting Cool) - THUNDER, NAPHAT, AUGUST, VINVIN [OFFICIAL MV](2026)",
+  "credit": "Roomtone. (업로더)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "태국",
+   "팝",
+   "컬러",
+   "아시아",
+   "자동 수집"
+  ],
+  "note": "태국 아티스트의 2026년 MV로 아시아권 팝 비주얼과 컬러 그레이딩 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620768
+ },
+ {
+  "id": "f58eb7c7fb5",
+  "url": "https://www.youtube.com/watch?v=Z1yGy9fELtE",
+  "title": "New Home | Google Gemini SB Commercial 2026",
+  "credit": "Google / Park Pictures (dir. Daniel Mercadante)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "슈퍼볼",
+   "AI",
+   "감성",
+   "스토리텔링",
+   "자동 수집"
+  ],
+  "note": "AI 제품을 가족 일상의 따뜻한 서사로 풀어낸 슈퍼볼 스팟. 기술 설명 없이 감정으로 기능을 전달하는 방식이 참고할 만하다.",
+  "fav": false,
+  "createdAt": 1794245620769
+ },
+ {
+  "id": "f0f28eb629d",
+  "url": "https://www.youtube.com/watch?v=FBSam25u8O4",
+  "title": "How can I communicate better with my mom?",
+  "credit": "Anthropic / Mother",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "풍자",
+   "포지셔닝",
+   "칸라이언즈",
+   "AI",
+   "자동 수집"
+  ],
+  "note": "AI 광고 시대를 풍자하며 브랜드 입장을 선명히 드러낸 캠페인으로 칸 라이언즈 필름 그랜드프리 수상작 계열. 유머와 포지셔닝의 결합 사례.",
+  "fav": false,
+  "createdAt": 1794245620770
+ },
+ {
+  "id": "fd27ca1e9fb",
+  "url": "https://www.youtube.com/watch?v=EEjd6uFrN90",
+  "title": "Beef 101 with 50 Cent",
+  "credit": "DoorDash",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "셀럽",
+   "유머",
+   "슈퍼볼",
+   "배달",
+   "자동 수집"
+  ],
+  "note": "셀럽 캐스팅과 말장난 콘셉트를 결합한 슈퍼볼 스팟. 짧은 호흡의 유머 구성이 돋보인다.",
+  "fav": false,
+  "createdAt": 1794245620771
+ },
+ {
+  "id": "fa4b3865f84",
+  "url": "https://www.youtube.com/watch?v=a_mh-v02-Tw",
+  "title": "Budweiser | Super Bowl LX Commercial 'American Icons'",
+  "credit": "Budweiser / Anheuser-Busch",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "헤리티지",
+   "시네마틱",
+   "슈퍼볼",
+   "맥주",
+   "자동 수집"
+  ],
+  "note": "브랜드 헤리티지를 시네마틱한 영상미로 풀어낸 전통적인 브랜드 필름. 로케이션과 사운드 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620772
+ },
+ {
+  "id": "fed05e3a42c",
+  "url": "https://www.youtube.com/watch?v=Gr96AsZGFQc",
+  "title": "\"Good Will Dunkin'\"",
+  "credit": "Dunkin' / Artists Equity",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "코미디",
+   "셀럽",
+   "슈퍼볼",
+   "F&B",
+   "자동 수집"
+  ],
+  "note": "셀럽 출연과 영화적 설정을 섞은 슈퍼볼 스팟. 브랜드 톤을 유지한 코미디 연출이 좋은 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620773
+ },
+ {
+  "id": "f3222b3b4b0",
+  "url": "https://www.youtube.com/watch?v=wB27HWa_s6c",
+  "title": "Don’t Settle for Meh ft. Jason & Kylie Kelce, Gordon Ramsay, Christian McCaffrey and more",
+  "credit": "YouTube TV",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "앙상블",
+   "셀럽",
+   "슈퍼볼",
+   "스트리밍",
+   "자동 수집"
+  ],
+  "note": "다수의 유명인을 한 콘셉트로 엮은 앙상블 구성. 'Meh'라는 한 단어로 메시지를 압축한 점이 인상적.",
+  "fav": false,
+  "createdAt": 1794245620774
+ },
+ {
+  "id": "f6fe4d0b7d9",
+  "url": "https://www.youtube.com/watch?v=T1z-xbTkJNM",
+  "title": "YES BUENO 2026",
+  "credit": "Kinder Bueno / Anomaly",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "유머",
+   "제품각인",
+   "슈퍼볼",
+   "간식",
+   "자동 수집"
+  ],
+  "note": "과장된 연기와 짧은 컷 전개로 제품 이름을 반복 각인시키는 유머 광고.",
+  "fav": false,
+  "createdAt": 1794245620775
+ },
+ {
+  "id": "f5666483eba",
+  "url": "https://www.youtube.com/watch?v=tEh050NGnVM",
+  "title": "Liquid Death Energy Drink: Exploding Heads Big Game Commercial",
+  "credit": "Liquid Death / Death Machine",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "블랙코미디",
+   "브랜드개성",
+   "슈퍼볼",
+   "음료",
+   "자동 수집"
+  ],
+  "note": "브랜드의 기괴한 톤을 극단까지 밀어붙인 블랙코미디 스팟. 강한 브랜드 개성의 좋은 사례.",
+  "fav": false,
+  "createdAt": 1794245620776
+ },
+ {
+  "id": "f0dea08dd7d",
+  "url": "https://www.youtube.com/watch?v=l3TW-wYXSs4",
+  "title": "We Got Now | 2026 | New Balance",
+  "credit": "New Balance / VML USA",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "브랜드캠페인",
+   "편집",
+   "스포츠",
+   "패션",
+   "자동 수집"
+  ],
+  "note": "스포츠 순간과 일상을 빠른 편집과 사운드로 엮은 브랜드 캠페인. 리듬감 있는 편집 참고용.",
+  "fav": false,
+  "createdAt": 1794245620777
+ },
+ {
+  "id": "f3eb17f9313",
+  "url": "https://www.youtube.com/watch?v=3O_qwGYQO_8",
+  "title": "McDonald's: Get Saver Satisfaction: Mayo Chicken, Cheeseburger & Meal Deal Plus: (2026, UK)",
+  "credit": "McDonald's / Leo UK, Pulse Films",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "프로모션",
+   "영국",
+   "푸드",
+   "연출",
+   "자동 수집"
+  ],
+  "note": "가격 프로모션을 감각적인 영상미와 유머로 포장한 영국 맥도날드 스팟.",
+  "fav": false,
+  "createdAt": 1794245620778
+ },
+ {
+  "id": "f787a5d68b5",
+  "url": "https://www.youtube.com/watch?v=zFNioiOVo28",
+  "title": "Love is a Gift—A Tiffany & Co. Holiday with Amanda Seyfried",
+  "credit": "Tiffany & Co. / American Haiku",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "홀리데이",
+   "럭셔리",
+   "레트로",
+   "필름룩",
+   "자동 수집"
+  ],
+  "note": "90년대 뉴욕 무드로 연출한 2026 홀리데이 필름. 룩과 시대 재현, 럭셔리 감성 톤 참고용.",
+  "fav": false,
+  "createdAt": 1794245620779
+ },
+ {
+  "id": "fbd049e7bb4",
+  "url": "https://www.youtube.com/watch?v=nHPorplY6ng",
+  "title": "Perfect Harmony :30 | The Starbucks Coffee Company",
+  "credit": "Starbucks / Anomaly",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "홀리데이",
+   "핸드드로잉",
+   "애니메이션",
+   "시즌",
+   "자동 수집"
+  ],
+  "note": "손그림 애니메이션으로 만든 2026 홀리데이 스팟. 시즌 캠페인의 비주얼 차별화 사례.",
+  "fav": false,
+  "createdAt": 1794245620780
+ },
+ {
+  "id": "fb520184ac5",
+  "url": "https://www.youtube.com/watch?v=ha92_hfK9Po",
+  "title": "Chris Hemsworth thinks Alexa+ is scary good | Big Game Commercial",
+  "credit": "Amazon Alexa / hungryman (dir. Wayne McClammy)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI",
+   "코미디",
+   "셀럽",
+   "슈퍼볼",
+   "자동 수집"
+  ],
+  "note": "셀럽 부부의 코미디로 AI 어시스턴트의 기능을 보여준 슈퍼볼 스팟. 공포 반전 유머 구성이 효과적.",
+  "fav": false,
+  "createdAt": 1794245620781
+ },
+ {
+  "id": "f221a9934b5",
+  "url": "https://www.youtube.com/watch?v=OheUzrXsKrY",
+  "title": "Search Party from Ring | Be A Hero In Your Neighborhood",
+  "credit": "Ring",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "공동체",
+   "보안",
+   "감성",
+   "캠페인",
+   "자동 수집"
+  ],
+  "note": "기능을 이웃 공동체 서사로 풀어낸 캠페인. 제품 베네핏을 감정적 이야기로 전환한 좋은 예.",
+  "fav": false,
+  "createdAt": 1794245620782
+ },
+ {
+  "id": "f347e21b36c",
+  "url": "https://www.youtube.com/watch?v=1QkmNobLB4c",
+  "title": "ABSOLUT® TABASCO™ | Two Icons Bringing the Heat",
+  "credit": "Absolut / Wieden+Kennedy London",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "콜라보",
+   "주류",
+   "비주얼",
+   "글로벌런칭",
+   "자동 수집"
+  ],
+  "note": "이질적인 두 브랜드의 협업을 강렬한 비주얼로 소개한 글로벌 런칭 스팟.",
+  "fav": false,
+  "createdAt": 1794245620783
+ },
+ {
+  "id": "f0b8ea413a4",
+  "url": "https://www.youtube.com/watch?v=XVMA9n5pCjk",
+  "title": "IShowSpeed is The Master of Speed & Stability | Beats",
+  "credit": "Beats by Dre / Miramar (dir. Daniel Wolfe)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "인플루언서",
+   "오디오",
+   "슈퍼볼",
+   "퍼포먼스",
+   "자동 수집"
+  ],
+  "note": "인플루언서 특성을 제품 베네핏과 연결한 슈퍼볼 티저. 크리에이터 활용 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620784
+ },
+ {
+  "id": "fcb7108e08e",
+  "url": "https://www.youtube.com/watch?v=hd3h9jz9j-0",
+  "title": "Brawl Stars: BUFFIES FOREVER!",
+  "credit": "Supercell (dir. Bine Bach)",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "게임",
+   "애니메이션",
+   "IP",
+   "세계관",
+   "자동 수집"
+  ],
+  "note": "게임 캐릭터 세계관을 영화적 애니메이션으로 확장한 브랜드 필름. 게임 IP 홍보 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620785
+ },
+ {
+  "id": "fc3e187001f",
+  "url": "https://www.youtube.com/watch?v=0r9olCYgs-8",
+  "title": "Pass the Pringles",
+  "credit": "Pringles / AMV BBDO",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "간결함",
+   "스낵",
+   "콘셉트",
+   "영국",
+   "자동 수집"
+  ],
+  "note": "간결한 콘셉트로 제품 공유 행동을 각인시키는 스팟. 짧은 광고의 아이디어 밀도 참고용.",
+  "fav": false,
+  "createdAt": 1794245620786
+ },
+ {
+  "id": "f8f005016c0",
+  "url": "https://www.youtube.com/watch?v=mLlQtdLC_Lk",
+  "title": "The Network That Works For You | Grow Your Career :30 | LinkedIn",
+  "credit": "LinkedIn / McCann New York",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "B2B",
+   "은유",
+   "커리어",
+   "30초",
+   "자동 수집"
+  ],
+  "note": "B2B 플랫폼의 가치를 직관적인 은유로 전달한 30초 스팟.",
+  "fav": false,
+  "createdAt": 1794245620787
+ },
+ {
+  "id": "f64a48e8ff2",
+  "url": "https://www.youtube.com/watch?v=eyKZ0sKpZK4",
+  "title": "[Bespoke AI 콤보] AI 가전이 신혼을 바꾼다 | 삼성전자",
+  "credit": "삼성전자",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "가전",
+   "신혼",
+   "시리즈",
+   "AI",
+   "자동 수집"
+  ],
+  "note": "신혼 타깃의 생활 장면으로 AI 가전 기능을 보여주는 2026 국내 시리즈. 제품별 시리즈화 구성이 참고할 만하다.",
+  "fav": false,
+  "createdAt": 1794245620788
+ },
+ {
+  "id": "f58e646fe54",
+  "url": "https://www.youtube.com/watch?v=8W9AWT5oFKA",
+  "title": "[Bespoke AI 에어드레서] AI 가전이 신혼을 바꾼다 | 삼성전자",
+  "credit": "삼성전자",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "가전",
+   "시리즈",
+   "슬로건",
+   "일상",
+   "자동 수집"
+  ],
+  "note": "같은 슬로건 아래 제품만 바꿔 전개하는 시리즈 광고. 일관된 포맷으로 확장하는 방식의 사례.",
+  "fav": false,
+  "createdAt": 1794245620789
+ },
+ {
+  "id": "f626568d6b3",
+  "url": "https://www.youtube.com/watch?v=366ABa_BONY",
+  "title": "[화이트벤] 2026 브랜딩 캠페인 광고 영상",
+  "credit": "미확인",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "브랜딩",
+   "국내",
+   "캠페인",
+   "톤앤매너",
+   "자동 수집"
+  ],
+  "note": "국내 브랜딩 캠페인 광고를 큐레이션하는 채널의 2026 영상. 국내 브랜드 톤앤매너 참고용.",
+  "fav": false,
+  "createdAt": 1794245620790
+ },
+ {
+  "id": "f50fffe9ae5",
+  "url": "https://www.youtube.com/watch?v=TR7hlwsZjXI",
+  "title": "[엔카] 2026 브랜딩 컬페인 광고 영상 - 엔카는 중립",
+  "credit": "엔카",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "포지셔닝",
+   "중고차",
+   "카피",
+   "플랫폼",
+   "자동 수집"
+  ],
+  "note": "'중립'이라는 한 단어로 플랫폼 포지셔닝을 전달한 국내 중고차 플랫폼 캠페인.",
+  "fav": false,
+  "createdAt": 1794245620791
+ },
+ {
+  "id": "f76ecec7426",
+  "url": "https://www.youtube.com/watch?v=vtJjOpF1FL0",
+  "title": "[말해보카] 2026 브랜딩 캠페인 광고 영상- 비비",
+  "credit": "말해보카",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "앱광고",
+   "캐스팅",
+   "교육",
+   "브랜딩",
+   "자동 수집"
+  ],
+  "note": "유명 모델을 앞세운 영어 학습 앱 브랜딩 캠페인. 앱 서비스 광고의 캐스팅과 톤 참고용.",
+  "fav": false,
+  "createdAt": 1794245620792
+ },
+ {
+  "id": "f6aac9a3b69",
+  "url": "https://www.youtube.com/watch?v=hSfIDgQuFPk",
+  "title": "[에피트] 2026 브랜딩 캠페인 광고 영상- EFETE AIR CARE 편",
+  "credit": "에피트",
+  "category": "광고",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "주거",
+   "브랜딩",
+   "에어케어",
+   "국내",
+   "자동 수집"
+  ],
+  "note": "건설 브랜드 에피트의 에어케어 기능을 풀어낸 브랜딩 영상. 주거 브랜드 광고의 비주얼 참고용.",
+  "fav": false,
+  "createdAt": 1794245620793
+ },
+ {
+  "id": "fafaa32b0e7",
+  "url": "https://www.youtube.com/watch?v=o6VCDRtvfZo",
+  "title": "Unprompted | Horror Short Film | ALTER",
+  "credit": "Stephen Packer",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "호러",
+   "풍자",
+   "ALTER",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "AI에 창작을 맡기는 위험을 유머러스하게 비튼 ALTER 호러 단편. 장르 톤과 풍자의 균형이 좋은 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620794
+ },
+ {
+  "id": "f641a335565",
+  "url": "https://www.youtube.com/watch?v=oFwe6PLLotw",
+  "title": "Heartbeater | Horror Short Film | ALTER",
+  "credit": "Rob Himebaugh",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "호러",
+   "긴장감",
+   "사운드",
+   "ALTER",
+   "자동 수집"
+  ],
+  "note": "ALTER 채널의 긴장감 있는 호러 단편. 사운드와 컷 리듬으로 공포를 쌓는 방식을 참고하기 좋다.",
+  "fav": false,
+  "createdAt": 1794245620795
+ },
+ {
+  "id": "f997c0055f9",
+  "url": "https://www.youtube.com/watch?v=TGKRUEbrtEQ",
+  "title": "Leave Me Alone | Horror Short Film | ALTER",
+  "credit": "Shehroze Khan",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "호러",
+   "미니멀",
+   "공간연출",
+   "ALTER",
+   "자동 수집"
+  ],
+  "note": "미니멀한 공간 연출로 불안을 만드는 호러 단편. 저예산 장르 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620796
+ },
+ {
+  "id": "f0379f5ccd7",
+  "url": "https://www.youtube.com/watch?v=EhaFs44OyUI",
+  "title": "A Good Death | Horror Short Film | ALTER",
+  "credit": "Kaz PS",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "호러",
+   "드라마",
+   "반전",
+   "ALTER",
+   "자동 수집"
+  ],
+  "note": "죽음이라는 주제를 장르적으로 풀어낸 ALTER 단편. 서사 구조와 반전 설계가 돋보인다.",
+  "fav": false,
+  "createdAt": 1794245620797
+ },
+ {
+  "id": "f5bd2428b00",
+  "url": "https://www.youtube.com/watch?v=WfCBukzuLsw",
+  "title": "THE HOLE | Omeleto",
+  "credit": "Courtney Karwal",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "드라마",
+   "감정선",
+   "Omeleto",
+   "큐레이션",
+   "자동 수집"
+  ],
+  "note": "Omeleto가 큐레이션한 드라마 단편. 짧은 러닝타임 안의 감정선 구성이 좋다.",
+  "fav": false,
+  "createdAt": 1794245620798
+ },
+ {
+  "id": "f04263944eb",
+  "url": "https://www.youtube.com/watch?v=qZPbkAwY5FM",
+  "title": "SIREN SALON | Omeleto",
+  "credit": "Ella Grace Rodriguez",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "캐릭터",
+   "색감",
+   "공간",
+   "Omeleto",
+   "자동 수집"
+  ],
+  "note": "독특한 설정과 공간 색감이 인상적인 Omeleto 단편. 캐릭터 중심 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620799
+ },
+ {
+  "id": "f3766a26b4c",
+  "url": "https://www.youtube.com/watch?v=-b4178mGt-w",
+  "title": "Bisected | Sci-Fi Short Film | DUST",
+  "credit": "Danny Piñeros",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "SF",
+   "DUST",
+   "콘셉트",
+   "비주얼",
+   "자동 수집"
+  ],
+  "note": "DUST의 SF 단편. 적은 설정으로 개념을 선명하게 보여주는 비주얼 연출이 좋다.",
+  "fav": false,
+  "createdAt": 1794245620800
+ },
+ {
+  "id": "fd612fa3120",
+  "url": "https://www.youtube.com/watch?v=kl6F5lKuZ0g",
+  "title": "Tether | Sci-Fi Short Film | DUST",
+  "credit": "Meredith Berg",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "SF",
+   "DUST",
+   "감성",
+   "관계",
+   "자동 수집"
+  ],
+  "note": "DUST의 SF 단편으로 관계와 기술을 엮은 이야기. 차분한 톤의 SF 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620801
+ },
+ {
+  "id": "f68daf5675d",
+  "url": "https://www.youtube.com/watch?v=zq1tS9qSfnw",
+  "title": "LOOP | Sci-Fi Short Film | DUST",
+  "credit": "Brenton Gieser",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "SF",
+   "루프",
+   "편집",
+   "DUST",
+   "자동 수집"
+  ],
+  "note": "반복 구조를 활용한 DUST SF 단편. 루프 서사와 편집 리듬의 좋은 예.",
+  "fav": false,
+  "createdAt": 1794245620802
+ },
+ {
+  "id": "f106ec099b4",
+  "url": "https://www.youtube.com/watch?v=8UXEfld3InI",
+  "title": "WE BUY GOLD | Short of the Week Award Winner 2026",
+  "credit": "David Huang, Albie Smith-Chang",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "SOTW",
+   "드라마",
+   "큐레이션",
+   "자동 수집"
+  ],
+  "note": "Short of the Week 어워드 수상작. 큐레이션 기준을 보여주는 완성도 높은 단편.",
+  "fav": false,
+  "createdAt": 1794245620803
+ },
+ {
+  "id": "fced757889f",
+  "url": "https://www.youtube.com/watch?v=dxpjzOLVRR0",
+  "title": "JANE AUSTEN'S PERIOD DRAMA / 2026 Oscar-Nominated Short Film",
+  "credit": "Julia Aks, Steve Pinder",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "오스카",
+   "코미디",
+   "시대극",
+   "미장센",
+   "자동 수집"
+  ],
+  "note": "2026 오스카 후보 단편. 코미디 톤과 시대극 미장센을 결합한 연출이 참고할 만하다.",
+  "fav": false,
+  "createdAt": 1794245620804
+ },
+ {
+  "id": "f6b59ef79a7",
+  "url": "https://www.youtube.com/watch?v=8ey8Vg_w-hg",
+  "title": "SOMETHING LIKE LONELINESS | Omeleto Drama",
+  "credit": "Seth Epstein, Ben Epstein",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2025,
+  "tags": [
+   "드라마",
+   "외로움",
+   "감정",
+   "Omeleto",
+   "자동 수집"
+  ],
+  "note": "외로움을 섬세하게 다룬 Omeleto Drama 단편. 감정 중심 연출과 배우 연기가 돋보인다.",
+  "fav": false,
+  "createdAt": 1794245620805
+ },
+ {
+  "id": "faecc0a2006",
+  "url": "https://www.youtube.com/watch?v=thhixfQqwbM",
+  "title": "LOOP (윤회) | Animation Short Film 2026｜청강애니",
+  "credit": "박민교",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "애니메이션",
+   "졸업작품",
+   "윤회",
+   "국내",
+   "자동 수집"
+  ],
+  "note": "청강대 애니메이션 졸업작품으로 윤회를 모티프로 한 단편. 국내 신진 작가의 비주얼 완성도를 볼 수 있다.",
+  "fav": false,
+  "createdAt": 1794245620806
+ },
+ {
+  "id": "f0eb6544274",
+  "url": "https://www.youtube.com/watch?v=wf1QjQ-ogLU",
+  "title": "연상호 감독 신작 [실낙원] 예고편",
+  "credit": "연상호",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "예고편",
+   "연상호",
+   "트레일러",
+   "편집",
+   "자동 수집"
+  ],
+  "note": "연상호 감독 신작 예고편. 압축적인 편집과 톤 설계를 참고하기 좋은 트레일러.",
+  "fav": false,
+  "createdAt": 1794245620807
+ },
+ {
+  "id": "fcd47116d81",
+  "url": "https://www.youtube.com/watch?v=3x2IM8SAlS4",
+  "title": "와일드 씽 (Wild Thing, 2026) 메인 예고편",
+  "credit": "손재곤",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "예고편",
+   "코미디",
+   "트레일러",
+   "국내영화",
+   "자동 수집"
+  ],
+  "note": "국내 극장용 영화 메인 예고편. 코미디 영화 트레일러의 리듬과 컷 구성 참고용.",
+  "fav": false,
+  "createdAt": 1794245620808
+ },
+ {
+  "id": "fff578c2da4",
+  "url": "https://www.youtube.com/watch?v=bewBitzVpJ0",
+  "title": "THE SAVIOR | Cinematic AI Western Short Film | Higgsfield Global Film Festival 2026",
+  "credit": "Chris Castor",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI영화",
+   "웨스턴",
+   "시네마틱",
+   "Higgsfield",
+   "자동 수집"
+  ],
+  "note": "AI로 만든 시네마틱 웨스턴 단편. 생성형 영상으로 장르 룩을 구현한 사례.",
+  "fav": false,
+  "createdAt": 1794245620809
+ },
+ {
+  "id": "fde242b5e89",
+  "url": "https://www.youtube.com/watch?v=KEdcGxMcqFg",
+  "title": "FIVE MINUTES | AI Sci-Fi Short Film | Higgsfield Global Film Festival 2026",
+  "credit": "미확인",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI영화",
+   "SF",
+   "영화제",
+   "단편",
+   "자동 수집"
+  ],
+  "note": "Higgsfield 영화제 출품 AI SF 단편. 짧은 호흡의 서사와 AI 비주얼 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620810
+ },
+ {
+  "id": "f328ec6df20",
+  "url": "https://www.youtube.com/watch?v=aAg9iDh9_BQ",
+  "title": "Oneiric | AI Fantasy Short Film | Higgsfield Originals (2026)",
+  "credit": "미확인",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "AI영화",
+   "판타지",
+   "몽환",
+   "Higgsfield",
+   "자동 수집"
+  ],
+  "note": "Higgsfield Originals의 AI 판타지 단편. 몽환적인 화면 톤 참고용.",
+  "fav": false,
+  "createdAt": 1794245620811
+ },
+ {
+  "id": "fe41066dfa0",
+  "url": "https://www.youtube.com/watch?v=ys7v4uEMS_M",
+  "title": "Crescendo | Drama Short Film | Tropfest 2026 Winner",
+  "credit": "Lianne Mackessy",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "Tropfest",
+   "드라마",
+   "영화제",
+   "자동 수집"
+  ],
+  "note": "Tropfest 2026 우승작 드라마 단편. 영화제 수상작의 구성과 완성도를 볼 수 있다.",
+  "fav": false,
+  "createdAt": 1794245620812
+ },
+ {
+  "id": "f046e73462c",
+  "url": "https://www.youtube.com/watch?v=01GeecMXwP4",
+  "title": "GRACE | Award Winning Short Film (2026)",
+  "credit": "Gio Ursino",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "촬영",
+   "편집",
+   "독립영화",
+   "자동 수집"
+  ],
+  "note": "감독이 촬영과 편집까지 맡은 수상 단편. 1인 제작 시네마틱 룩의 좋은 예.",
+  "fav": false,
+  "createdAt": 1794245620813
+ },
+ {
+  "id": "fd0b5eebb67",
+  "url": "https://www.youtube.com/watch?v=0jYK03TsETo",
+  "title": "Last Looks | Award-Winning Short Film (2026)",
+  "credit": "Justin Schaffer",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "장르",
+   "독립영화",
+   "2026",
+   "자동 수집"
+  ],
+  "note": "수상 이력의 2026년 단편. 장르 연출과 시각적 마감을 참고하기 좋다.",
+  "fav": false,
+  "createdAt": 1794245620814
+ },
+ {
+  "id": "f396e5085ff",
+  "url": "https://www.youtube.com/watch?v=-d3FmtkcnBo",
+  "title": "The End. | Award-Winning Short Film 2026",
+  "credit": "Syd Whalen",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "드라마",
+   "편집",
+   "엔딩",
+   "자동 수집"
+  ],
+  "note": "감독이 각본과 편집을 겸한 수상 단편. 간결한 구성과 엔딩 설계가 인상적이다.",
+  "fav": false,
+  "createdAt": 1794245620815
+ },
+ {
+  "id": "f183e385a5a",
+  "url": "https://www.youtube.com/watch?v=TQ3KlgWF8hQ",
+  "title": "Headshot (2026) | Award Winning Short Film",
+  "credit": "미확인",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "수상작",
+   "단편",
+   "컨셉",
+   "2026",
+   "자동 수집"
+  ],
+  "note": "2026년 수상 단편. 짧은 러닝타임의 컨셉 전달 방식을 참고하기 좋다.",
+  "fav": false,
+  "createdAt": 1794245620816
+ },
+ {
+  "id": "ff280f3902b",
+  "url": "https://www.youtube.com/watch?v=Ti8FFd77r5Y",
+  "title": "ANEMOIA (2026) Liminal/Dreamcore | Award Winning Short Film",
+  "credit": "Raphael Cosme",
+  "category": "시네마틱 필름",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "리미널",
+   "드림코어",
+   "분위기",
+   "수상작",
+   "자동 수집"
+  ],
+  "note": "리미널 스페이스와 드림코어 미학을 담은 수상 단편. 분위기 중심 영상미 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620817
+ },
+ {
+  "id": "fb69eb441ef",
+  "url": "https://www.youtube.com/watch?v=SntNBdL3Qvc",
+  "title": "Forward Festival 2026 Main Titles by The Mill",
+  "credit": "The Mill",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "타이틀",
+   "페스티벌",
+   "브랜딩",
+   "VFX",
+   "자동 수집"
+  ],
+  "note": "큰 규모 페스티벌 메인 타이틀로, 브랜드 아이덴티티를 모션으로 풀어낸 방식이 참고할 만합니다.",
+  "fav": false,
+  "createdAt": 1794245620818
+ },
+ {
+  "id": "fe524d2e902",
+  "url": "https://www.youtube.com/watch?v=TQ14dbGXA94",
+  "title": "NBC 2026 Winter Olympics in Milan Cortina main titles",
+  "credit": "NBC / NCS 소개",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "방송그래픽",
+   "오프닝",
+   "스포츠",
+   "타이틀",
+   "자동 수집"
+  ],
+  "note": "올림픽 방송 오프닝의 스케일감 있는 그래픽과 편집 리듬이 돋보입니다.",
+  "fav": false,
+  "createdAt": 1794245620819
+ },
+ {
+  "id": "f96da9dc12a",
+  "url": "https://www.youtube.com/watch?v=0MEqRMXCfmI",
+  "title": "[GOING SEVENTEEN] 2026 Opening Title Sequence",
+  "credit": "SEVENTEEN",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "오프닝",
+   "타이포",
+   "예능",
+   "국내",
+   "자동 수집"
+  ],
+  "note": "국내 콘텐츠의 오프닝 타이틀 시퀀스로, 캐릭터성과 타이포 연출을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620820
+ },
+ {
+  "id": "fe5eedc69a5",
+  "url": "https://www.youtube.com/watch?v=ylXeuDp_8XM",
+  "title": "The Best Motion Design & Animation of 2026 (So Far...)",
+  "credit": "Ben Marriott",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "큐레이션",
+   "트렌드",
+   "모션디자인",
+   "2026",
+   "자동 수집"
+  ],
+  "note": "올해의 주요 모션디자인 작업을 한 번에 훑어볼 수 있는 큐레이션 영상입니다.",
+  "fav": false,
+  "createdAt": 1794245620821
+ },
+ {
+  "id": "f6cc1bcf1a5",
+  "url": "https://www.youtube.com/watch?v=BOxDB7PI5Mg",
+  "title": "Scene Motion Showreel 2026",
+  "credit": "Scene",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "스튜디오",
+   "3D",
+   "2D",
+   "자동 수집"
+  ],
+  "note": "스튜디오 쇼릴로 최근 모션 스타일과 편집 흐름을 파악하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620822
+ },
+ {
+  "id": "f894febc340",
+  "url": "https://www.youtube.com/watch?v=pSJwUis5jc8",
+  "title": "Motion Graphics Showreel 2026",
+  "credit": "RENDERBENJ",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "트랜지션",
+   "3D",
+   "타이포",
+   "자동 수집"
+  ],
+  "note": "다양한 모션그래픽 기법을 압축한 쇼릴로 트랜지션 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620823
+ },
+ {
+  "id": "f27b0affe87",
+  "url": "https://www.youtube.com/watch?v=Hmab5DA09fE",
+  "title": "Motion Graphics Demo Reel 2026",
+  "credit": "Jef Meléndez",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "데모릴",
+   "편집",
+   "모션",
+   "타이포",
+   "자동 수집"
+  ],
+  "note": "개인 데모릴로 컷 구성과 리듬감을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620824
+ },
+ {
+  "id": "fec1f661764",
+  "url": "https://www.youtube.com/watch?v=louVIwzmXr4",
+  "title": "Motion Design Showreel 2026 | Danylo Reznychenko",
+  "credit": "Danylo Reznychenko",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "3D",
+   "2D",
+   "프리랜서",
+   "자동 수집"
+  ],
+  "note": "3D와 2D를 넘나드는 최신 모션 쇼릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620825
+ },
+ {
+  "id": "fd34535b6f7",
+  "url": "https://www.youtube.com/watch?v=l0g3CYqtGmY",
+  "title": "Motion Design 2026 Showreel",
+  "credit": "Ringling College of Art and Design",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "학생작",
+   "쇼릴",
+   "캐릭터",
+   "3D",
+   "자동 수집"
+  ],
+  "note": "미대 학생 작업 모음으로 신진 모션디자이너의 시도를 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620826
+ },
+ {
+  "id": "f8e615c14ba",
+  "url": "https://www.youtube.com/watch?v=E6TNT8d1Lhs",
+  "title": "Cub Studio Reel 2026",
+  "credit": "Cub Studio",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "스튜디오",
+   "릴",
+   "브랜드",
+   "애니메이션",
+   "자동 수집"
+  ],
+  "note": "스튜디오 릴로 상업 작업의 스타일과 퀄리티 기준을 참고할 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620827
+ },
+ {
+  "id": "f8530bec5b4",
+  "url": "https://www.youtube.com/watch?v=-txq36Urbas",
+  "title": "Andrew Rose Studios: Motion Design & Video Content Reel 2026",
+  "credit": "Andrew Rose Studios",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "릴",
+   "콘텐츠",
+   "모션",
+   "스튜디오",
+   "자동 수집"
+  ],
+  "note": "모션디자인과 영상 콘텐츠를 결합한 릴로 콘텐츠 제작 참고용입니다.",
+  "fav": false,
+  "createdAt": 1794245620828
+ },
+ {
+  "id": "fba36f5f465",
+  "url": "https://www.youtube.com/watch?v=Sh_c_2LMCnY",
+  "title": "stcubing's 2026 motion graphics showreel",
+  "credit": "stcubing",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "모션그래픽",
+   "개인작",
+   "타이포",
+   "자동 수집"
+  ],
+  "note": "개인 모션그래픽 쇼릴로 최신 스타일을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620829
+ },
+ {
+  "id": "f72f4d4d071",
+  "url": "https://www.youtube.com/watch?v=7wqrci1Qqjw",
+  "title": "Motion Graphics Design Showreel 2026 | SAE Athens",
+  "credit": "SAE Athens",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "학생작",
+   "쇼릴",
+   "교육",
+   "모션",
+   "자동 수집"
+  ],
+  "note": "교육기관 쇼릴로 다양한 기법 사례를 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620830
+ },
+ {
+  "id": "f1e71a4485a",
+  "url": "https://www.youtube.com/watch?v=Sks_fMr2Yss",
+  "title": "New 2026 F1 Opening Titles",
+  "credit": "FORMULA 1",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "타이틀",
+   "스포츠",
+   "오프닝",
+   "편집",
+   "자동 수집"
+  ],
+  "note": "F1 공식 오프닝 타이틀로 스피드감 있는 편집과 그래픽이 인상적입니다.",
+  "fav": false,
+  "createdAt": 1794245620831
+ },
+ {
+  "id": "f3ff5cdcf38",
+  "url": "https://www.youtube.com/watch?v=YwBiQIxgtEI",
+  "title": "Behind The Scenes Of The F1 Opening Titles!",
+  "credit": "FORMULA 1",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "메이킹",
+   "타이틀",
+   "제작과정",
+   "스포츠",
+   "자동 수집"
+  ],
+  "note": "F1 오프닝 제작 과정을 보여주어 타이틀 연출 방식을 이해하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620832
+ },
+ {
+  "id": "f8f313127f5",
+  "url": "https://www.youtube.com/watch?v=FbePZihd-AA",
+  "title": "MOOSIC LAB 2026 / OPENING MOVIE",
+  "credit": "SPOTTED PRODUCTIONS",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "오프닝",
+   "영화제",
+   "타이포",
+   "일본",
+   "자동 수집"
+  ],
+  "note": "영화제 오프닝 무비로 개성 있는 타이포와 그래픽 연출을 참고할 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620833
+ },
+ {
+  "id": "f067ba23084",
+  "url": "https://www.youtube.com/watch?v=sGKCqMCD1_s",
+  "title": "Seven Frames Studio — Motion Graphics & SaaS Explainer Video Showreel 2026",
+  "credit": "Seven Frames",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "익스플레이너",
+   "SaaS",
+   "UI모션",
+   "쇼릴",
+   "자동 수집"
+  ],
+  "note": "SaaS 설명 영상의 깔끔한 UI 모션 연출을 참고하기 좋습니다.",
+  "fav": false,
+  "createdAt": 1794245620834
+ },
+ {
+  "id": "f5701a1c06c",
+  "url": "https://www.youtube.com/watch?v=W-7VndYoBqs",
+  "title": "Animation Showreel 2026 | Motion Design, Character & Visual Storytelling",
+  "credit": "Cass Productions",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "캐릭터",
+   "스토리텔링",
+   "쇼릴",
+   "2D",
+   "자동 수집"
+  ],
+  "note": "캐릭터와 스토리텔링 중심 모션 작업 모음입니다.",
+  "fav": false,
+  "createdAt": 1794245620835
+ },
+ {
+  "id": "fcff5e02d64",
+  "url": "https://www.youtube.com/watch?v=X4J6BI3v5S4",
+  "title": "3D MOTION DESIGN SHOWREEL 2026",
+  "credit": "Louis Richard",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "3D",
+   "쇼릴",
+   "라이팅",
+   "질감",
+   "자동 수집"
+  ],
+  "note": "3D 모션디자인 질감과 조명 연출을 참고하기 좋은 릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620836
+ },
+ {
+  "id": "f1b9fac69d9",
+  "url": "https://www.youtube.com/watch?v=7B4xmIiwO3c",
+  "title": "Hashmukh Kerai 2026 3D Art & 2D Motion Design Showreel",
+  "credit": "Hash Kerai",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "3D",
+   "2D",
+   "쇼릴",
+   "아트",
+   "자동 수집"
+  ],
+  "note": "3D 아트와 2D 모션을 함께 보여주는 쇼릴입니다.",
+  "fav": false,
+  "createdAt": 1794245620837
+ },
+ {
+  "id": "f97efb9f06d",
+  "url": "https://www.youtube.com/watch?v=MJoNzuegs4A",
+  "title": "SHOWREEL 2026",
+  "credit": "Fayola_moon",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "개인작",
+   "트렌드",
+   "모션",
+   "자동 수집"
+  ],
+  "note": "개인 쇼릴로 최근 모션 트렌드를 확인할 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620838
+ },
+ {
+  "id": "f95562ab820",
+  "url": "https://www.youtube.com/watch?v=LvmWCj2MCCA",
+  "title": "Motion Design Showreel 2026-27 | Studio PB | Pauline Baines",
+  "credit": "Pauline Baines",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "쇼릴",
+   "컬러",
+   "타이포",
+   "프리랜서",
+   "자동 수집"
+  ],
+  "note": "프리랜서 모션디자이너의 컬러와 타이포 활용을 참고할 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620839
+ },
+ {
+  "id": "fce49f4da9b",
+  "url": "https://www.youtube.com/watch?v=UiS62P80zgY",
+  "title": "SHOWREEL 2026",
+  "credit": "Crash Landing Studios",
+  "category": "모션그래픽",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "스튜디오",
+   "쇼릴",
+   "상업",
+   "애니메이션",
+   "자동 수집"
+  ],
+  "note": "스튜디오 쇼릴로 상업 모션 작업의 완성도를 볼 수 있습니다.",
+  "fav": false,
+  "createdAt": 1794245620840
+ },
+ {
+  "id": "f520f50728d",
+  "url": "https://www.youtube.com/watch?v=BFlZ57dyxOs",
+  "title": "Atlas Sound - Octoberland (Official Video)",
+  "credit": "Atlas Sound / 4AD",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "인디",
+   "무드",
+   "10월 베스트",
+   "영상미",
+   "자동 수집"
+  ],
+  "note": "Paste 선정 2026년 10월 베스트 뮤직비디오. 인디 아티스트의 분위기 있는 영상 연출 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620841
+ },
+ {
+  "id": "fdb9137216e",
+  "url": "https://www.youtube.com/watch?v=MSQdTs9hBbo",
+  "title": "Doechii - LOCK JAW | Swamp Sessions",
+  "credit": "Doechii",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "힙합",
+   "퍼포먼스",
+   "세션",
+   "10월 베스트",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 라이브 세션 형식의 에너지 있는 퍼포먼스 촬영 참고용.",
+  "fav": false,
+  "createdAt": 1794245620842
+ },
+ {
+  "id": "ffd48084a1b",
+  "url": "https://www.youtube.com/watch?v=0J6qF477cPc",
+  "title": "twisted teens - stalks (official music video)",
+  "credit": "Twisted Teens / 감독 Mama Hot Dog",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "인디",
+   "독특한 연출",
+   "10월 베스트",
+   "컬트",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 감독 Mama Hot Dog의 독특한 비주얼 톤이 돋보인다.",
+  "fav": false,
+  "createdAt": 1794245620843
+ },
+ {
+  "id": "f61acb0577e",
+  "url": "https://www.youtube.com/watch?v=jDFlNSXSBzw",
+  "title": "Romy Mars - The Rage (Official Music Video)",
+  "credit": "Romy Mars",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "내러티브",
+   "감정",
+   "10월 베스트",
+   "팝",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 감정을 시각화한 내러티브 연출 참고.",
+  "fav": false,
+  "createdAt": 1794245620844
+ },
+ {
+  "id": "fa954450490",
+  "url": "https://www.youtube.com/watch?v=fPA28AfG-JY",
+  "title": "Slayyyter - i think he's got a girl (Official Video)",
+  "credit": "Slayyyter",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "하이퍼팝",
+   "스타일링",
+   "컬러",
+   "10월 베스트",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 하이퍼팝 특유의 컬러와 스타일링 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620845
+ },
+ {
+  "id": "f9a6ec29a2c",
+  "url": "https://www.youtube.com/watch?v=gsZauX8gwxo",
+  "title": "Olivia Rodrigo - expectations (feat. Chappell Roan) (Official Music Video)",
+  "credit": "Olivia Rodrigo, Chappell Roan",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "팝",
+   "콜라보",
+   "10월 베스트",
+   "콘셉트",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 두 팝스타 콜라보의 콘셉트와 연출 호흡이 좋은 참고.",
+  "fav": false,
+  "createdAt": 1794245620846
+ },
+ {
+  "id": "f988b77ce36",
+  "url": "https://www.youtube.com/watch?v=Thpnr2E6gMk",
+  "title": "Audrey Hobert - Phoebe (Official Video)",
+  "credit": "Audrey Hobert",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "팝",
+   "유머",
+   "10월 베스트",
+   "톤앤매너",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 위트 있는 팝 영상의 톤앤매너 참고.",
+  "fav": false,
+  "createdAt": 1794245620847
+ },
+ {
+  "id": "fa86c2967a2",
+  "url": "https://www.youtube.com/watch?v=iDeOESMHSBE",
+  "title": "Eliza Mclamb - \"Better Song\" (Official Video)",
+  "credit": "Eliza McLamb",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "인디팝",
+   "저예산",
+   "10월 베스트",
+   "감성",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 소박하지만 감각적인 인디 팝 영상 연출.",
+  "fav": false,
+  "createdAt": 1794245620848
+ },
+ {
+  "id": "fda231ef06d",
+  "url": "https://www.youtube.com/watch?v=0E8_CvN1BgE",
+  "title": "Star Moles - Born Again (Official Video)",
+  "credit": "Star Moles",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "실험적",
+   "인디",
+   "10월 베스트",
+   "비주얼",
+   "자동 수집"
+  ],
+  "note": "Paste 10월 베스트 선정작. 실험적인 분위기의 비주얼 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620849
+ },
+ {
+  "id": "f980ed4128a",
+  "url": "https://www.youtube.com/watch?v=kbMUbSJmbCI",
+  "title": "MW:MEU (뮤) 'Rainbow' Official MV",
+  "credit": "MW:MEU(뮤)",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "색감",
+   "국내 MV",
+   "2026",
+   "자동 수집"
+  ],
+  "note": "2026년 공개된 국내 아티스트의 공식 MV. 색감 중심의 연출 참고용.",
+  "fav": false,
+  "createdAt": 1794245620850
+ },
+ {
+  "id": "fe971e991e1",
+  "url": "https://www.youtube.com/watch?v=oC6brLXQe4I",
+  "title": "BABYMONSTER - 'DESERVE' M/V",
+  "credit": "BABYMONSTER / YG Entertainment",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "K-pop",
+   "1억뷰",
+   "안무",
+   "YG",
+   "자동 수집"
+  ],
+  "note": "공개 후 1억 뷰를 돌파한 YG 걸그룹의 대표 MV. 대규모 세트와 안무 중심 연출 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620851
+ },
+ {
+  "id": "f2f1b970f80",
+  "url": "https://www.youtube.com/watch?v=-rkjE0xc730",
+  "title": "Harry Styles - Dance No More (Official Video)",
+  "credit": "Harry Styles / 감독 Colin Solal Cardo",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "댄스",
+   "Promonews",
+   "팝",
+   "카메라워크",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정 영상. 댄스 중심의 유쾌한 퍼포먼스와 카메라 워크 참고.",
+  "fav": false,
+  "createdAt": 1794245620852
+ },
+ {
+  "id": "f775791300d",
+  "url": "https://www.youtube.com/watch?v=pB3W-k0kQ8U",
+  "title": "TAEYANG - 'LIVE FAST DIE SLOW' M/V",
+  "credit": "TAEYANG / 감독 Alex Gargot",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "시네마틱",
+   "Promonews",
+   "솔로",
+   "K-pop",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 해외 감독과 협업한 국내 솔로 아티스트의 시네마틱 MV.",
+  "fav": false,
+  "createdAt": 1794245620853
+ },
+ {
+  "id": "fc25bf5eaf3",
+  "url": "https://www.youtube.com/watch?v=iNMvUYjaieA",
+  "title": "EVAN (에반) 'Death of Me' Official MV",
+  "credit": "EVAN / HYBE LABELS",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "국내",
+  "year": 2026,
+  "tags": [
+   "HYBE",
+   "다크무드",
+   "K-pop",
+   "콘셉트",
+   "자동 수집"
+  ],
+  "note": "HYBE 공식 채널의 MV. 어두운 감성의 콘셉트와 비주얼 구성 참고.",
+  "fav": false,
+  "createdAt": 1794245620854
+ },
+ {
+  "id": "f8136f0f272",
+  "url": "https://www.youtube.com/watch?v=ox1Eemj8FDo",
+  "title": "Charli xcx - Rock Music (Official Video)",
+  "credit": "Charli xcx / 감독 Aidan Zamiri",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "Promonews",
+   "스타일링",
+   "팝",
+   "록",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 강렬한 스타일링과 B급 감성을 섞은 연출 레퍼런스.",
+  "fav": false,
+  "createdAt": 1794245620855
+ },
+ {
+  "id": "f3c834b2000",
+  "url": "https://www.youtube.com/watch?v=B402rKl4bUg",
+  "title": "Olivia Rodrigo - the cure (Official Music Video)",
+  "credit": "Olivia Rodrigo / 감독 Cat Solen, Jaime Gerin",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "Promonews",
+   "팝",
+   "스토리텔링",
+   "대중성",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 팝 스타의 대중적이면서 감각적인 영상 구성.",
+  "fav": false,
+  "createdAt": 1794245620856
+ },
+ {
+  "id": "f174f315bb3",
+  "url": "https://www.youtube.com/watch?v=qRAJowgHqxA",
+  "title": "PinkPantheress - Girl Like Me (Official Video)",
+  "credit": "PinkPantheress / 감독 Laurie Lotus",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "Y2K",
+   "Promonews",
+   "질감",
+   "팝",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. Y2K 감성의 컬러와 질감이 돋보이는 영상.",
+  "fav": false,
+  "createdAt": 1794245620857
+ },
+ {
+  "id": "f10f63d6daf",
+  "url": "https://www.youtube.com/watch?v=khXv1RvAZF0",
+  "title": "KNEECAP - Irish Goodbye (Short Film) ft. Kae Tempest",
+  "credit": "Kneecap / 감독 Thomas James",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "단편영화",
+   "Promonews",
+   "서사",
+   "힙합",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 단편영화 형식으로 풀어낸 서사형 뮤직비디오.",
+  "fav": false,
+  "createdAt": 1794245620858
+ },
+ {
+  "id": "f81ee555427",
+  "url": "https://www.youtube.com/watch?v=XVvLRbR4Pa0",
+  "title": "MUSE - Cryogen (Official Music Video)",
+  "credit": "MUSE / 감독 Elliott Gonzo",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "록",
+   "SF",
+   "Promonews",
+   "비주얼",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 록 밴드의 SF적 비주얼과 연출 참고.",
+  "fav": false,
+  "createdAt": 1794245620859
+ },
+ {
+  "id": "f6af551fa52",
+  "url": "https://www.youtube.com/watch?v=Sf9NZF5qBak",
+  "title": "Martin Garrix & Ed Sheeran - Repeat It (Official Video)",
+  "credit": "Martin Garrix, Ed Sheeran / 감독 Liam Pethick, Nic Minns",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "EDM",
+   "콜라보",
+   "Promonews",
+   "대중성",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 대형 아티스트 콜라보의 깔끔한 영상 구성.",
+  "fav": false,
+  "createdAt": 1794245620860
+ },
+ {
+  "id": "f1c9356e68b",
+  "url": "https://www.youtube.com/watch?v=VucooXogcZI",
+  "title": "Nia Archives - Boys In Blue (Official Video)",
+  "credit": "Nia Archives / 감독 Iris Luz",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "정글",
+   "Promonews",
+   "UK",
+   "문화",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 정글/드럼앤베이스 감성을 담은 로컬 문화 연출.",
+  "fav": false,
+  "createdAt": 1794245620861
+ },
+ {
+  "id": "fabf9a34075",
+  "url": "https://www.youtube.com/watch?v=ERn_e8fiFPs",
+  "title": "Tove Lo - I'm your girl right? (Official Video)",
+  "credit": "Tove Lo / 감독 Nogari",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "팝",
+   "Promonews",
+   "콘셉트",
+   "대담함",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 대담한 콘셉트와 감정 표현의 연출 참고.",
+  "fav": false,
+  "createdAt": 1794245620862
+ },
+ {
+  "id": "f9fb69a7296",
+  "url": "https://www.youtube.com/watch?v=oT5LwwEHgnc",
+  "title": "The Rolling Stones - In The Stars (Official Video)",
+  "credit": "The Rolling Stones / 감독 François Rousselet",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "레전드",
+   "Promonews",
+   "시간",
+   "캐스팅",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 레전드 밴드의 시간 모티프를 활용한 영상. 젊은 믹 재거 캐스팅이 화제.",
+  "fav": false,
+  "createdAt": 1794245620863
+ },
+ {
+  "id": "f79507a5a68",
+  "url": "https://www.youtube.com/watch?v=gluT1ObPmQA",
+  "title": "Genesis Owusu - LIFE KEEPS GOING (Official Music Video)",
+  "credit": "Genesis Owusu / 감독 Isaac Brown",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "아트디렉션",
+   "Promonews",
+   "에너지",
+   "호주",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 강한 아트 디렉션과 에너지가 돋보이는 영상.",
+  "fav": false,
+  "createdAt": 1794245620864
+ },
+ {
+  "id": "f410702ca4e",
+  "url": "https://www.youtube.com/watch?v=VwM4MNdz8v8",
+  "title": "Anna Calvi - God's Lonely Man (feat. Iggy Pop) (Official Video)",
+  "credit": "Anna Calvi, Iggy Pop / 감독 Luigi Calabrese",
+  "category": "뮤직비디오",
+  "date": "2026-11-09",
+  "region": "해외",
+  "year": 2026,
+  "tags": [
+   "시네마틱",
+   "Promonews",
+   "콜라보",
+   "절제미",
+   "자동 수집"
+  ],
+  "note": "Promonews 5월 선정작. 두 아티스트의 존재감을 살린 절제된 시네마틱 연출.",
+  "fav": false,
+  "createdAt": 1794245620865
+ }
+]
