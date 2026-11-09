@@ -1,0 +1,1944 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>레퍼런스 로그</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* Layout: 편집실 로그북. SMPTE 컬러바 → 최근 28일 스트립 → 날짜별 카드 그리드 → 큰 플레이어 / 더 찾기 창. 사이트별 색은 컬러바에서 가져온다. */
+:root {
+  color-scheme: light;
+  --bg: #EDEFF2; --surface: #FFFFFF; --surface-2: #F4F5F8; --ink: #14171D; --muted: #586070;
+  --line: #D6DAE1; --accent: #2D4BFF; --danger: #C2362F;
+  --p-youtube: #E5484D; --p-vimeo: #12A6C9; --p-tvcf: #3E63DD; --p-other: #2FA86B;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0E1014; --surface: #161A20; --surface-2: #1D222A; --ink: #EDF0F5; --muted: #9AA3B3;
+    --line: #2A303A; --accent: #8397FF; --danger: #FF7B72;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+button, input, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+[hidden] { display: none !important; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.bars { display: flex; height: 8px; }
+.bars i { flex: 1; display: block; }
+.bars i:nth-child(1) { background: #D9D9D9; } .bars i:nth-child(2) { background: #E7D23B; } .bars i:nth-child(3) { background: #28B8D5; }
+.bars i:nth-child(4) { background: #2FA86B; } .bars i:nth-child(5) { background: #D6409F; } .bars i:nth-child(6) { background: #E5484D; } .bars i:nth-child(7) { background: #3E63DD; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 22px 64px; display: flex; flex-direction: column; gap: 18px; }
+.top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 24px; flex-wrap: wrap; }
+.top h1 { margin: 0; font-size: 28px; line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
+.sub { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+.stamp { text-align: right; font-size: 12px; color: var(--muted); line-height: 1.6; }
+.stamp b { display: block; color: var(--ink); font-weight: 500; font-size: 13px; }
+.notice { margin: 0 0 8px; padding: 9px 12px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; font-size: 13px; color: var(--muted); }
+.notice b { font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: .06em; color: var(--ink); margin-right: 8px; }
+
+.launch { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.launch .lbl { margin-right: 4px; }
+.src { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 13px; }
+.src:hover { border-color: var(--ink); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--muted)); flex: none; display: inline-block; }
+
+.intake { display: flex; gap: 8px; flex-wrap: wrap; }
+.intake input { flex: 1 1 260px; min-width: 0; height: 46px; padding: 0 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 14px; }
+.intake input::placeholder { color: var(--muted); }
+.intake input:focus-visible { border-color: var(--accent); outline-offset: 0; }
+.btn { height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; font-weight: 500; white-space: nowrap; }
+.btn:hover { border-color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.primary:disabled, .btn:disabled { opacity: .5; cursor: default; }
+.btn.ghost { background: transparent; }
+.btn.small { height: 28px; padding: 0 10px; font-size: 12px; }
+.btn.danger { color: var(--danger); }
+.btn.danger.armed { background: var(--danger); color: var(--surface); border-color: var(--danger); }
+.intake .btn { height: 46px; }
+
+.stripWrap { display: flex; flex-direction: column; gap: 6px; }
+.stripHead { display: flex; align-items: center; gap: 10px; min-height: 28px; }
+.strip { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; scrollbar-width: thin; }
+.day { flex: none; width: 52px; padding: 4px 0 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.day:hover { border-color: var(--ink); }
+.day[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.day .mo { height: 14px; font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.day[aria-pressed="true"] .mo, .day[aria-pressed="true"] .wd { color: inherit; opacity: .8; }
+.day .wd { font-size: 11px; color: var(--muted); }
+.day .dn { font-family: var(--font-display); font-weight: 800; font-size: 24px; line-height: 1.05; }
+.day .ticks { display: flex; gap: 2px; height: 5px; margin-top: 4px; }
+.day .ticks i { display: block; width: 5px; height: 5px; border-radius: 1px; }
+.day.empty { opacity: .6; }
+.day.today .wd { color: var(--ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.day[aria-pressed="true"].today .wd { color: inherit; }
+
+.tools { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+.search { flex: 1 1 220px; min-width: 0; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.search:focus-visible { border-color: var(--accent); outline-offset: 0; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button { height: 38px; padding: 0 14px; border: 0; background: transparent; cursor: pointer; font-weight: 500; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.favBtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.facets { display: flex; flex-direction: column; gap: 8px; }
+.facet { display: flex; gap: 10px; align-items: baseline; }
+.facet .lbl { flex: none; width: 56px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.chip { display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); cursor: pointer; font-size: 13px; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip .cnt { font-family: var(--font-mono); font-size: 11px; opacity: .65; }
+
+.groups { display: flex; flex-direction: column; gap: 34px; }
+.group { display: flex; flex-direction: column; gap: 14px; }
+.ghead { display: flex; align-items: flex-end; gap: 14px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.ghead h2 { margin: 0; display: flex; align-items: flex-end; gap: 12px; font-weight: 600; font-size: 20px; line-height: 1.1; }
+.gnum { font-family: var(--font-display); font-weight: 800; font-size: 52px; line-height: .85; letter-spacing: .01em; }
+.gmeta { display: flex; flex-direction: column; gap: 2px; font-size: 14px; padding-bottom: 2px; }
+.gmeta .mono { font-size: 11px; color: var(--muted); font-weight: 400; }
+.gname { display: inline-flex; align-items: center; gap: 10px; }
+.gcount { margin-left: auto; font-size: 12px; color: var(--muted); padding-bottom: 2px; }
+.todayTag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; padding: 2px 6px; background: var(--ink); color: var(--bg); border-radius: 3px; align-self: center; }
+.sublist { display: flex; flex-direction: column; gap: 10px; }
+.subhead { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--muted); }
+.subhead::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.subhead b { color: var(--ink); font-weight: 600; font-size: 13px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.media { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; background: var(--surface-2); text-decoration: none; overflow: hidden; cursor: pointer; text-align: left; }
+.media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--c); z-index: 1; }
+.ph { height: 100%; padding: 16px 14px 10px; display: flex; flex-direction: column; justify-content: space-between; }
+.ph .pl { font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1; text-transform: uppercase; letter-spacing: .02em; word-break: break-word; }
+.ph .pp { font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: break-all; }
+.num { position: absolute; left: 8px; bottom: 8px; z-index: 2; font-family: var(--font-mono); font-size: 11px; padding: 1px 6px; border-radius: 4px; background: color-mix(in srgb, var(--surface) 88%, transparent); color: var(--ink); }
+.dur { position: absolute; right: 8px; top: 12px; z-index: 2; font-family: var(--font-mono); font-size: 11px; padding: 1px 6px; border-radius: 4px; background: rgba(15, 17, 21, .78); color: #fff; }
+.playbtn { position: absolute; right: 10px; bottom: 10px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: rgba(15, 17, 21, .78); display: grid; place-items: center; }
+.playbtn::after { content: ""; margin-left: 4px; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent #fff; }
+.media:hover .playbtn { background: var(--c); }
+.cbody { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.ctitle { margin: 0; font-size: 15px; line-height: 1.4; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.ctitle.untitled { color: var(--muted); font-weight: 500; }
+.credit { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.cat { font-size: 12px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface-2); }
+.cdate { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.tags { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 2px 8px; }
+.note { margin: 0; font-size: 12.5px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.acts { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; flex-wrap: wrap; }
+.go { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border: 1px solid var(--ink); border-radius: 6px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 600; font-size: 13px; cursor: pointer; }
+.go.alt { background: transparent; color: var(--ink); }
+.go:hover { opacity: .85; }
+.go:disabled { opacity: .5; cursor: default; }
+.ib { height: 32px; min-width: 32px; padding: 0 9px; border: 1px solid var(--line); border-radius: 6px; background: transparent; cursor: pointer; font-size: 13px; }
+.ib:hover { border-color: var(--ink); }
+.ib[aria-pressed="true"] { color: #C98A0B; border-color: #C98A0B; }
+.acts .sp { flex: 1; }
+.acts select { height: 32px; max-width: 100%; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: 12px; }
+
+.empty { margin: 0; padding: 36px 16px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; background: var(--surface); }
+.empty h2 { margin: 0 0 6px; color: var(--ink); font-size: 17px; font-weight: 600; }
+.empty p { margin: 0 auto 14px; max-width: 46ch; }
+
+dialog { width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); overflow: auto; }
+dialog::backdrop { background: rgba(8, 10, 14, .62); }
+dialog form { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.dhead { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.dhead h2 { margin: 0; font-size: 18px; font-weight: 600; }
+.field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.field label { font-size: 12px; font-weight: 500; color: var(--muted); }
+.field input, .field textarea, .field select { width: 100%; padding: 9px 11px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); resize: vertical; }
+.field input:disabled, .field textarea:disabled { opacity: .5; }
+.field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { border-color: var(--accent); outline-offset: 0; }
+.row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; }
+.hint { margin: 0; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 7px; min-height: 18px; }
+.quick { display: flex; flex-wrap: wrap; gap: 6px; }
+.quick button { padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); cursor: pointer; font-size: 12px; }
+.quick button:hover { border-color: var(--ink); }
+.err { margin: 0; color: var(--danger); font-size: 13px; }
+.dfoot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dfoot .grow { flex: 1; }
+
+#pdlg, #sdlg { width: min(1040px, calc(100vw - 24px)); background: var(--bg); }
+.pbox, .sbox { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.phead { display: flex; align-items: flex-start; gap: 12px; }
+.phead .tt { flex: 1; min-width: 0; }
+.phead h2 { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
+.phead .cr { margin: 2px 0 0; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.stage { width: 100%; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; position: relative; }
+.stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pnote { margin: 0; font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.fail { margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 13px; }
+.pfoot { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pfoot .grow { flex: 1; }
+.pfoot .pos { font-size: 12px; color: var(--muted); }
+
+.setup { display: flex; flex-direction: column; gap: 10px; padding: 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.setup h3 { margin: 0; font-size: 15px; font-weight: 600; }
+.setup ol { margin: 0; padding-left: 18px; color: var(--muted); font-size: 13px; display: flex; flex-direction: column; gap: 2px; }
+.setup .row { display: flex; gap: 8px; flex-wrap: wrap; }
+.setup input { flex: 1 1 240px; min-width: 0; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.setup .lbl2 { font-size: 12px; font-weight: 500; color: var(--muted); }
+.ctrl { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.ctrl .lbl { margin-right: -6px; }
+.smsg { margin: 0; font-size: 13px; color: var(--muted); min-height: 20px; }
+.smsg.bad { color: var(--danger); }
+.sfoot { display: flex; justify-content: center; }
+.rviews { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+
+/* ---- 스트림: 크기가 같은 영상이 세로로 이어지고, 화면 가운데에 온 하나만 커진다 ---- */
+body[data-mode="stream"] { background: var(--surface); }
+body[data-mode="stream"] > .bars, body[data-mode="stream"] #logView { display: none; }
+body[data-mode="log"] #stream { display: none; }
+html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
+#stream { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: .02em; min-height: 100vh; }
+.stTop { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
+.stTop .mark { font-weight: 500; font-size: 14px; letter-spacing: .06em; }
+.stTop nav { display: flex; gap: 18px; }
+.lk { border: 0; padding: 0; background: none; cursor: pointer; text-transform: inherit; letter-spacing: inherit; font-family: inherit; font-size: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.lk:hover { color: var(--accent); }
+.sbar { display: contents; }
+.rail { position: fixed; left: 22px; top: 50%; transform: translateY(-50%); z-index: 15; display: flex; flex-direction: column; gap: 2px; align-items: flex-start; max-width: 230px; }
+.rail button { border: 0; padding: 2px 0; background: none; cursor: pointer; text-align: left; font-family: var(--font-mono); font-size: 14px; letter-spacing: .02em; color: var(--muted); opacity: .75; text-transform: uppercase; }
+.rail button:hover { color: var(--ink); opacity: 1; }
+.rail button[aria-pressed="true"] { font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1.05; color: var(--ink); opacity: 1; letter-spacing: .01em; margin: 2px 0; }
+.rail button.sub { font-size: 12px; margin: 0 0 0 14px; padding: 1px 0; font-family: var(--font-mono); font-weight: 400; line-height: 1.5; }
+.rail button.sub[aria-pressed="true"] { color: var(--ink); opacity: 1; text-decoration: underline; text-underline-offset: 3px; font-size: 12px; margin: 0 0 0 14px; font-family: var(--font-mono); font-weight: 500; letter-spacing: .02em; }
+.sCol { max-width: 1100px; margin: 0 auto; padding: calc(50vh - 150px) 16px calc(50vh - 120px); display: flex; flex-direction: column; align-items: center; gap: 130px; }
+.fig { margin: 0; width: min(520px, 62vw); flex: none; scroll-snap-align: center; transform-origin: center; transform: scale(1); opacity: .4; }
+.fig.on { transform: scale(1.5); opacity: 1; z-index: 2; position: relative; }
+.fig .sf { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border: 0; background: var(--surface-2); overflow: hidden; cursor: pointer; text-decoration: none; }
+.fig .sf img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fig .sf .ph { padding: 14px; }
+.fig.on .sf:hover::after { content: "▶"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 30px; background: rgba(10, 12, 16, .28); }
+.fig figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--muted); }
+.fig figcaption .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: 0; }
+.fig.on figcaption .t { opacity: 1; }
+.stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
+.stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
+.stMore { margin-top: 30px; }
+@media (prefers-reduced-motion: no-preference) { .fig { transition: transform .35s ease, opacity .35s ease; } .fig figcaption .t { transition: opacity .3s; } }
+@media (max-width: 1200px) { .fig.on { transform: scale(1.3); } }
+@media (max-width: 900px) {
+  .sbar { display: flex; position: fixed; top: 48px; left: 0; right: 0; z-index: 18; align-items: center; padding: 4px 16px 8px; background: color-mix(in srgb, var(--surface) 90%, transparent); }
+  .rail { position: static; transform: none; flex-direction: row; gap: 14px; overflow-x: auto; max-width: none; flex: 1; align-items: baseline; scrollbar-width: none; }
+  .rail button, .rail button[aria-pressed="true"] { font-family: var(--font-mono); font-size: 12px; font-weight: 500; white-space: nowrap; line-height: 1.4; margin: 0; }
+  .rail button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 3px; }
+  .rail button.sub, .rail button.sub[aria-pressed="true"] { margin: 0; }
+  .stTop { padding: 12px 16px; }
+  .sCol { gap: 90px; }
+  .fig { width: 76vw; }
+  .fig.on { transform: scale(1.25); }
+  .stNote { top: 100px; }
+}
+@media (max-width: 520px) { .stTop nav { gap: 12px; } }
+.toastBox { position: fixed; left: 0; right: 0; bottom: 0; padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); display: flex; justify-content: center; pointer-events: none; z-index: 50; }
+.toast { padding: 10px 16px; border-radius: 8px; background: var(--ink); color: var(--bg); font-size: 13px; max-width: 100%; opacity: 0; transform: translateY(6px); }
+.toast.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .toast { transition: opacity .18s, transform .18s; }
+  .btn, .chip, .day, .src, .go, .ib, .playbtn { transition: border-color .12s, background-color .12s, color .12s, opacity .12s; }
+}
+@media (max-width: 520px) {
+  .top h1 { font-size: 24px; }
+  .stamp { text-align: left; }
+  .facet { flex-direction: column; gap: 4px; }
+  .gnum { font-size: 44px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div id="stream" aria-label="스트림">
+  <div class="stTop">
+    <span class="mark">레퍼런스 로그</span>
+    <nav>
+      <button type="button" class="lk" id="stLog">로그</button>
+      <button type="button" class="lk" id="stAdd">+ 추가</button>
+      <button type="button" class="lk" id="stFind">✦ 더 찾기</button>
+    </nav>
+  </div>
+  <div class="sbar">
+    <div class="rail" id="sRail" role="group" aria-label="카테고리"></div>
+  </div>
+  <div class="sCol" id="sCol"></div>
+</div>
+
+<div class="wrap" id="logView">
+  <header class="top">
+    <div>
+      <h1>레퍼런스 로그</h1>
+      <p class="sub">뮤직비디오 · 광고 · 시네마틱 필름 · 모션그래픽을 날짜별로 쌓아 두고 바로 재생하는 편집실 기록장</p>
+    </div>
+    <div class="stamp mono" aria-live="polite">
+      <b id="todayLabel"></b>
+      <span id="stats"></span>
+      <button type="button" class="btn small" id="toStream" style="margin-top:6px">← 스트림 보기</button>
+    </div>
+  </header>
+
+  <div id="notices"></div>
+
+  <section class="launch" aria-label="오늘 둘러볼 사이트">
+    <span class="lbl">오늘 둘러보기</span>
+    <a class="src" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><i class="dot" style="--c:var(--p-youtube)"></i>YouTube ↗</a>
+    <a class="src" href="https://vimeo.com/channels/staffpicks" target="_blank" rel="noopener noreferrer"><i class="dot" style="--c:var(--p-vimeo)"></i>Vimeo 스태프픽 ↗</a>
+    <a class="src" href="https://www.tvcf.co.kr/" target="_blank" rel="noopener noreferrer"><i class="dot" style="--c:var(--p-tvcf)"></i>TVCF ↗</a>
+  </section>
+
+  <form class="intake" id="intake" autocomplete="off">
+    <label class="sr" for="linkIn">영상 링크 붙여넣기</label>
+    <input id="linkIn" type="text" inputmode="url" placeholder="영상 링크를 붙여넣고 Enter (YouTube, Vimeo, TVCF …)">
+    <button type="submit" class="btn primary">추가</button>
+    <button type="button" class="btn" id="findBtn">✦ 더 찾기</button>
+  </form>
+
+  <section class="stripWrap" aria-label="날짜별 기록">
+    <div class="stripHead">
+      <span class="lbl">최근 28일</span>
+      <button type="button" class="btn ghost small" id="clearDate" hidden>날짜 필터 해제</button>
+    </div>
+    <div class="strip" id="strip"></div>
+  </section>
+
+  <section class="tools" aria-label="검색과 보기 방식">
+    <label class="sr" for="q">검색</label>
+    <input class="search" id="q" type="search" placeholder="제목, 감독, 태그, 메모 검색">
+    <div class="seg" role="group" aria-label="묶는 기준">
+      <button type="button" data-g="date" aria-pressed="true">날짜별</button>
+      <button type="button" data-g="category" aria-pressed="false">카테고리별</button>
+      <button type="button" data-g="platform" aria-pressed="false">사이트별</button>
+    </div>
+    <button type="button" class="btn favBtn" id="favBtn" aria-pressed="false">★ 즐겨찾기만</button>
+  </section>
+
+  <section class="facets" aria-label="필터">
+    <div class="facet"><span class="lbl">사이트</span><div class="chips" id="platChips"></div></div>
+    <div class="facet"><span class="lbl">카테고리</span><div class="chips" id="catChips"></div></div>
+    <div class="facet"><span class="lbl">지역</span><div class="chips" id="regChips"></div></div>
+  </section>
+
+  <main class="groups" id="groups"></main>
+</div>
+
+<dialog id="pdlg" aria-label="영상 재생">
+  <div class="pbox">
+    <div class="phead">
+      <div class="tt"><h2 id="pTitle"></h2><p class="cr" id="pCredit"></p></div>
+      <button type="button" class="btn small" id="pClose">닫기</button>
+    </div>
+    <div class="stage" id="stage"></div>
+    <p class="fail" id="pFail" role="status" hidden></p>
+    <p class="pnote" id="pNote"></p>
+    <div class="pfoot">
+      <button type="button" class="btn small" id="pPrev">← 이전</button>
+      <button type="button" class="btn small" id="pNext">다음 →</button>
+      <span class="pos mono" id="pPos"></span>
+      <span class="grow"></span>
+      <a class="btn small" id="pOpen" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;text-decoration:none">원본에서 열기 ↗</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="sdlg" aria-labelledby="sTitle">
+  <div class="sbox">
+    <div class="dhead">
+      <h2 id="sTitle">더 찾기</h2>
+      <button type="button" class="btn small" id="sClose">닫기</button>
+    </div>
+    <p class="hint" style="display:block">최근에 올라온 작품 중 조회수가 높은 영상과 Vimeo 스태프픽을 전 세계에서 찾아 추천해요. 마음에 들면 “+ 추가”로 오늘 로그에 넣으세요.</p>
+    <div id="sSetup"></div>
+    <div class="ctrl" id="sCtrl"></div>
+    <div class="grid" id="sGrid"></div>
+    <p class="smsg" id="sMsg" role="status"></p>
+    <div class="sfoot"><button type="button" class="btn primary" id="sMore">더 찾기</button></div>
+  </div>
+</dialog>
+
+<dialog id="dlg" aria-labelledby="dlgTitle">
+  <form id="dlgForm" autocomplete="off">
+    <div class="dhead">
+      <h2 id="dlgTitle">레퍼런스 추가</h2>
+      <button type="button" class="btn ghost small" id="dClose">닫기</button>
+    </div>
+    <div class="field">
+      <label for="fUrl">링크</label>
+      <textarea id="fUrl" rows="2" placeholder="https://…  (여러 개는 줄바꿈으로 구분)"></textarea>
+      <p class="hint" id="urlHint"></p>
+    </div>
+    <div class="field">
+      <label for="fTitle">제목</label>
+      <input id="fTitle" type="text" placeholder="작품 제목 (YouTube·Vimeo는 링크에서 가져오기를 시도해요)">
+    </div>
+    <div class="row2">
+      <div class="field"><label for="fCredit">감독 · 아티스트 · 브랜드</label><input id="fCredit" type="text"></div>
+      <div class="field"><label for="fDate">정리한 날짜</label><input id="fDate" type="date"></div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="fCat">카테고리</label>
+        <input id="fCat" type="text" list="catList" placeholder="미분류">
+        <datalist id="catList"></datalist>
+      </div>
+      <div class="field">
+        <label for="fRegion">지역</label>
+        <select id="fRegion"><option value="">미지정</option><option value="국내">국내</option><option value="해외">해외</option></select>
+      </div>
+    </div>
+    <div class="quick" id="catQuick"></div>
+    <div class="field">
+      <label for="fTags">태그</label>
+      <input id="fTags" type="text" placeholder="쉼표로 구분 · 예: 핸드헬드, 네온, 롱테이크">
+    </div>
+    <div class="field">
+      <label for="fNote">메모</label>
+      <textarea id="fNote" rows="3" placeholder="어디가 좋았는지, 가져다 쓸 포인트"></textarea>
+    </div>
+    <p class="err" id="dErr" role="alert" hidden></p>
+    <div class="dfoot">
+      <button type="button" class="btn danger" id="delBtn" hidden>삭제</button>
+      <span class="grow"></span>
+      <button type="button" class="btn" id="dCancel">취소</button>
+      <button type="submit" class="btn primary" id="dSave">저장</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toastBox"><div class="toast" id="toast" role="status" aria-live="polite"></div></div>
+
+<script>
+/* 수집한 레퍼런스. 새 버전의 파일로 교체하면 아직 없는 항목만 자동으로 합쳐집니다. */
+var BAKED = [
+ {
+  "id": "be6280ca780",
+  "url": "https://www.youtube.com/watch?v=JleoAppaxi0",
+  "title": "Love wins all - 아이유 (IU 'Love wins all' MV)",
+  "credit": "아이유(IU) / 엄태화(W Korea 기사 기준)",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "영화적 연출",
+   "내러티브",
+   "서사형 MV",
+   "감독 협업"
+  ],
+  "note": "영화감독 엄태화가 연출하고 뷔(V)가 출연한 영상으로, 아이유 공식 채널에 올라온 MV. 영화적 내러티브 연출 레퍼런스.",
+  "region": "국내",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241063854
+ },
+ {
+  "id": "b788f35bfb8",
+  "url": "https://www.youtube.com/watch?v=cXmYNmQ4BuM",
+  "title": "ZEN - JENNIE (JENNIE - ZEN (Official Video))",
+  "credit": "JENNIE",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "솔로 아티스트",
+   "비주얼 콘셉트",
+   "팝 MV"
+  ],
+  "note": "17 Carat K-Pop 선정 '2025 베스트 K-pop MV' 리스트 17위. 연출 크레딧은 공식 페이지에서 확인하지 못함.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241064854
+ },
+ {
+  "id": "b116f423c3a",
+  "url": "https://www.youtube.com/watch?v=M2WTUoy4y6E",
+  "title": "Dirty Work - aespa (aespa 에스파 'Dirty Work' MV)",
+  "credit": "aespa (SMTOWN 채널)",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "그룹 퍼포먼스",
+   "콘셉트 MV",
+   "SM"
+  ],
+  "note": "The Bias List 선정 2025 K-pop MV 3위. 설명란에 감독·촬영 크레딧은 없음.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241065854
+ },
+ {
+  "id": "b773f84e964",
+  "url": "https://www.youtube.com/watch?v=bMrwm7TXWAo",
+  "title": "비비드라라러브 - 이찬혁 (이찬혁 (LEE CHANHYUK) - '비비드라라러브' M/V)",
+  "credit": "이찬혁(LEE CHANHYUK) (AKMU 채널)",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "싱어송라이터",
+   "비주얼 스토리텔링",
+   "아티스트 세계관"
+  ],
+  "note": "17 Carat K-Pop 선정 '2025 베스트 K-pop MV' 3위. 연출 크레딧은 확인하지 못함.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241066854
+ },
+ {
+  "id": "b62c89b33e9",
+  "url": "https://www.youtube.com/watch?v=htQBS2Ikz6c",
+  "title": "Berghain - ROSALÍA (ROSALÍA - Berghain (Official Video) feat. Björk & Yves Tumor)",
+  "credit": "ROSALÍA feat. Björk, Yves Tumor / Nicolás Méndez",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "오케스트라",
+   "패션",
+   "아트 디렉션",
+   "프리미엄 룩"
+  ],
+  "note": "Nicolás Méndez 연출(Slant, Metalocus 기준). 오케스트라가 등장하는 영상으로, Euronews는 숨은 메시지가 있는 영상이라고 소개했고 W Magazine는 빈티지 패션 요소를 다룸.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241067854
+ },
+ {
+  "id": "be5da6d39f1",
+  "url": "https://www.youtube.com/watch?v=F0cdbR5ognY",
+  "title": "DENIAL IS A RIVER - Doechii",
+  "credit": "Doechii / Carlos Acosta, James Mackel",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "시트콤 오마주",
+   "콘셉트 연출",
+   "미술",
+   "코미디"
+  ],
+  "note": "클래식 시트콤을 오마주한 콘셉트 영상으로, 별도의 스킷 영상도 함께 공개됨. Slant·Revolt 등 2025 MV 리스트에 오른 작품.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241068854
+ },
+ {
+  "id": "b15ea467418",
+  "url": "https://www.youtube.com/watch?v=Xgp7wlBfASA",
+  "title": "House featuring John Cale - Charli xcx (Charli xcx - House featuring John Cale (Official Video))",
+  "credit": "Charli xcx feat. John Cale / Mitch Ryan(Slant 기준)",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "인디 감성",
+   "아트 팝",
+   "저예산 미학"
+  ],
+  "note": "Slant의 2025 베스트 뮤직비디오 리스트에 오른 작품. Mitch Ryan 연출로 소개됨.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241069854
+ },
+ {
+  "id": "b2f0ab2f292",
+  "url": "https://www.youtube.com/watch?v=KFMYx1TibeQ",
+  "title": "Folded - Kehlani (Kehlani - Folded [Official Music Video])",
+  "credit": "Kehlani / City James(Revolt 기준)",
+  "category": "뮤직비디오",
+  "date": "2026-11-10",
+  "tags": [
+   "R&B",
+   "감성 무드",
+   "컬러 룩"
+  ],
+  "note": "Revolt의 2025 베스트 랩·R&B 뮤직비디오 리스트에 오른 작품. City James 연출로 소개됨.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241070854
+ },
+ {
+  "id": "b53daa598e8",
+  "url": "https://www.youtube.com/watch?v=8S7ZJcsz_CE",
+  "title": "밤낚시(Night Fishing) 예고편 30초 - 현대자동차",
+  "credit": "현대자동차 / 이노션, 문병곤 감독 (감독·대행사는 ZDNet 기사로 확인)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "브랜디드 필름",
+   "단편영화",
+   "스릴러",
+   "칸 그랑프리",
+   "이노션"
+  ],
+  "note": "차량 홍보 없이 10여 분짜리 스릴러 단편영화로 만든 브랜디드 필름이고, 2025 칸 라이언즈 엔터테인먼트 부문 그랑프리를 받음. 이 링크는 현대차 공식 채널의 30초 예고편이며 본편이 아님. 장르 영화 문법으로 브랜드를 전달한 사례로 참고할 만함.",
+  "region": "국내",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241071854
+ },
+ {
+  "id": "bab16188b64",
+  "url": "https://www.youtube.com/watch?v=QIPQlqrlY-Y",
+  "title": "처음 듣는 광복 - 빙그레",
+  "credit": "빙그레 / 이노션 (대행사는 현대차그룹 보도자료의 2025 대한민국광고대상 수상 내역으로 확인, 감독은 미확인)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "공익",
+   "AI",
+   "다큐",
+   "사운드",
+   "대한민국광고대상"
+  ],
+  "note": "1945년 광복의 만세 소리를 AI로 복원해 후손이 듣게 한 아이디어가 중심인 광복 80주년 캠페인. 2025 대한민국광고대상에서 브랜디드콘텐츠, 공익, 이노베이션 3개 부문 대상과 필름크래프트 금상 등 5관왕. 8분 15초 다큐 버전은 CGV 15개관에서 상영됨.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241072854
+ },
+ {
+  "id": "b872d637627",
+  "url": "https://www.youtube.com/watch?v=IUhmEge3TFM",
+  "title": "집에 가자 - KCC건설 스위첸",
+  "credit": "KCC건설 / 이노션 (대행사는 현대차그룹 보도자료로 확인, 감독은 미확인)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "TVCF",
+   "공감",
+   "다큐 톤",
+   "한 줄 카피",
+   "대한민국광고대상"
+  ],
+  "note": "출퇴근하는 직장인, 학생, 군인 등 실제 사람들의 귀갓길을 날것의 사진·영상 톤으로 이어 붙이고 '오늘도 집까지 오시느라 고생 많으셨습니다'라는 한 줄로 마무리하는 구성. 2025 대한민국광고대상 TV영상 부문 대상. 공개 10일 만에 조회수 1천만을 넘김. 음악은 김창완의 '집에 가는 길'.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241073854
+ },
+ {
+  "id": "b2b212e5e39",
+  "url": "https://www.youtube.com/watch?v=B_X7n0AaLqA",
+  "title": "범 내려온다 - 한국관광공사",
+  "credit": "한국관광공사 / 이날치, 앰비규어스 댄스컴퍼니 (대행사는 HS애드로 보도되었으나 이 에피소드 페이지에서 직접 확인하지는 못함)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "관광",
+   "안무",
+   "음악 중심",
+   "로케이션",
+   "바이럴"
+  ],
+  "note": "음악(이날치)과 현대무용(앰비규어스)을 서울, 부산, 전주의 장소 영상에 결합한 관광 홍보 영상. 2020년 작품이지만 음악과 안무 중심 연출의 대표 레퍼런스로 널리 알려져 이전 작품 허용 기준으로 포함함.",
+  "region": "국내",
+  "year": 2020,
+  "fav": false,
+  "createdAt": 1794241074854
+ },
+ {
+  "id": "b0f28eb629d",
+  "url": "https://www.youtube.com/watch?v=FBSam25u8O4",
+  "title": "How can I communicate better with my mom? - Claude (Anthropic)",
+  "credit": "Anthropic (Claude) / Mother London, 제작사 Biscuit Filmworks, 감독 Jeff Low (Shots 칸 2026 수상 기사 기준)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "칸 그랑프리",
+   "AI 광고",
+   "풍자",
+   "슈퍼볼",
+   "카피 중심"
+  ],
+  "note": "2026 칸 라이언즈 필름 그랑프리를 받은 Claude 캠페인의 두 스팟 중 하나. 영상 페이지의 업로드일은 2026-02-04이고, 채널명은 페이지에서 확인하지 못함. Shots 기사에는 필름 부문 그랑프리가 두 스팟(이 영상과 'Can I Get a Six Pack Quickly')으로 나와 있고, 캠페인 4편 묶음은 Vimeo(vimeo.com/1161842000)에도 있음.",
+  "region": "해외",
+  "year": 2026,
+  "fav": false,
+  "createdAt": 1794241075854
+ },
+ {
+  "id": "b9ca6421b85",
+  "url": "https://vimeo.com/984179319",
+  "title": "Steve Rogers - Channel 4 x Paralympics - Considering What?",
+  "credit": "Channel 4 / 4Creative (London), 제작사 Biscuit Filmworks x Revolver, 감독 Steve Rogers",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "칸 그랑프리",
+   "스포츠",
+   "패럴림픽",
+   "크래프트",
+   "감독 릴"
+  ],
+  "note": "파리 패럴림픽 방송 홍보 필름. 2025 칸 라이언즈 필름 부문 그랑프리 2개 중 하나. 촬영 Daniel Landin, 편집 Rich Orrick(Work Editorial), 포스트 Time Based Arts 등 크레딧이 페이지에 상세히 있어 제작 구성 참고에 좋음.",
+  "region": "해외",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241076854
+ },
+ {
+  "id": "b94839daa7e",
+  "url": "https://vimeo.com/1070109559",
+  "title": "The Final Copy of Ilon Specht - L'Oréal Paris",
+  "credit": "L'Oréal Paris / McCann Paris, 제작 Breakwater Studios·TRAVERSE32, 감독 Ben Proudfoot (업로더 Breakwater Studios)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "칸 그랑프리",
+   "다큐멘터리",
+   "브랜드 스토리",
+   "인터뷰",
+   "L'Oréal"
+  ],
+  "note": "'Because I'm Worth It' 슬로건을 만든 카피라이터 Ilon Specht의 마지막 순간을 다룬 다큐멘터리 형식 브랜드 필름. 2025 칸 라이언즈 필름 그랑프리 2개 중 하나. 편집 Tim Johnson·Mónica Salazar, 음악 Katya Richardson 등 크레딧이 페이지에 있음.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241077854
+ },
+ {
+  "id": "bf769f7ee32",
+  "url": "https://vimeo.com/1113699301",
+  "title": "Hornbach - No Project Without Drama",
+  "credit": "Hornbach / Heimat TBWA Berlin, 제작 Tempomedia & CANADA, 감독 Lope Serrano, 촬영 Niklas Johansson, 편집 Carlos Font Clos (업로더 Metropolitana)",
+  "category": "광고",
+  "date": "2026-11-10",
+  "tags": [
+   "연극적 연출",
+   "코미디",
+   "크래프트",
+   "칸 골드",
+   "광고제 다수 수상"
+  ],
+  "note": "공사 현장의 소동을 연극 무대처럼 과장해 풀어낸 연출이 특징. 칸 2026 필름 부문 골드(Shots 기사), Ciclope·LIA 2025 그랑프리(Packshot Magazine 기사 제목), Epica 필름 그랑프리(기사 제목)로 보도됨. 브랜드 공식 채널이 아니라 후반작업사 Metropolitana가 올린 Vimeo 영상이며, 제작 연도는 페이지에 없어 수상 보도로 2025년으로 추정함.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241078854
+ },
+ {
+  "id": "b6c020bd000",
+  "url": "https://vimeo.com/1058912909",
+  "title": "100을 향한 여정의 시작ㅣNew Worldㅣ토스",
+  "credit": "박형진 / 촬영 조민국(언더라이트), 제작 studioPEBS, 에이전시 teleport, 클라이언트 토스",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "브랜드필름",
+   "국내",
+   "토스",
+   "크레딧명시"
+  ],
+  "note": "토스 브랜드 필름. 페이지에 감독·촬영·제작사 크레딧이 명시된 국내 상업 필름 레퍼런스. 연도는 영상 ID 시기로 추정한 값이라 확정이 아님.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241079854
+ },
+ {
+  "id": "b7d55c220b3",
+  "url": "https://vimeo.com/1123781623",
+  "title": "Kinky Boots Story Film | 킹키부츠 스토리 필름",
+  "credit": "이은태 / 촬영 조영재, 제작 라운드닷(Roundot)",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "스토리필름",
+   "뮤지컬",
+   "국내",
+   "조명",
+   "색보정"
+  ],
+  "note": "조명감독(황성록)·색보정(배경근)·VFX·사운드디자인까지 크레딧이 공개된 스토리 필름이라 파트별 분업 참고에 좋음. 연도는 영상 ID 시기로 추정한 값이라 확정이 아님.",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241080854
+ },
+ {
+  "id": "bf10705d9fb",
+  "url": "https://vimeo.com/1093923608",
+  "title": "2024_MUZIGAE MANSION 1st Brand Film (Full ver.)｜무지개맨션 브랜드 필름",
+  "credit": "고인곤 / 제작 리멤버·베러테이스트, 에이전시 오길비코리아, 클라이언트 엘씨엠코스메틱",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "브랜드필름",
+   "국내",
+   "풀버전",
+   "코스메틱"
+  ],
+  "note": "국내 브랜드 필름 풀버전. 촬영감독 크레딧은 페이지에 없고 감독·제작사·편집(황준성)만 확인됨.",
+  "region": "국내",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241081854
+ },
+ {
+  "id": "be1c412efc3",
+  "url": "https://vimeo.com/1096005227",
+  "title": "You Know You Wanna Stay",
+  "credit": "Alex Heller / 촬영 Brody S. Anderson",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "VimeoStaffPick",
+   "영화제수상",
+   "단편",
+   "해외"
+  ],
+  "note": "2025 팜스프링스 국제 쇼트페스트에서 Vimeo Staff Pick Award를 받음. 고등학교 1학년생이 짝사랑 상대의 욕실에 숨는다는 설정의 단편임. 연도는 수상 시점 기준.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241082854
+ },
+ {
+  "id": "bd9f80ef1a3",
+  "url": "https://vimeo.com/1140004517",
+  "title": "CHICO",
+  "credit": "Théo Abadie / 촬영 Hovig Hagopian",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "Vimeo2025",
+   "단편",
+   "브뤼셀",
+   "해외"
+  ],
+  "note": "브뤼셀 배경, 세탁기를 고쳐 상대의 관심을 끌려는 젊은 스쾃터의 이야기. Vimeo의 2025 베스트 영상 목록(No Film School 기사)에 포함됨. 연도는 이 목록 기준 추정.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241083854
+ },
+ {
+  "id": "b27a7b48db5",
+  "url": "https://vimeo.com/1089693714",
+  "title": "HAQQIM BOR",
+  "credit": "Lado Kvataniya / 촬영 Vladimir Ushakov",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "Vimeo2025",
+   "컨셉필름",
+   "조명",
+   "해외"
+  ],
+  "note": "유치원·학교·집 모양의 가방을 멘 아이들이 나오고, 밤에 가방 안에서 빛이 새어 나온다는 설정. 타슈켄트 2025로 크레딧 표기. Vimeo 2025 브랜디드 베스트 목록에 포함됨.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241084854
+ },
+ {
+  "id": "b9652534508",
+  "url": "https://vimeo.com/1139491180",
+  "title": "We Were the Scenery",
+  "credit": "Christopher Radcliff / 촬영 Jess X. Snow",
+  "category": "시네마틱 필름",
+  "date": "2026-11-10",
+  "tags": [
+   "선댄스",
+   "다큐단편",
+   "아카데미쇼트리스트",
+   "해외"
+  ],
+  "note": "15분 다큐 단편. 2025 선댄스 단편 논픽션 심사위원상 수상, 제98회 아카데미 다큐 단편 쇼트리스트. 베트남·필리핀·롱비치에서 촬영.",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241085854
+ },
+ {
+  "id": "b8a84d5f627",
+  "url": "https://vimeo.com/1096129511",
+  "title": "[Title Sequence] 당신의 맛 / Tastefully Yours",
+  "credit": "GIANTSTEP (제작) + Studio Pivote (2D 캐릭터 애니메이션) / 드라마 '당신의 맛' 타이틀 (CD 이희복, 아트디렉터·모션 윤현지)",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "타이틀 시퀀스",
+   "3D 미니어처",
+   "2D 캐릭터 애니메이션",
+   "드라마"
+  ],
+  "note": "작은 식당 하나를 3D 미니어처 세트로 만들고 그 안에 2D 캐릭터 애니메이션을 얹었으며, 아침부터 밤까지 공간이 회전하며 두 주인공의 관계 변화를 보여 줌 (영상 설명 기준)",
+  "region": "국내",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241086854
+ },
+ {
+  "id": "b7f4f8ef8d6",
+  "url": "https://vimeo.com/998098777",
+  "title": "Samsung : Samsung Friends x Galaxy Z Flip6 , Z Fold6 Cases",
+  "credit": "GIANTSTEP (VFX) / 삼성전자 Future Generation Lab, 캐릭터 디자인 Sticky Monster Lab, 대행사 M Alliance (감독 Rim Choi)",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "브랜드 모션",
+   "3D 캐릭터",
+   "제품 필름",
+   "삼성"
+  ],
+  "note": "캐릭터 디자인은 Sticky Monster Lab이, 리깅·애니메이션·FX·컴포짓은 GIANTSTEP이 맡은 브랜드용 3D 캐릭터 모션 작업 (Stash 크레딧 기준)",
+  "region": "국내",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241087854
+ },
+ {
+  "id": "b99fb9c1d82",
+  "url": "https://vimeo.com/1163000282",
+  "title": "SLEEP MILDO | Gel Mattress",
+  "credit": "Reframe Studio (서울) / 클라이언트 Sleep Mildo (AD Rui Figueiredo, 사운드 Blink Audio)",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "3D",
+   "제품 필름",
+   "사운드 디자인",
+   "브랜드 모션"
+  ],
+  "note": "젤 매트리스 제품을 3D로 표현한 필름으로, 사운드 디자인을 Blink Audio가 맡았음 (Stash 크레딧 기준)",
+  "region": "국내",
+  "year": 2026,
+  "fav": false,
+  "createdAt": 1794241088854
+ },
+ {
+  "id": "b4fb06bed2d",
+  "url": "https://www.youtube.com/watch?v=uKT5bwMkOAw",
+  "title": "Severance — Opening Title Sequence: Season 2 | Apple TV",
+  "credit": "Oliver Latta (감독·애니메이터), Teddy Blanks (디자이너) / Apple TV+ '세브란스' 시즌2, 음악 Theodore Shapiro",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "타이틀 시퀀스",
+   "캐릭터 애니메이션",
+   "Apple TV+",
+   "세브란스"
+  ],
+  "note": "Stash·Motionographer·3D 매체에서 다룬 시즌2 타이틀로, Oliver Latta가 감독·애니메이션을 맡았고 BTS 영상도 따로 공개됨",
+  "region": "해외",
+  "year": 2025,
+  "fav": false,
+  "createdAt": 1794241089854
+ },
+ {
+  "id": "b6be94f80a0",
+  "url": "https://vimeo.com/1007243178",
+  "title": "쇼군 메인 타이틀 - Elastic (원본 제목: 167_10ELASTIC_SHOGUN)",
+  "credit": "Elastic (CD Nadia Tzuo) / FX '쇼군' 메인 타이틀, 음악 Atticus Ross·Leopold Ross·Nick Chuba (Vimeo 업로더 Stephen Price, Stash 아카이브용)",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "타이틀 시퀀스",
+   "3D",
+   "CG",
+   "FX",
+   "쇼군"
+  ],
+  "note": "Art of the Title에 실린 Elastic의 타이틀 작업으로, 선정 기준 중 '널리 인정받은 작품'에 해당함. Stash의 2024 타이틀 디자인 베스트에도 포함됨",
+  "region": "해외",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241090854
+ },
+ {
+  "id": "b50d1bdada1",
+  "url": "https://vimeo.com/1007243207",
+  "title": "데카메론 타이틀 - Plains of Yonder (원본 제목: 167_12PLAINS OF YONDER_THE DECAMERON)",
+  "credit": "Plains of Yonder / Netflix '데카메론' 타이틀 (Vimeo 업로더 Stephen Price, Stash 아카이브용)",
+  "category": "모션그래픽",
+  "date": "2026-11-10",
+  "tags": [
+   "타이틀 시퀀스",
+   "Stash Best of 2024",
+   "Netflix"
+  ],
+  "note": "Stash의 2024 타이틀 디자인 베스트 7편 중 하나로 선정됨. 제작 스튜디오는 파일명과 Stash 페이지 표기로 확인했고, 이 영상 자체의 연출은 직접 보고 확인하지 못했음",
+  "region": "해외",
+  "year": 2024,
+  "fav": false,
+  "createdAt": 1794241091854
+ }
+];
+</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+
+  var DEFAULT_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', 'FILM', '단편·영화', '브랜드 필름', '미분류'];
+  var SRC_ORDER = ['YOUTUBE', 'VIMEO', 'AI', '기타'];
+  var SRC_CATS = { YOUTUBE: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'], VIMEO: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'], AI: ['FILM'] };
+  /* 왼쪽 분류용 묶음: FILM은 AI, 나머지는 올라온 사이트 기준 */
+  function groupOf(it) { return it.category === 'FILM' ? 'AI' : it.p.key === 'youtube' ? 'YOUTUBE' : it.p.key === 'vimeo' ? 'VIMEO' : '기타'; }
+  var FIND_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽'];
+  var PLATFORM_ORDER = ['youtube', 'vimeo', 'tvcf', 'other'];
+  var PLATFORM_LABEL = { youtube: 'YouTube', vimeo: 'Vimeo', tvcf: 'TVCF', other: '기타' };
+  var WEEK = ['일', '월', '화', '수', '목', '금', '토'];
+  var LS_KEY = 'reference-log-site-v1';
+  var LS_GROUP = 'reference-log-site-group';
+  var LS_KEYS = 'reference-log-site-keys';
+  var LS_HIDDEN = 'reference-log-site-hidden';
+  var LS_MODE = 'reference-log-site-mode';
+
+  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', fav: false, order: [] };
+  var local = { items: {}, deleted: [], thumbs: {} };
+  var persisted = true;
+
+  /* ---------- 유틸 ---------- */
+  function h(tag, attrs) {
+    var el = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      var v = attrs[k];
+      if (v == null || v === false) return;
+      if (k === 'class') el.className = v;
+      else if (k === 'style') el.style.cssText = v;
+      else if (k.indexOf('on') === 0 && typeof v === 'function') el.addEventListener(k.slice(2), v);
+      else if (v === true) el.setAttribute(k, '');
+      else el.setAttribute(k, v);
+    });
+    for (var i = 2; i < arguments.length; i++) {
+      var kids = [].concat(arguments[i]);
+      for (var j = 0; j < kids.length; j++) {
+        var kid = kids[j];
+        if (kid == null || kid === false) continue;
+        el.append(kid.nodeType ? kid : document.createTextNode(String(kid)));
+      }
+    }
+    return el;
+  }
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function parseYmd(s) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+  function todayStr() { return ymd(new Date()); }
+  function newId() { return 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function lsGet(k, fallback) { try { var v = JSON.parse(localStorage.getItem(k) || 'null'); return v == null ? fallback : v; } catch (e) { return fallback; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
+
+  function normUrl(raw) {
+    var s = (raw || '').trim();
+    if (!s) return null;
+    if (!/^[a-z][a-z0-9+.\-]*:/i.test(s)) s = 'https://' + s;
+    try {
+      var u = new URL(s);
+      if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+      if (u.hostname.indexOf('.') < 0) return null;
+      return u.href;
+    } catch (e) { return null; }
+  }
+  function platformOf(url) {
+    var u;
+    try { u = new URL(url); } catch (e) { return { key: 'other', label: '링크 오류', host: '', path: url || '' }; }
+    var host = u.hostname.replace(/^www\./, '').toLowerCase(), key = 'other';
+    if (host === 'youtu.be' || /(^|\.)youtube\.com$/.test(host)) key = 'youtube';
+    else if (/(^|\.)vimeo\.com$/.test(host)) key = 'vimeo';
+    else if (/(^|\.)tvcf\.co\.kr$/.test(host)) key = 'tvcf';
+    return { key: key, label: key === 'other' ? host : PLATFORM_LABEL[key], host: host, path: host + (u.pathname === '/' ? '' : u.pathname) + u.search };
+  }
+  function parseStart(v) {
+    if (!v) return 0;
+    if (/^\d+$/.test(v)) return +v;
+    var m = /^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/.exec(v);
+    return m ? (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0) : 0;
+  }
+  /* 플레이어에 넣을 수 있는 주소만 만든다. ID는 형식을 검사한 값만 쓴다. */
+  function embedOf(url) {
+    var u; try { u = new URL(url); } catch (e) { return null; }
+    var host = u.hostname.replace(/^www\./, '').toLowerCase(), parts = u.pathname.split('/').filter(Boolean), id = null;
+    if (host === 'youtu.be' || /(^|\.)youtube\.com$/.test(host)) {
+      if (host === 'youtu.be') id = parts[0];
+      else if (u.pathname === '/watch') id = u.searchParams.get('v');
+      else if (['embed', 'shorts', 'live', 'v'].indexOf(parts[0]) >= 0) id = parts[1];
+      if (!/^[\w-]{11}$/.test(id || '')) return null;
+      return { kind: 'youtube', id: id, start: parseStart(u.searchParams.get('t') || u.searchParams.get('start')), thumb: 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg', ratio: '16 / 9' };
+    }
+    if (/(^|\.)vimeo\.com$/.test(host)) {
+      var m = /(?:^|\/)(\d{5,})(?:\/([0-9a-f]{6,}))?(?:\/|$)/i.exec(u.pathname);
+      if (!m) return null;
+      var hash = m[2] || u.searchParams.get('h') || '';
+      return { kind: 'vimeo', id: m[1], hash: /^[0-9a-f]{6,}$/i.test(hash) ? hash : '', thumb: '', ratio: '16 / 9' };
+    }
+    return null;
+  }
+  function parseUrls(text) {
+    var parts = (text || '').split(/\s+/).filter(Boolean), valid = [], invalid = [], seen = {};
+    parts.forEach(function (p) {
+      var n = normUrl(p);
+      if (!n) invalid.push(p); else if (!seen[n]) { seen[n] = 1; valid.push(n); }
+    });
+    return { valid: valid, invalid: invalid };
+  }
+  function clean(id, d) {
+    d = d || {};
+    var s = function (v) { return typeof v === 'string' ? v : ''; };
+    var it = {
+      id: id, url: s(d.url), title: s(d.title), credit: s(d.credit), category: s(d.category) || '미분류',
+      date: parseYmd(d.date) ? d.date : todayStr(),
+      tags: Array.isArray(d.tags) ? d.tags.filter(function (x) { return typeof x === 'string'; }).slice(0, 20) : [],
+      note: s(d.note), fav: !!d.fav,
+      region: d.region === '국내' || d.region === '해외' ? d.region : '',
+      year: Number(d.year) > 1900 ? Number(d.year) : 0,
+      thumb: /^https:\/\/[^\s"'<>]{4,500}$/.test(s(d.thumb)) ? d.thumb : '',
+      createdAt: Number(d.createdAt) || 0
+    };
+    it.p = platformOf(normUrl(it.url) || it.url);
+    it.embed = embedOf(normUrl(it.url) || it.url);
+    return it;
+  }
+  function stripItem(it) {
+    return { id: it.id, url: it.url, title: it.title, credit: it.credit, category: it.category, date: it.date, tags: it.tags, note: it.note, fav: !!it.fav, region: it.region || '', year: it.year || 0, thumb: it.thumb || '', createdAt: it.createdAt };
+  }
+  var toastTimer = 0;
+  function toast(msg) {
+    var t = $('toast'); t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove('on'); }, 2800);
+  }
+  var scriptCache = {};
+  function loadScript(src) {
+    if (scriptCache[src]) return scriptCache[src];
+    scriptCache[src] = new Promise(function (res, rej) {
+      var s = document.createElement('script'); s.src = src; s.async = true;
+      s.onload = function () { res(); };
+      s.onerror = function () { delete scriptCache[src]; rej(new Error('load')); };
+      document.head.append(s);
+    });
+    return scriptCache[src];
+  }
+
+  /* 미리보기처럼 외부 연결을 막는 화면이면 알아채서 안내한다. */
+  document.addEventListener('securitypolicyviolation', function () {
+    if (state.blocked) return;
+    state.blocked = true; setTimeout(function () { render(); }, 0);
+  });
+
+  /* ---------- 저장 (이 브라우저) ---------- */
+  function persist() { persisted = lsSet(LS_KEY, local); }
+  function loadLocal() {
+    var v = lsGet(LS_KEY, null);
+    if (v && typeof v.items === 'object' && v.items) {
+      local.items = v.items; local.deleted = Array.isArray(v.deleted) ? v.deleted : [];
+      local.thumbs = v.thumbs && typeof v.thumbs === 'object' ? v.thumbs : {};
+    }
+    (window.BAKED || []).forEach(function (b) {
+      if (b && b.id && b.url && !local.items[b.id] && local.deleted.indexOf(b.id) < 0) local.items[b.id] = b;
+    });
+    persist();
+    refreshItems();
+  }
+  function refreshItems() { state.items = Object.keys(local.items).map(function (k) { return clean(k, local.items[k]); }); }
+  function saveItem(it) { local.items[it.id] = stripItem(it); local.deleted = local.deleted.filter(function (x) { return x !== it.id; }); persist(); refreshItems(); render(); }
+  function removeItem(id) { delete local.items[id]; if (local.deleted.indexOf(id) < 0) local.deleted.push(id); persist(); refreshItems(); render(); }
+
+  /* ---------- 필터 / 정렬 ---------- */
+  function matches(it, skip) {
+    if (skip !== 'platform' && state.platform && it.p.key !== state.platform) return false;
+    if (skip !== 'category' && state.category && it.category !== state.category) return false;
+    if (skip !== 'src' && state.src && groupOf(it) !== state.src) return false;
+    if (skip !== 'region' && state.region && it.region !== state.region) return false;
+    if (skip !== 'date' && state.date && it.date !== state.date) return false;
+    if (state.fav && !it.fav) return false;
+    if (state.q) {
+      var hay = (it.title + ' ' + it.credit + ' ' + it.category + ' ' + it.tags.join(' ') + ' ' + it.note + ' ' + it.p.host + ' ' + it.region + ' ' + it.url).toLowerCase();
+      var words = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+      for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) < 0) return false;
+    }
+    return true;
+  }
+  function cmpItems(a, b) { return b.date.localeCompare(a.date) || a.createdAt - b.createdAt; }
+  function catRank(c) { var i = DEFAULT_CATS.indexOf(c); return i < 0 ? 100 : i; }
+  function cmpCat(a, b) { return catRank(a) - catRank(b) || a.localeCompare(b, 'ko'); }
+  function allCategories() {
+    var set = {}; DEFAULT_CATS.forEach(function (c) { set[c] = 1; });
+    state.items.forEach(function (it) { set[it.category] = 1; });
+    return Object.keys(set).sort(cmpCat);
+  }
+  function numberMap() {
+    var byDate = {}, map = {};
+    state.items.forEach(function (it) { (byDate[it.date] = byDate[it.date] || []).push(it); });
+    Object.keys(byDate).forEach(function (k) {
+      byDate[k].sort(function (a, b) { return a.createdAt - b.createdAt || a.id.localeCompare(b.id); }).forEach(function (it, i) { map[it.id] = i + 1; });
+    });
+    return map;
+  }
+
+  /* ---------- 썸네일 ---------- */
+  function phNode(p) { return h('div', { class: 'ph' }, h('span', { class: 'pl' }, p.label), h('span', { class: 'pp' }, p.path)); }
+  function imgNode(src, p) {
+    var img = h('img', { src: src, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer' });
+    img.addEventListener('error', function () { img.replaceWith(phNode(p)); });
+    return img;
+  }
+  function thumbNode(it) {
+    var em = it.embed, src = it.thumb || (em && em.thumb) || (em && em.kind === 'vimeo' && local.thumbs[em.id]) || '';
+    if (src) return imgNode(src, it.p);
+    var node = phNode(it.p);
+    if (em && em.kind === 'vimeo') vimeoThumb(em.id, node, it.p);
+    return node;
+  }
+  /* Vimeo는 썸네일 주소가 영상마다 달라서 oEmbed로 알아내고, 한 번 알아낸 주소는 저장해 둔다. */
+  function vimeoThumb(vid, node, p) {
+    var swap = function (src) { node.replaceWith(imgNode(src, p)); };
+    var ctl = new AbortController(), to = setTimeout(function () { ctl.abort(); }, 7000);
+    fetch('https://vimeo.com/api/oembed.json?url=' + encodeURIComponent('https://vimeo.com/' + vid), { signal: ctl.signal })
+      .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
+      .then(function (j) {
+        if (typeof j.thumbnail_url !== 'string' || !/^https:\/\//.test(j.thumbnail_url)) throw new Error('none');
+        local.thumbs[vid] = j.thumbnail_url; persist(); swap(j.thumbnail_url);
+      })
+      .catch(function () { swap('https://vumbnail.com/' + vid + '.jpg'); })
+      .then(function () { clearTimeout(to); });
+  }
+
+  /* ---------- 렌더 ---------- */
+  function render() {
+    document.body.dataset.mode = state.mode;
+    if (state.mode === 'stream') { renderStream(); return; }
+    renderHeader(); renderNotices(); renderStrip(); renderFacets(); renderGroups(); renderControls();
+  }
+  function renderHeader() {
+    var d = new Date(), t = todayStr();
+    $('todayLabel').textContent = d.getFullYear() + '.' + pad(d.getMonth() + 1) + '.' + pad(d.getDate()) + ' ' + WEEK[d.getDay()];
+    var today = state.items.filter(function (it) { return it.date === t; }).length;
+    $('stats').textContent = '총 ' + state.items.length + '개 · 오늘 ' + today + '개';
+  }
+  function renderNotices() {
+    var box = $('notices'); box.replaceChildren();
+    var add = function (tag, text) { box.append(h('p', { class: 'notice' }, h('b', null, tag), text)); };
+    var bt = blockedText(); if (bt) add('안내', bt);
+    if (!persisted) add('저장 안 됨', '이 브라우저가 저장을 막고 있어 변경 내용이 이번 방문 동안만 유지됩니다.');
+  }
+  function renderStrip() {
+    var root = $('strip'); root.replaceChildren();
+    var byDate = {};
+    state.items.forEach(function (it) { if (matches(it, 'date')) (byDate[it.date] = byDate[it.date] || []).push(it); });
+    var now = new Date(), todayK = ymd(now);
+    for (var i = 27; i >= 0; i--) {
+      (function (i) {
+        var d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i), k = ymd(d), list = byDate[k] || [];
+        var mo = (i === 27 || d.getDate() === 1) ? (d.getMonth() + 1) + '월' : '';
+        root.append(h('button', {
+          type: 'button', class: 'day' + (list.length ? '' : ' empty') + (k === todayK ? ' today' : ''),
+          'aria-pressed': String(state.date === k),
+          'aria-label': (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + WEEK[d.getDay()] + '요일, ' + list.length + '개',
+          onclick: function () { state.date = state.date === k ? '' : k; render(); }
+        },
+          h('span', { class: 'mo' }, mo), h('span', { class: 'wd' }, WEEK[d.getDay()]), h('span', { class: 'dn' }, d.getDate()),
+          h('span', { class: 'ticks' }, list.slice(0, 6).map(function (it) { return h('i', { style: 'background:var(--p-' + it.p.key + ')' }); }))));
+      })(i);
+    }
+    $('clearDate').hidden = !state.date;
+    if (!renderStrip.done) { renderStrip.done = true; requestAnimationFrame(function () { root.scrollLeft = root.scrollWidth; }); }
+  }
+  function chip(label, count, pressed, onClick, color) {
+    return h('button', { type: 'button', class: 'chip', 'aria-pressed': String(!!pressed), onclick: onClick },
+      color ? h('i', { class: 'dot', style: '--c:' + color }) : null, h('span', null, label), count != null ? h('span', { class: 'cnt' }, count) : null);
+  }
+  function renderFacets() {
+    var pc = {}, cc = {}, rc = {};
+    state.items.forEach(function (it) {
+      if (matches(it, 'platform')) pc[it.p.key] = (pc[it.p.key] || 0) + 1;
+      if (matches(it, 'category')) cc[it.category] = (cc[it.category] || 0) + 1;
+      if (matches(it, 'region') && it.region) rc[it.region] = (rc[it.region] || 0) + 1;
+    });
+    var pr = $('platChips'); pr.replaceChildren();
+    pr.append(chip('전체', null, !state.platform, function () { state.platform = ''; render(); }));
+    PLATFORM_ORDER.forEach(function (k) {
+      if (!pc[k] && state.platform !== k) return;
+      pr.append(chip(PLATFORM_LABEL[k], pc[k] || 0, state.platform === k, function () { state.platform = state.platform === k ? '' : k; render(); }, 'var(--p-' + k + ')'));
+    });
+    var cr = $('catChips'); cr.replaceChildren();
+    cr.append(chip('전체', null, !state.category, function () { state.category = ''; render(); }));
+    allCategories().forEach(function (c) {
+      if (!cc[c] && state.category !== c) return;
+      cr.append(chip(c, cc[c] || 0, state.category === c, function () { state.category = state.category === c ? '' : c; render(); }));
+    });
+    var rr = $('regChips'); rr.replaceChildren();
+    rr.append(chip('전체', null, !state.region, function () { state.region = ''; render(); }));
+    ['국내', '해외'].forEach(function (r) {
+      if (!rc[r] && state.region !== r) return;
+      rr.append(chip(r, rc[r] || 0, state.region === r, function () { state.region = state.region === r ? '' : r; render(); }));
+    });
+  }
+  function renderControls() {
+    document.querySelectorAll('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.g === state.group)); });
+    $('favBtn').setAttribute('aria-pressed', String(state.fav));
+  }
+  function resetFilters() { state.q = ''; state.platform = ''; state.category = ''; state.region = ''; state.date = ''; state.fav = false; $('q').value = ''; render(); }
+
+  function card(it, nums) {
+    var url = normUrl(it.url), p = it.p, c = 'var(--p-' + p.key + ')', em = it.embed;
+    var inner = thumbNode(it), media;
+    if (em) media = h('button', { type: 'button', class: 'media', style: '--c:' + c, 'aria-label': (it.title || p.label) + ' 재생', onclick: function () { playItem(it, true); } }, inner, h('span', { class: 'playbtn' }));
+    else if (url) media = h('a', { class: 'media', href: url, target: '_blank', rel: 'noopener noreferrer', style: '--c:' + c, 'aria-label': (it.title || p.label) + ' 열기' }, inner);
+    else media = h('div', { class: 'media', style: '--c:' + c }, inner);
+    media.append(h('span', { class: 'num' }, '#' + pad(nums[it.id] || 1)));
+
+    var acts = h('div', { class: 'acts' },
+      em ? h('button', { type: 'button', class: 'go', onclick: function () { playItem(it, true); } }, '▶ 재생') : null,
+      url ? h('a', { class: 'go alt', href: url, target: '_blank', rel: 'noopener noreferrer' }, p.label + ' ↗') : null,
+      h('span', { class: 'sp' }),
+      h('button', { type: 'button', class: 'ib', 'aria-pressed': String(it.fav), 'aria-label': '즐겨찾기', onclick: function () { saveItem(Object.assign({}, it, { fav: !it.fav })); } }, it.fav ? '★' : '☆'),
+      h('button', { type: 'button', class: 'ib', onclick: function () { openDialog('edit', { item: it }); } }, '편집'));
+    var regYear = [it.region, it.year ? String(it.year) : ''].filter(Boolean).join(' · ');
+    return h('article', { class: 'card' }, media,
+      h('div', { class: 'cbody' },
+        h('h3', { class: 'ctitle' + (it.title ? '' : ' untitled') }, it.title || '제목 없음'),
+        it.credit ? h('div', { class: 'credit' }, it.credit) : null,
+        h('div', { class: 'meta' }, h('span', { class: 'cat' }, it.category),
+          regYear ? h('span', { class: 'cdate' }, regYear) : null,
+          state.group !== 'date' ? h('span', { class: 'cdate' }, it.date.replace(/-/g, '.')) : null),
+        it.tags.length ? h('div', { class: 'tags' }, it.tags.map(function (t) { return h('span', null, '#' + t); })) : null,
+        it.note ? h('p', { class: 'note' }, it.note) : null,
+        acts));
+  }
+  function renderGroups() {
+    var root = $('groups'); root.replaceChildren();
+    state.order = [];
+    if (!state.items.length) {
+      root.append(h('div', { class: 'empty' }, h('h2', null, '아직 모아 둔 레퍼런스가 없습니다'),
+        h('p', null, '영상 링크를 붙여넣거나 “더 찾기”로 추천을 받아 오늘 날짜로 쌓아 보세요.'),
+        h('button', { type: 'button', class: 'btn primary', onclick: function () { openDialog('add', {}); } }, '첫 링크 추가')));
+      return;
+    }
+    var list = state.items.filter(function (it) { return matches(it); }).sort(cmpItems);
+    if (!list.length) {
+      root.append(h('div', { class: 'empty' }, h('h2', null, '조건에 맞는 항목이 없습니다'),
+        h('p', null, state.date ? (state.date.replace(/-/g, '.') + ' 에는 필터에 맞는 레퍼런스가 없어요.') : '검색어나 필터를 바꿔 보세요.'),
+        h('div', { style: 'display:flex;gap:8px;justify-content:center;flex-wrap:wrap' },
+          h('button', { type: 'button', class: 'btn', onclick: resetFilters }, '필터 모두 해제'),
+          h('button', { type: 'button', class: 'btn primary', onclick: function () { openDialog('add', {}); } }, (state.date ? '이 날짜에 ' : '') + '링크 추가'))));
+      return;
+    }
+    var nums = numberMap(), g = state.group, map = {}, order = [];
+    list.forEach(function (it) {
+      var k = g === 'date' ? it.date : g === 'category' ? it.category : it.p.key;
+      if (!map[k]) { map[k] = []; order.push(k); }
+      map[k].push(it);
+    });
+    if (g === 'date') order.sort(function (a, b) { return b.localeCompare(a); });
+    else if (g === 'category') order.sort(cmpCat);
+    else order.sort(function (a, b) { return PLATFORM_ORDER.indexOf(a) - PLATFORM_ORDER.indexOf(b); });
+
+    var todayK = todayStr();
+    order.forEach(function (k) {
+      var items = map[k], head;
+      if (g === 'date') {
+        var d = parseYmd(k);
+        head = h('h2', null, h('span', { class: 'gnum' }, pad(d.getDate())),
+          h('span', { class: 'gmeta' }, h('span', null, (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + WEEK[d.getDay()] + '요일'), h('span', { class: 'mono' }, k.replace(/-/g, '.'))),
+          k === todayK ? h('span', { class: 'todayTag' }, 'TODAY') : null);
+      } else if (g === 'category') head = h('h2', null, h('span', { class: 'gname' }, k));
+      else head = h('h2', null, h('span', { class: 'gname' }, h('i', { class: 'dot', style: '--c:var(--p-' + k + ')' }), PLATFORM_LABEL[k]));
+      var body;
+      if (g === 'date') {
+        var sub = {}, subOrder = [];
+        items.forEach(function (it) { if (!sub[it.category]) { sub[it.category] = []; subOrder.push(it.category); } sub[it.category].push(it); });
+        subOrder.sort(cmpCat);
+        body = h('div', { class: 'sublist' }, subOrder.map(function (c) {
+          sub[c].forEach(function (it) { state.order.push(it.id); });
+          return h('div', { class: 'sublist' }, h('div', { class: 'subhead' }, h('b', null, c), h('span', { class: 'mono' }, sub[c].length)),
+            h('div', { class: 'grid' }, sub[c].map(function (it) { return card(it, nums); })));
+        }));
+      } else {
+        items.forEach(function (it) { state.order.push(it.id); });
+        body = h('div', { class: 'grid' }, items.map(function (it) { return card(it, nums); }));
+      }
+      root.append(h('section', { class: 'group' }, h('div', { class: 'ghead' }, head, h('span', { class: 'gcount mono' }, items.length + '개')), body));
+    });
+  }
+
+  /* ---------- 플레이어 ---------- */
+  var pdlg = $('pdlg'), curId = null, curPlayer = null, failTimer = 0, playTok = 0;
+  function byId(id) { for (var i = 0; i < state.items.length; i++) if (state.items[i].id === id) return state.items[i]; return null; }
+  function playables() { return state.order.filter(function (id) { var it = byId(id); return it && it.embed; }); }
+  function teardown() {
+    clearTimeout(failTimer);
+    if (curPlayer) { try { curPlayer.destroy(); } catch (e) { /* 이미 정리됨 */ } curPlayer = null; }
+  }
+  function showFail(known) {
+    var m = known ? '이 영상은 올린 사람이 사이트 안 재생을 막아 두었거나 재생할 수 없는 상태예요.' : '재생이 시작되지 않았어요.';
+    var tail = location.protocol === 'file:' ? ' 파일을 직접 열었다면 웹에 올려서 열어야 재생됩니다.' : '';
+    var f = $('pFail'); f.textContent = m + ' 아래 “원본에서 열기”로 보실 수 있어요.' + tail; f.hidden = false;
+  }
+  function startYT(em, host, tok) {
+    loadScript('https://www.youtube.com/iframe_api').then(function () {
+      return new Promise(function (res) {
+        if (window.YT && window.YT.Player) return res(window.YT);
+        var prev = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = function () { if (prev) prev(); res(window.YT); };
+      });
+    }).then(function (YT) {
+      if (tok !== playTok) return;
+      var vars = { autoplay: 1, rel: 0, playsinline: 1 };
+      if (em.start) vars.start = em.start;
+      if (location.protocol.indexOf('http') === 0) vars.origin = location.origin;
+      curPlayer = new YT.Player(host, {
+        videoId: em.id, width: '100%', height: '100%', playerVars: vars,
+        events: {
+          onReady: function (e) { if (tok !== playTok) return; clearTimeout(failTimer); try { e.target.playVideo(); } catch (x) { /* 사용자가 직접 재생 */ } },
+          onStateChange: function (e) { if (tok === playTok && e.data === 0) autoNext(); },
+          onError: function () { if (tok === playTok) { clearTimeout(failTimer); showFail(true); } }
+        }
+      });
+    }).catch(function () { if (tok === playTok) showFail(false); });
+  }
+  function startVimeo(em, host, tok) {
+    var fallback = function () {
+      if (tok !== playTok) return;
+      var src = 'https://player.vimeo.com/video/' + em.id + '?autoplay=1' + (em.hash ? '&h=' + em.hash : '');
+      host.replaceWith(h('iframe', { src: src, title: 'Vimeo', allow: 'autoplay; fullscreen; picture-in-picture', allowfullscreen: true }));
+    };
+    loadScript('https://player.vimeo.com/api/player.js').then(function () {
+      if (tok !== playTok) return;
+      var opt = { autoplay: true };
+      if (em.hash) opt.url = 'https://vimeo.com/' + em.id + '/' + em.hash; else opt.id = Number(em.id);
+      curPlayer = new window.Vimeo.Player(host, opt);
+      curPlayer.ready().then(function () { clearTimeout(failTimer); }).catch(function () { if (tok === playTok) showFail(true); });
+      curPlayer.on('error', function () { if (tok === playTok) showFail(true); });
+      curPlayer.on('ended', function () { if (tok === playTok) autoNext(); });
+    }).catch(fallback);
+  }
+  function playItem(it, inLog) {
+    var em = it.embed; if (!em) return;
+    teardown();
+    var tok = ++playTok; curId = inLog ? it.id : null;
+    $('pTitle').textContent = it.title || '제목 없음';
+    $('pCredit').textContent = [it.credit, it.category, it.region].filter(Boolean).join(' · ');
+    $('pNote').textContent = it.note || ''; $('pNote').hidden = !it.note;
+    $('pFail').hidden = true;
+    var open = $('pOpen'); open.href = normUrl(it.url) || '#'; open.textContent = it.p.label + '에서 열기 ↗';
+    var stage = $('stage'); stage.replaceChildren();
+    stage.style.aspectRatio = em.ratio; stage.style.maxWidth = '100%'; stage.style.maxHeight = '72vh';
+    var host = h('div'); stage.append(host);
+    failTimer = setTimeout(function () { if (tok === playTok) showFail(false); }, 12000);
+    if (em.kind === 'youtube') startYT(em, host, tok); else startVimeo(em, host, tok);
+    var list = inLog ? playables() : [], i = list.indexOf(it.id);
+    $('pPos').textContent = i >= 0 ? (i + 1) + ' / ' + list.length : '';
+    $('pPrev').hidden = $('pNext').hidden = !inLog;
+    $('pPrev').disabled = i <= 0; $('pNext').disabled = i < 0 || i >= list.length - 1;
+    if (!pdlg.open) { if (typeof pdlg.showModal === 'function') pdlg.showModal(); else pdlg.setAttribute('open', ''); }
+  }
+  function stepPlayer(delta) {
+    var list = playables(), i = list.indexOf(curId), n = i + delta;
+    if (i < 0 || n < 0 || n >= list.length) return;
+    playItem(byId(list[n]), true);
+  }
+  function closePlayer() { if (pdlg.open) pdlg.close(); }
+  pdlg.addEventListener('close', function () { playTok++; teardown(); $('stage').replaceChildren(); curId = null; });
+  pdlg.addEventListener('click', function (e) { if (e.target === pdlg) closePlayer(); });
+  $('pClose').addEventListener('click', closePlayer);
+  $('pPrev').addEventListener('click', function () { stepPlayer(-1); });
+  $('pNext').addEventListener('click', function () { stepPlayer(1); });
+  document.addEventListener('keydown', function (e) {
+    if (!pdlg.open || curId == null) return;
+    if (e.key === 'ArrowLeft') { e.preventDefault(); stepPlayer(-1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); stepPlayer(1); }
+  });
+
+
+  /* ---------- 스트림 보기 ---------- */
+  function blockedText() {
+    if (state.blocked) return '이 화면(미리보기 등)은 보안 설정 때문에 외부 영상과 썸네일을 막아요. 저장한 파일을 브라우저에서 웹 주소로 열어야 정상적으로 보입니다.';
+    if (location.protocol === 'file:') return '파일을 직접 열면 YouTube 재생이 막혀요(썸네일은 보여요). 웹에 올려서 열어 주세요.';
+    return '';
+  }
+  function setMode(m) {
+    state.mode = m; lsSet(LS_MODE, m);
+    if (m === 'log') state.src = '';
+    if (m === 'stream') { state.q = ''; state.platform = ''; state.region = ''; state.date = ''; state.fav = false; $('q').value = ''; }
+    render(); window.scrollTo(0, 0); updateFocus();
+  }
+  function renderStream() {
+    var list = state.items.filter(function (it) { return matches(it); }).sort(cmpItems);
+    state.order = list.filter(function (it) { return it.embed; }).map(function (it) { return it.id; });
+    var srcCount = {}, catCount = {};
+    state.items.forEach(function (it) {
+      var g = groupOf(it);
+      if (matches(it, 'src')) srcCount[g] = (srcCount[g] || 0) + 1;
+      if (matches(it, 'category')) catCount[g + '|' + it.category] = (catCount[g + '|' + it.category] || 0) + 1;
+    });
+    var rail = $('sRail'); rail.replaceChildren();
+    var go = function () { render(); window.scrollTo(0, 0); updateFocus(); };
+    rail.append(h('button', { type: 'button', 'aria-pressed': String(!state.src), onclick: function () { state.src = ''; state.category = ''; go(); } }, '전체'));
+    SRC_ORDER.forEach(function (g) {
+      if (g === '기타' && !srcCount[g]) return;
+      var on = state.src === g;
+      rail.append(h('button', { type: 'button', 'aria-pressed': String(on), 'data-src': g, onclick: function () { state.src = g; state.category = ''; go(); } }, g));
+      if (!on) return;
+      var subs = SRC_CATS[g] ? SRC_CATS[g].slice() : [];
+      state.items.forEach(function (it) { if (groupOf(it) === g && subs.indexOf(it.category) < 0) subs.push(it.category); });
+      subs.forEach(function (c) {
+        rail.append(h('button', { type: 'button', class: 'sub', 'aria-pressed': String(state.category === c), onclick: function () { state.category = c; go(); } }, c));
+      });
+    });
+    var col = $('sCol'); col.replaceChildren();
+    var note = blockedText();
+    if (note) col.append(h('p', { class: 'stNote' }, note));
+    if (!list.length) col.append(h('div', { class: 'stEmpty' }, state.items.length ? '이 카테고리에는 아직 영상이 없어요.' : '아직 영상이 없어요.'));
+    list.forEach(function (it, i) {
+      var url = normUrl(it.url), thumb = thumbNode(it), media;
+      var click = function (e) {
+        var fig = e.currentTarget.closest('.fig');
+        if (!fig.classList.contains('on')) { e.preventDefault(); fig.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+        if (it.embed) { e.preventDefault(); playItem(it, true); }
+      };
+      if (it.embed) media = h('button', { type: 'button', class: 'sf', 'aria-label': (it.title || it.p.label) + ' 재생', onclick: click }, thumb);
+      else if (url) media = h('a', { class: 'sf', href: url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': (it.title || it.p.label) + ' 열기', onclick: click }, thumb);
+      else media = h('div', { class: 'sf' }, thumb);
+      col.append(h('figure', { class: 'fig' + (i === 0 ? ' on' : '') }, media,
+        h('figcaption', null, h('span', null, '(' + (i + 1) + ')'), h('span', { class: 't' }, [it.title, it.credit].filter(Boolean).join(' — ')))));
+    });
+    if (list.length) col.append(h('button', { type: 'button', class: 'lk stMore', onclick: openFinder }, '✦ 더 찾기'));
+    updateFocus();
+  }
+  /* 화면 세로 가운데에 가장 가까운 영상 하나만 켠다. */
+  var focusTick = false;
+  function updateFocus() {
+    focusTick = false;
+    if (state.mode !== 'stream') return;
+    var figs = document.querySelectorAll('#sCol .fig');
+    if (!figs.length) return;
+    var mid = window.innerHeight / 2, best = null, bd = Infinity;
+    figs.forEach(function (f) {
+      var r = f.getBoundingClientRect(), d = Math.abs((r.top + r.bottom) / 2 - mid);
+      if (d < bd) { bd = d; best = f; }
+    });
+    figs.forEach(function (f) { f.classList.toggle('on', f === best); });
+  }
+  window.addEventListener('scroll', function () { if (!focusTick) { focusTick = true; requestAnimationFrame(updateFocus); } }, { passive: true });
+  window.addEventListener('resize', updateFocus);
+  document.addEventListener('keydown', function (e) {
+    if (state.mode !== 'stream' || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
+    if (pdlg.open || dlg.open || sdlg.open || /^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
+    var figs = [].slice.call(document.querySelectorAll('#sCol .fig')), i = figs.findIndex(function (f) { return f.classList.contains('on'); });
+    var n = figs[i + (e.key === 'ArrowDown' ? 1 : -1)];
+    if (n) { e.preventDefault(); n.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+  });
+  function autoNext() {
+    var list = playables(), i = list.indexOf(curId);
+    if (i >= 0 && i < list.length - 1) stepPlayer(1);
+  }
+
+  /* ---------- 추가 / 편집 ---------- */
+  var dlg = $('dlg');
+  var f = { url: $('fUrl'), title: $('fTitle'), credit: $('fCredit'), cat: $('fCat'), date: $('fDate'), region: $('fRegion'), tags: $('fTags'), note: $('fNote') };
+  var dstate = null, metaTimer = 0, metaSeq = 0;
+
+  function openDialog(mode, opts) {
+    opts = opts || {};
+    var it = opts.item || null;
+    dstate = { mode: mode, id: it ? it.id : null, createdAt: it ? it.createdAt : 0, fav: it ? it.fav : false, year: it ? it.year : 0, thumb: it ? it.thumb : '', armed: false };
+    $('dlgTitle').textContent = mode === 'edit' ? '레퍼런스 편집' : '레퍼런스 추가';
+    f.url.value = it ? it.url : (opts.urls || '');
+    f.title.value = it ? it.title : ''; f.credit.value = it ? it.credit : '';
+    f.cat.value = it ? it.category : (state.category || '');
+    f.date.value = it ? it.date : (state.date || todayStr());
+    f.region.value = it ? it.region : (state.region || '');
+    f.tags.value = it ? it.tags.join(', ') : ''; f.note.value = it ? it.note : '';
+    $('dErr').hidden = true;
+    var del = $('delBtn'); del.hidden = mode !== 'edit'; del.textContent = '삭제'; del.classList.remove('armed');
+    var cats = allCategories();
+    $('catList').replaceChildren.apply($('catList'), cats.map(function (c) { return h('option', { value: c }); }));
+    $('catQuick').replaceChildren.apply($('catQuick'), cats.filter(function (c) { return DEFAULT_CATS.indexOf(c) >= 0 || (it && c === it.category); }).map(function (c) {
+      return h('button', { type: 'button', onclick: function () { f.cat.value = c; } }, c);
+    }));
+    syncDialog();
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    setTimeout(function () { (f.url.value ? f.title : f.url).focus(); }, 0);
+  }
+  function closeDialog() { if (dlg.open) dlg.close(); }
+  function syncDialog() {
+    if (!dstate) return;
+    var r = parseUrls(f.url.value), n = r.valid.length, multi = dstate.mode === 'add' && n > 1;
+    [f.title, f.credit, f.note].forEach(function (el) { el.disabled = multi; });
+    var hint = $('urlHint'); hint.replaceChildren();
+    if (r.invalid.length) hint.append('http(s) 링크가 아닌 항목이 ' + r.invalid.length + '개 있어요.');
+    else if (multi) hint.append(n + '개 링크 · 제목은 비워 두고 추가한 뒤 카드에서 편집하세요.');
+    else if (n === 1) {
+      var p = platformOf(r.valid[0]), em = embedOf(r.valid[0]);
+      hint.append(h('i', { class: 'dot', style: '--c:var(--p-' + p.key + ')' }), p.label + ' 링크로 인식했어요.' + (em ? ' 사이트 안에서 재생됩니다.' : ' 이 사이트는 새 탭에서 열립니다.'));
+      scheduleMeta(r.valid[0]);
+    }
+  }
+  /* 제목 자동 채우기: YouTube·Vimeo의 공개 oEmbed를 시도하고, 안 되면 조용히 넘어간다. */
+  function scheduleMeta(url) {
+    clearTimeout(metaTimer);
+    if (!dstate || dstate.mode !== 'add' || f.title.value.trim()) return;
+    var p = platformOf(url);
+    if (p.key !== 'youtube' && p.key !== 'vimeo') return;
+    metaTimer = setTimeout(async function () {
+      var seq = ++metaSeq;
+      var ep = p.key === 'youtube' ? 'https://www.youtube.com/oembed?format=json&url=' : 'https://vimeo.com/api/oembed.json?url=';
+      var ctl = new AbortController(), to = setTimeout(function () { ctl.abort(); }, 6000);
+      try {
+        var res = await fetch(ep + encodeURIComponent(url), { signal: ctl.signal });
+        if (!res.ok) return;
+        var j = await res.json();
+        if (seq !== metaSeq || !dstate || f.title.value.trim()) return;
+        if (typeof j.title === 'string') f.title.value = j.title;
+        if (typeof j.author_name === 'string' && !f.credit.value.trim()) f.credit.value = j.author_name;
+        if (p.key === 'vimeo' && typeof j.thumbnail_url === 'string' && /^https:\/\//.test(j.thumbnail_url)) dstate.thumb = j.thumbnail_url;
+      } catch (e) { /* 가져오지 못해도 직접 입력하면 됩니다 */ }
+      finally { clearTimeout(to); }
+    }, 500);
+  }
+  function showErr(msg) { var e = $('dErr'); e.textContent = msg; e.hidden = false; }
+  function saveDialog() {
+    if (!dstate) return;
+    var r = parseUrls(f.url.value);
+    if (r.invalid.length) { showErr('올바르지 않은 링크가 있어요: ' + r.invalid[0].slice(0, 60)); return; }
+    if (!r.valid.length) { showErr('링크를 입력해 주세요.'); return; }
+    if (dstate.mode === 'edit' && r.valid.length !== 1) { showErr('편집할 때는 링크를 하나만 둘 수 있어요.'); return; }
+    if (r.valid.length > 30) { showErr('한 번에 30개까지 추가할 수 있어요.'); return; }
+    if (!parseYmd(f.date.value)) { showErr('날짜를 확인해 주세요.'); return; }
+    var existing = {};
+    state.items.forEach(function (it) { var n = normUrl(it.url); if (n && it.id !== dstate.id) existing[n] = it; });
+    var urls = r.valid.filter(function (u) { return !existing[u]; }), skipped = r.valid.length - urls.length;
+    if (!urls.length) { var dup = existing[r.valid[0]]; showErr('이미 저장된 링크예요' + (dup ? ' (' + dup.date.replace(/-/g, '.') + ')' : '') + '.'); return; }
+    var multi = dstate.mode === 'add' && urls.length > 1, tags = [], seen = {};
+    f.tags.value.split(/[,，\n]/).forEach(function (t) {
+      t = t.replace(/^#/, '').trim();
+      if (t && !seen[t.toLowerCase()] && tags.length < 12) { seen[t.toLowerCase()] = 1; tags.push(t); }
+    });
+    var now = Date.now(), wasAdd = dstate.mode === 'add';
+    urls.forEach(function (u, i) {
+      var item = {
+        id: wasAdd ? newId() : dstate.id, url: u, title: multi ? '' : f.title.value.trim(), credit: multi ? '' : f.credit.value.trim(),
+        category: f.cat.value.trim() || '미분류', date: f.date.value, region: f.region.value, year: dstate.year || 0,
+        thumb: multi ? '' : (dstate.thumb || ''),
+        tags: tags, note: multi ? '' : f.note.value.trim(), fav: wasAdd ? false : dstate.fav, createdAt: wasAdd ? now + i : dstate.createdAt
+      };
+      local.items[item.id] = stripItem(item);
+      local.deleted = local.deleted.filter(function (x) { return x !== item.id; });
+    });
+    persist(); refreshItems();
+    var count = urls.length;
+    closeDialog();
+    if (wasAdd) { state.q = ''; state.platform = ''; state.category = ''; state.region = ''; state.date = ''; state.fav = false; $('q').value = ''; }
+    render();
+    toast(wasAdd ? (count + '개를 추가했습니다.' + (skipped ? ' 이미 있는 링크 ' + skipped + '개는 건너뛰었어요.' : '')) : '저장했습니다.');
+  }
+
+  /* ---------- 더 찾기 (자동 추천) ---------- */
+  var QUERIES = {
+    world: {
+      '뮤직비디오': { q: 'official music video', music: true },
+      '광고': { q: 'official commercial ad campaign film' },
+      '시네마틱 필름': { q: 'cinematic short film' },
+      '모션그래픽': { q: 'motion graphics title sequence' }
+    },
+    kr: {
+      '뮤직비디오': { q: '공식 뮤직비디오 MV', music: true },
+      '광고': { q: '광고 캠페인 CF 영상' },
+      '시네마틱 필름': { q: '단편영화 시네마틱' },
+      '모션그래픽': { q: '모션그래픽 타이틀' }
+    }
+  };
+  var keys = lsGet(LS_KEYS, { yt: '', vimeo: '' });
+  var hidden = lsGet(LS_HIDDEN, []);
+  var finder = { cats: {}, days: 30, region: 'world', picks: true, results: [], tokens: {}, vimeoPage: 0, busy: false, seen: {}, exhausted: false, started: false };
+  FIND_CATS.forEach(function (c) { finder.cats[c] = true; });
+  var sdlg = $('sdlg');
+
+  function fmtViews(n) {
+    n = Number(n);
+    if (!isFinite(n) || n < 0) return '';
+    if (n >= 1e8) return '조회수 ' + (n / 1e8).toFixed(1) + '억';
+    if (n >= 1e4) return '조회수 ' + Math.round(n / 1e4) + '만';
+    return '조회수 ' + n;
+  }
+  function fmtDur(iso) {
+    var m = /^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso || '');
+    if (!m) return '';
+    var hh = +m[1] || 0, mm = +m[2] || 0, ss = +m[3] || 0;
+    return hh ? hh + ':' + pad(mm) + ':' + pad(ss) : mm + ':' + pad(ss);
+  }
+  function secToDur(sec) { sec = Number(sec) || 0; var hh = Math.floor(sec / 3600), mm = Math.floor(sec % 3600 / 60), ss = Math.floor(sec % 60); return hh ? hh + ':' + pad(mm) + ':' + pad(ss) : mm + ':' + pad(ss); }
+  async function apiGet(url, opts) {
+    var res = await fetch(url, opts), j = null;
+    try { j = await res.json(); } catch (e) { /* 본문 없음 */ }
+    if (!res.ok) {
+      var er = j && j.error, reason = (er && ((er.errors && er.errors[0] && er.errors[0].reason) || er.status)) || ('HTTP ' + res.status);
+      var err = new Error(reason); err.reason = String(reason); throw err;
+    }
+    return j;
+  }
+  function explain(e) {
+    var r = (e && e.reason) || '';
+    if (state.blocked) return '이 화면은 외부 연결을 막고 있어서 검색할 수 없어요. 저장한 파일을 브라우저에서 웹 주소로 열어 주세요.';
+    if (/quota/i.test(r)) return '오늘 무료 검색 한도를 다 썼어요. 내일 다시 시도해 주세요.';
+    if (/keyInvalid|API_KEY_INVALID|badRequest|HTTP 400/i.test(r)) return 'API 키가 올바르지 않아요. 키를 다시 확인해 주세요.';
+    if (/forbidden|accessNotConfigured|ipRefererBlocked|PERMISSION_DENIED|HTTP 40[13]/i.test(r)) return 'API 키 권한을 확인해 주세요. YouTube Data API v3 사용 설정과 키의 웹사이트 제한을 확인하세요.';
+    if (e && e.name === 'TypeError') return '네트워크에 연결하지 못했어요.';
+    return '검색하지 못했어요 (' + (r || (e && (e.name + ': ' + e.message)) || '알 수 없는 오류') + ').';
+  }
+  async function ytSearch(cat, pageToken) {
+    var cfg = QUERIES[finder.region][cat];
+    var p = new URLSearchParams({
+      part: 'snippet', type: 'video', order: 'viewCount', maxResults: '10', videoEmbeddable: 'true', safeSearch: 'moderate',
+      q: cfg.q, publishedAfter: new Date(Date.now() - finder.days * 864e5).toISOString(), key: keys.yt
+    });
+    if (cfg.music) p.set('videoCategoryId', '10');
+    if (finder.region === 'kr') { p.set('regionCode', 'KR'); p.set('relevanceLanguage', 'ko'); }
+    if (pageToken) p.set('pageToken', pageToken);
+    var j = await apiGet('https://www.googleapis.com/youtube/v3/search?' + p.toString());
+    var ids = (j.items || []).map(function (i) { return i.id && i.id.videoId; }).filter(Boolean);
+    var items = [];
+    if (ids.length) {
+      var d = await apiGet('https://www.googleapis.com/youtube/v3/videos?' + new URLSearchParams({ part: 'snippet,statistics,contentDetails,status', id: ids.join(','), key: keys.yt }).toString());
+      (d.items || []).forEach(function (v) {
+        if (v.status && v.status.embeddable === false) return;
+        var sn = v.snippet || {}, th = sn.thumbnails || {}, pic = th.medium || th.high || th.default || {};
+        items.push({
+          key: 'yt:' + v.id, url: 'https://www.youtube.com/watch?v=' + v.id, title: sn.title || '', credit: sn.channelTitle || '',
+          thumb: pic.url || ('https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg'), views: v.statistics && v.statistics.viewCount, date: sn.publishedAt || '',
+          dur: fmtDur(v.contentDetails && v.contentDetails.duration), source: 'YouTube', category: cat
+        });
+      });
+      items.sort(function (a, b) { return (Number(b.views) || 0) - (Number(a.views) || 0); });
+    }
+    return { items: items, next: j.nextPageToken || null };
+  }
+  async function vimeoPicks(page) {
+    var p = new URLSearchParams({ per_page: '10', page: String(page), sort: 'date', direction: 'desc', fields: 'uri,name,link,duration,created_time,user.name,stats.plays,pictures.sizes' });
+    var j = await apiGet('https://api.vimeo.com/channels/staffpicks/videos?' + p.toString(), { headers: { Authorization: 'bearer ' + keys.vimeo, Accept: 'application/vnd.vimeo.*+json;version=3.4' } });
+    var items = [];
+    (j.data || []).forEach(function (v) {
+      var m = /vimeo\.com\/(\d{5,})/.exec(v.link || '');
+      if (!m) return;
+      var sizes = (v.pictures && v.pictures.sizes) || [], pic = sizes.filter(function (s) { return s.width >= 600; })[0] || sizes[sizes.length - 1] || {};
+      items.push({
+        key: 'vm:' + m[1], url: 'https://vimeo.com/' + m[1], title: v.name || '', credit: (v.user && v.user.name) || '',
+        thumb: pic.link || '', views: v.stats && v.stats.plays, date: v.created_time || '', dur: secToDur(v.duration), source: 'Vimeo 스태프픽', category: '시네마틱 필름'
+      });
+    });
+    return { items: items, next: j.paging && j.paging.next ? 'more' : null };
+  }
+  function setMsg(text, bad) { var m = $('sMsg'); m.textContent = text || ''; m.className = 'smsg' + (bad ? ' bad' : ''); }
+  function knownUrls() { var s = {}; state.items.forEach(function (it) { var n = normUrl(it.url); if (n) s[n] = 1; }); return s; }
+
+  async function runFinder(more) {
+    if (finder.busy) return;
+    if (!keys.yt && !(keys.vimeo && finder.picks)) { setMsg('먼저 위에서 API 키를 입력해 주세요.', true); return; }
+    finder.busy = true; $('sMore').disabled = true; setMsg('찾는 중…');
+    if (!more) { finder.results = []; finder.tokens = {}; finder.vimeoPage = 0; finder.seen = {}; finder.exhausted = false; }
+    try {
+      var jobs = [], labels = [];
+      if (keys.yt) FIND_CATS.forEach(function (c) {
+        if (!finder.cats[c]) return;
+        if (more && finder.tokens[c] === null) return;
+        labels.push(c);
+        jobs.push(ytSearch(c, more ? finder.tokens[c] : '').then(function (r) { finder.tokens[c] = r.next; return r.items; }));
+      });
+      if (keys.vimeo && finder.picks && !(more && finder.tokens.__vm === null)) {
+        labels.push('Vimeo');
+        jobs.push(vimeoPicks(++finder.vimeoPage).then(function (r) { finder.tokens.__vm = r.next ? 'more' : null; return r.items; }));
+      }
+      if (!jobs.length) { setMsg('찾을 카테고리를 하나 이상 선택해 주세요.', true); return; }
+      var settled = await Promise.allSettled(jobs), lists = [], firstErr = null;
+      settled.forEach(function (s) { if (s.status === 'fulfilled') lists.push(s.value); else if (!firstErr) firstErr = s.reason; });
+      var known = knownUrls(), merged = [], idx = 0, more2 = true;
+      while (more2) {   // 카테고리가 고르게 섞이도록 번갈아 꺼낸다
+        more2 = false;
+        lists.forEach(function (l) { if (idx < l.length) { merged.push(l[idx]); more2 = true; } });
+        idx++;
+      }
+      var added = 0;
+      merged.forEach(function (r) {
+        var n = normUrl(r.url);
+        if (finder.seen[r.key] || (n && known[n]) || hidden.indexOf(r.key) >= 0) return;
+        finder.seen[r.key] = 1; finder.results.push(r); added++;
+      });
+      var anyNext = Object.keys(finder.tokens).some(function (k) { return finder.tokens[k] !== null; });
+      finder.exhausted = !anyNext;
+      renderResults();
+      if (firstErr) setMsg(explain(firstErr), true);
+      else if (!added) setMsg(finder.exhausted ? '더 이상 새 추천이 없어요. 기간을 늘리거나 조건을 바꿔 보세요.' : '새로 추천할 영상이 없어요. “더 찾기”를 한 번 더 눌러 보세요.');
+      else setMsg(added + '개를 새로 찾았어요.');
+    } catch (e) { setMsg(explain(e), true); }
+    finally { finder.busy = false; $('sMore').disabled = false; $('sMore').hidden = !finder.started; if (finder.exhausted) $('sMore').disabled = true; }
+  }
+  function renderSetup() {
+    var box = $('sSetup'); box.replaceChildren();
+    var ytIn = h('input', { id: 'keyYt', type: 'password', placeholder: 'YouTube Data API 키', autocomplete: 'off', value: keys.yt || '' });
+    var vmIn = h('input', { id: 'keyVm', type: 'password', placeholder: '(선택) Vimeo 액세스 토큰 · 스태프픽용', autocomplete: 'off', value: keys.vimeo || '' });
+    var save = function () {
+      keys = { yt: ytIn.value.trim(), vimeo: vmIn.value.trim() };
+      if (!lsSet(LS_KEYS, keys)) toast('이 브라우저가 저장을 막고 있어 이번 방문 동안만 유지됩니다.');
+      renderSetup(); renderCtrl();
+      if (keys.yt || keys.vimeo) { finder.started = true; runFinder(false); }
+    };
+    if (keys.yt || keys.vimeo) {
+      box.append(h('p', { class: 'hint' }, h('i', { class: 'dot', style: '--c:var(--p-other)' }), 'API 키가 연결돼 있어요.',
+        h('button', { type: 'button', class: 'btn ghost small', onclick: function () { keys = { yt: '', vimeo: '' }; lsSet(LS_KEYS, keys); keysEdit(); } }, '키 변경')));
+      return;
+    }
+    keysEdit();
+    function keysEdit() {
+      box.replaceChildren(h('div', { class: 'setup' },
+        h('h3', null, '처음 한 번만 연결하면 돼요'),
+        h('ol', null,
+          h('li', null, 'Google Cloud Console에서 새 프로젝트를 만들고 “YouTube Data API v3”를 사용 설정해요.'),
+          h('li', null, '“사용자 인증 정보”에서 API 키를 만들고, 이 사이트 주소로만 쓰도록 제한하는 것을 권장해요.'),
+          h('li', null, '키를 아래에 붙여넣으면 이 브라우저에만 저장돼요. 무료 한도는 하루 약 100번 검색이에요.')),
+        h('a', { class: 'btn small', href: 'https://console.cloud.google.com/apis/library/youtube.googleapis.com', target: '_blank', rel: 'noopener noreferrer', style: 'display:inline-flex;align-items:center;text-decoration:none;align-self:flex-start' }, 'Google Cloud Console 열기 ↗'),
+        h('div', { class: 'row' }, ytIn),
+        h('span', { class: 'lbl2' }, 'Vimeo 스태프픽도 받으려면 (선택): developer.vimeo.com에서 앱을 만들고 공개(Public) 권한 토큰을 발급해요.'),
+        h('div', { class: 'row' }, vmIn, h('button', { type: 'button', class: 'btn primary', onclick: save }, '저장하고 찾기'))));
+    }
+  }
+  function renderCtrl() {
+    var box = $('sCtrl'); box.replaceChildren();
+    if (!keys.yt && !keys.vimeo) return;
+    var rerun = function () { finder.started = true; runFinder(false); };
+    box.append(h('span', { class: 'lbl' }, '카테고리'));
+    FIND_CATS.forEach(function (c) { box.append(chip(c, null, finder.cats[c], function () { finder.cats[c] = !finder.cats[c]; renderCtrl(); rerun(); })); });
+    box.append(h('span', { class: 'lbl' }, '기간'));
+    box.append(h('div', { class: 'seg' }, [[7, '7일'], [30, '30일'], [90, '90일'], [365, '1년']].map(function (d) {
+      return h('button', { type: 'button', 'aria-pressed': String(finder.days === d[0]), onclick: function () { finder.days = d[0]; renderCtrl(); rerun(); } }, d[1]);
+    })));
+    box.append(h('span', { class: 'lbl' }, '지역'));
+    box.append(h('div', { class: 'seg' }, [['world', '전 세계'], ['kr', '한국']].map(function (d) {
+      return h('button', { type: 'button', 'aria-pressed': String(finder.region === d[0]), onclick: function () { finder.region = d[0]; renderCtrl(); rerun(); } }, d[1]);
+    })));
+    if (keys.vimeo) box.append(chip('Vimeo 스태프픽', null, finder.picks, function () { finder.picks = !finder.picks; renderCtrl(); rerun(); }, 'var(--p-vimeo)'));
+  }
+  function renderResults() {
+    var grid = $('sGrid'); grid.replaceChildren();
+    var known = knownUrls();
+    finder.results.forEach(function (r) {
+      var p = platformOf(r.url), c = 'var(--p-' + p.key + ')';
+      var ph = function () { return phNode(p); };
+      var thumb;
+      if (r.thumb) { thumb = h('img', { src: r.thumb, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer' }); thumb.addEventListener('error', function () { thumb.replaceWith(ph()); }); }
+      else thumb = ph();
+      var it = clean('rec', { url: r.url, title: r.title, credit: r.credit });
+      var media = h('button', { type: 'button', class: 'media', style: '--c:' + c, 'aria-label': r.title + ' 미리 보기', onclick: function () { playItem(it, false); } }, thumb, h('span', { class: 'playbtn' }), r.dur ? h('span', { class: 'dur' }, r.dur) : null);
+      var sel = h('select', { 'aria-label': '카테고리' }, allCategories().map(function (cat) { return h('option', { value: cat }, cat); }));
+      sel.value = r.category;
+      var addBtn = h('button', { type: 'button', class: 'go' }, '+ 추가');
+      var cardEl = h('article', { class: 'card' }, media,
+        h('div', { class: 'cbody' },
+          h('h3', { class: 'ctitle' }, r.title || '제목 없음'),
+          r.credit ? h('div', { class: 'credit' }, r.credit) : null,
+          h('div', { class: 'meta' }, h('span', { class: 'cat' }, r.source),
+            r.views ? h('span', { class: 'rviews' }, fmtViews(r.views)) : null,
+            r.date ? h('span', { class: 'cdate' }, r.date.slice(0, 10).replace(/-/g, '.')) : null),
+          h('div', { class: 'acts' }, sel, addBtn, h('span', { class: 'sp' }),
+            h('button', { type: 'button', class: 'ib', onclick: function () { hidden.push(r.key); lsSet(LS_HIDDEN, hidden.slice(-500)); finder.results = finder.results.filter(function (x) { return x !== r; }); renderResults(); } }, '숨기기'))));
+      if (known[normUrl(r.url)]) { addBtn.textContent = '추가됨 ✓'; addBtn.disabled = true; }
+      addBtn.addEventListener('click', function () {
+        var yr = r.date ? Number(r.date.slice(0, 4)) : 0;
+        var item = {
+          id: newId(), url: r.url, title: r.title, credit: r.credit, category: sel.value, date: todayStr(), region: finder.region === 'kr' ? '국내' : '', year: yr,
+          tags: r.source === 'Vimeo 스태프픽' ? ['스태프픽', '자동 추천'] : ['자동 추천'],
+          note: [r.source, fmtViews(r.views), r.date ? r.date.slice(0, 10).replace(/-/g, '.') + ' 업로드' : ''].filter(Boolean).join(' · '),
+          fav: false, thumb: r.thumb || '', createdAt: Date.now()
+        };
+        saveItem(clean(item.id, item));
+        addBtn.textContent = '추가됨 ✓'; addBtn.disabled = true;
+        toast('오늘 로그에 추가했어요.');
+      });
+      grid.append(cardEl);
+    });
+  }
+  function openFinder() {
+    renderSetup(); renderCtrl(); renderResults();
+    $('sMore').hidden = !finder.started;
+    if (typeof sdlg.showModal === 'function') sdlg.showModal(); else sdlg.setAttribute('open', '');
+    if ((keys.yt || keys.vimeo) && !finder.results.length && !finder.busy) { finder.started = true; $('sMore').hidden = false; runFinder(false); }
+  }
+  $('findBtn').addEventListener('click', openFinder);
+  $('sClose').addEventListener('click', function () { if (sdlg.open) sdlg.close(); });
+  sdlg.addEventListener('click', function (e) { if (e.target === sdlg) sdlg.close(); });
+  $('sMore').addEventListener('click', function () { runFinder(true); });
+
+  /* ---------- 이벤트 ---------- */
+  $('intake').addEventListener('submit', function (e) { e.preventDefault(); var v = $('linkIn').value.trim(); $('linkIn').value = ''; openDialog('add', { urls: v }); });
+  $('linkIn').addEventListener('paste', function (e) {
+    var text = (e.clipboardData && e.clipboardData.getData('text')) || '';
+    if (parseUrls(text).valid.length) { e.preventDefault(); openDialog('add', { urls: text.trim() }); }
+  });
+  $('q').addEventListener('input', function (e) { state.q = e.target.value.trim(); render(); });
+  document.querySelectorAll('.seg button[data-g]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      state.group = b.dataset.g;
+      try { localStorage.setItem(LS_GROUP, state.group); } catch (e) { /* 저장 안 돼도 동작 */ }
+      render();
+    });
+  });
+  $('favBtn').addEventListener('click', function () { state.fav = !state.fav; render(); });
+  $('clearDate').addEventListener('click', function () { state.date = ''; render(); });
+  f.url.addEventListener('input', syncDialog);
+  $('dlgForm').addEventListener('submit', function (e) { e.preventDefault(); saveDialog(); });
+  $('dCancel').addEventListener('click', closeDialog);
+  $('dClose').addEventListener('click', closeDialog);
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeDialog(); });
+  dlg.addEventListener('close', function () { dstate = null; clearTimeout(metaTimer); });
+  $('delBtn').addEventListener('click', function () {
+    var btn = $('delBtn');
+    if (!dstate) return;
+    if (!dstate.armed) {
+      dstate.armed = true; btn.textContent = '정말 삭제'; btn.classList.add('armed');
+      setTimeout(function () { if (dstate && dstate.armed) { dstate.armed = false; btn.textContent = '삭제'; btn.classList.remove('armed'); } }, 4000);
+      return;
+    }
+    var id = dstate.id; closeDialog(); removeItem(id); toast('삭제했습니다.');
+  });
+
+  /* ---------- 시작 ---------- */
+  var g = lsGet(LS_GROUP, null); if (g === 'date' || g === 'category' || g === 'platform') state.group = g;
+  var md = lsGet(LS_MODE, null); if (md === 'log' || md === 'stream') state.mode = md;
+  $('stLog').addEventListener('click', function () { setMode('log'); });
+  $('toStream').addEventListener('click', function () { setMode('stream'); });
+  $('stAdd').addEventListener('click', function () { openDialog('add', {}); });
+  $('stFind').addEventListener('click', openFinder);
+  loadLocal();
+  render();
+
+  /* 매일 갱신되는 feed.json (index.html과 같은 폴더). 없거나 못 읽으면 조용히 넘어간다.
+     이미 있는 항목, 내가 지운 항목은 건드리지 않고 새 항목만 날짜별로 추가한다. */
+  function loadFeed() {
+    if (location.protocol.indexOf('http') !== 0) return;
+    fetch('feed.json?t=' + Math.floor(Date.now() / 600000), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('none'); return r.json(); })
+      .then(function (list) {
+        if (!Array.isArray(list)) return;
+        var known = knownUrls(), added = 0;
+        list.forEach(function (b) {
+          if (!b || typeof b.id !== 'string' || typeof b.url !== 'string') return;
+          var n = normUrl(b.url);
+          if (!n || known[n] || local.items[b.id] || local.deleted.indexOf(b.id) >= 0) return;
+          local.items[b.id] = stripItem(clean(b.id, b)); known[n] = 1; added++;
+        });
+        if (added) { persist(); refreshItems(); render(); toast('새 레퍼런스 ' + added + '개가 도착했어요.'); }
+      })
+      .catch(function () { /* feed.json 없음 */ });
+  }
+  loadFeed();
+})();
+</script>
+</body>
+</html>
