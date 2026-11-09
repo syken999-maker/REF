@@ -1,6 +1,6 @@
 """매일 수집한 후보를 feed.json 에 합친다.
 사용: python3 add_to_feed.py <site폴더> <후보.json> <YYYY-MM-DD>
-후보 항목: url, title, credit, category, region, year, note, tags, verified(true만 반영)
+후보 항목: url, title, category, region, year, verified(true만 반영). credit·note·tags는 쓰지 않는다.
 """
 import hashlib, json, re, sys, time
 from pathlib import Path
@@ -31,10 +31,10 @@ for r in json.loads(cand_path.read_text(encoding="utf8")):
     known.add(url)
     feed.append({
         "id": "f" + hashlib.sha1(url.encode()).hexdigest()[:10], "url": url,
-        "title": r.get("title", "").strip(), "credit": r.get("credit", ""),
+        "title": r.get("title", "").strip(), "credit": "",
         "category": r["category"], "date": date, "region": r.get("region", ""),
-        "year": r.get("year", 0), "tags": (r.get("tags") or [])[:6] + ["자동 수집"],
-        "note": r.get("note", ""), "fav": False, "createdAt": t0 + added,
+        "year": r.get("year", 0), "tags": [],
+        "note": "", "fav": False, "createdAt": t0 + added,
     })
     added += 1
 feed_path.write_text(json.dumps(feed, ensure_ascii=False, indent=1), encoding="utf8")
