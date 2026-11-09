@@ -202,14 +202,14 @@ dialog form { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .rviews { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
 
 /* ---- 스트림: 크기가 같은 영상이 세로로 이어지고, 화면 가운데에 온 하나만 커진다 ---- */
-body[data-mode="stream"] { background: var(--surface); }
+body[data-mode="stream"] { color-scheme: dark; --bg: #000; --surface: #000; --surface-2: #15171b; --ink: #f2f2f2; --muted: #8d929c; --line: #2b2e34; --accent: #9db0ff; background: #000; color: var(--ink); }
 body[data-mode="stream"] > .bars, body[data-mode="stream"] #logView { display: none; }
 body[data-mode="log"] #stream { display: none; }
 html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 #stream { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: .02em; min-height: 100vh; }
-.stTop { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: 14px 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
+.stTop { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 14px 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
 .stTop .mark { font-weight: 500; font-size: 14px; letter-spacing: .06em; }
-.stTop nav { display: flex; gap: 18px; }
+.stTop nav { display: flex; gap: 18px; flex: none; }
 .lk { border: 0; padding: 0; background: none; cursor: pointer; text-transform: inherit; letter-spacing: inherit; font-family: inherit; font-size: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .lk:hover { color: var(--accent); }
 .sbar { display: contents; }
@@ -229,7 +229,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .fig figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--muted); }
 .fig figcaption .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: 0; }
 .fig.on figcaption .t { opacity: 1; }
-.stDates { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; justify-content: safe center; gap: 18px; overflow-x: auto; padding: 10px 22px calc(12px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); scrollbar-width: none; }
+.stDates { flex: 1; min-width: 0; display: flex; justify-content: flex-start; gap: 18px; overflow-x: auto; scrollbar-width: none; }
 .stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
@@ -272,7 +272,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 
 <div id="stream" aria-label="스트림">
   <div class="stTop">
-    <span class="mark">레퍼런스 로그</span>
+    <div class="stDates" id="stDates" role="group" aria-label="날짜 선택"></div>
     <nav>
       <button type="button" class="lk" id="stLog">로그</button>
       <button type="button" class="lk" id="stAdd">+ 추가</button>
@@ -283,7 +283,6 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
     <div class="rail" id="sRail" role="group" aria-label="카테고리"></div>
   </div>
   <div class="sCol" id="sCol"></div>
-  <div class="stDates" id="stDates" role="group" aria-label="날짜 선택"></div>
 </div>
 
 <div class="wrap" id="logView">
@@ -448,7 +447,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246276112
+  "createdAt": 1794246904603
  },
  {
   "id": "b788f35bfb8",
@@ -466,7 +465,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246277112
+  "createdAt": 1794246905603
  },
  {
   "id": "b116f423c3a",
@@ -484,7 +483,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246278112
+  "createdAt": 1794246906603
  },
  {
   "id": "b773f84e964",
@@ -502,7 +501,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246279112
+  "createdAt": 1794246907603
  },
  {
   "id": "b62c89b33e9",
@@ -521,7 +520,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246280112
+  "createdAt": 1794246908603
  },
  {
   "id": "be5da6d39f1",
@@ -540,7 +539,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246281112
+  "createdAt": 1794246909603
  },
  {
   "id": "b15ea467418",
@@ -558,7 +557,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246282112
+  "createdAt": 1794246910603
  },
  {
   "id": "b2f0ab2f292",
@@ -576,7 +575,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246283112
+  "createdAt": 1794246911603
  },
  {
   "id": "b53daa598e8",
@@ -596,7 +595,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246284112
+  "createdAt": 1794246912603
  },
  {
   "id": "bab16188b64",
@@ -616,7 +615,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246285112
+  "createdAt": 1794246913603
  },
  {
   "id": "b872d637627",
@@ -636,7 +635,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246286112
+  "createdAt": 1794246914603
  },
  {
   "id": "b2b212e5e39",
@@ -656,7 +655,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794246287112
+  "createdAt": 1794246915603
  },
  {
   "id": "b0f28eb629d",
@@ -676,7 +675,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794246288112
+  "createdAt": 1794246916603
  },
  {
   "id": "b9ca6421b85",
@@ -696,7 +695,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246289112
+  "createdAt": 1794246917603
  },
  {
   "id": "b94839daa7e",
@@ -716,7 +715,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246290112
+  "createdAt": 1794246918603
  },
  {
   "id": "bf769f7ee32",
@@ -736,7 +735,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246291112
+  "createdAt": 1794246919603
  },
  {
   "id": "b6c020bd000",
@@ -755,7 +754,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246292112
+  "createdAt": 1794246920603
  },
  {
   "id": "b7d55c220b3",
@@ -775,7 +774,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246293112
+  "createdAt": 1794246921603
  },
  {
   "id": "bf10705d9fb",
@@ -794,7 +793,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246294112
+  "createdAt": 1794246922603
  },
  {
   "id": "be1c412efc3",
@@ -813,7 +812,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246295112
+  "createdAt": 1794246923603
  },
  {
   "id": "bd9f80ef1a3",
@@ -832,7 +831,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246296112
+  "createdAt": 1794246924603
  },
  {
   "id": "b27a7b48db5",
@@ -851,7 +850,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246297112
+  "createdAt": 1794246925603
  },
  {
   "id": "b9652534508",
@@ -870,7 +869,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246298112
+  "createdAt": 1794246926603
  },
  {
   "id": "b8a84d5f627",
@@ -889,7 +888,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246299112
+  "createdAt": 1794246927603
  },
  {
   "id": "b7f4f8ef8d6",
@@ -908,7 +907,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246300112
+  "createdAt": 1794246928603
  },
  {
   "id": "b99fb9c1d82",
@@ -927,7 +926,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794246301112
+  "createdAt": 1794246929603
  },
  {
   "id": "b4fb06bed2d",
@@ -946,7 +945,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794246302112
+  "createdAt": 1794246930603
  },
  {
   "id": "b6be94f80a0",
@@ -966,7 +965,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246303112
+  "createdAt": 1794246931603
  },
  {
   "id": "b50d1bdada1",
@@ -984,7 +983,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794246304112
+  "createdAt": 1794246932603
  }
 ];
 </script>
@@ -993,9 +992,9 @@ var BAKED = [
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
 
-  var DEFAULT_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션', 'FILM', '단편·영화', '브랜드 필름', '미분류'];
+  var DEFAULT_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션', 'FILM', 'FEED', '단편·영화', '브랜드 필름', '미분류'];
   var SRC_ORDER = ['YOUTUBE', 'VIMEO', 'AI', '기타'];
-  var SRC_CATS = { YOUTUBE: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'], VIMEO: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'], AI: ['FILM'] };
+  var SRC_CATS = { YOUTUBE: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'], VIMEO: ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션', 'FEED'], AI: ['FILM'] };
   /* 왼쪽 분류용 묶음: FILM은 AI, 나머지는 올라온 사이트 기준 */
   function groupOf(it) { return it.category === 'FILM' ? 'AI' : it.p.key === 'youtube' ? 'YOUTUBE' : it.p.key === 'vimeo' ? 'VIMEO' : '기타'; }
   var FIND_CATS = ['뮤직비디오', '광고', '시네마틱 필름', '모션그래픽', '애니메이션'];
@@ -1672,7 +1671,7 @@ var BAKED = [
   };
   var keys = lsGet(LS_KEYS, { yt: '', vimeo: '' });
   var hidden = lsGet(LS_HIDDEN, []);
-  var finder = { cats: {}, days: 30, region: 'world', picks: true, results: [], tokens: {}, vimeoPage: 0, busy: false, seen: {}, exhausted: false, started: false };
+  var finder = { cats: {}, days: 30, region: 'world', src: { youtube: true, vimeo: true }, results: [], tokens: {}, vimeoPage: 0, busy: false, seen: {}, exhausted: false, started: false };
   FIND_CATS.forEach(function (c) { finder.cats[c] = true; });
   var sdlg = $('sdlg');
 
@@ -1755,18 +1754,20 @@ var BAKED = [
 
   async function runFinder(more) {
     if (finder.busy) return;
-    if (!keys.yt && !(keys.vimeo && finder.picks)) { setMsg('먼저 위에서 API 키를 입력해 주세요.', true); return; }
+    var useYt = finder.src.youtube && !!keys.yt, useVm = finder.src.vimeo && !!keys.vimeo;
+    if (!finder.src.youtube && !finder.src.vimeo) { setMsg('YouTube나 Vimeo 중 하나를 선택해 주세요.', true); return; }
+    if (!useYt && !useVm) { setMsg(finder.src.vimeo && !finder.src.youtube ? 'Vimeo 토큰이 없어요. 위의 “키 변경”에서 Vimeo 토큰을 입력해 주세요.' : '먼저 위에서 API 키를 입력해 주세요.', true); return; }
     finder.busy = true; $('sMore').disabled = true; setMsg('찾는 중…');
     if (!more) { finder.results = []; finder.tokens = {}; finder.vimeoPage = 0; finder.seen = {}; finder.exhausted = false; }
     try {
       var jobs = [], labels = [];
-      if (keys.yt) FIND_CATS.forEach(function (c) {
+      if (useYt) FIND_CATS.forEach(function (c) {
         if (!finder.cats[c]) return;
         if (more && finder.tokens[c] === null) return;
         labels.push(c);
         jobs.push(ytSearch(c, more ? finder.tokens[c] : '').then(function (r) { finder.tokens[c] = r.next; return r.items; }));
       });
-      if (keys.vimeo && finder.picks && !(more && finder.tokens.__vm === null)) {
+      if (useVm && !(more && finder.tokens.__vm === null)) {
         labels.push('Vimeo');
         jobs.push(vimeoPicks(++finder.vimeoPage).then(function (r) { finder.tokens.__vm = r.next ? 'more' : null; return r.items; }));
       }
@@ -1806,7 +1807,7 @@ var BAKED = [
     };
     if (keys.yt || keys.vimeo) {
       box.append(h('p', { class: 'hint' }, h('i', { class: 'dot', style: '--c:var(--p-other)' }), 'API 키가 연결돼 있어요.',
-        h('button', { type: 'button', class: 'btn ghost small', onclick: function () { keys = { yt: '', vimeo: '' }; lsSet(LS_KEYS, keys); keysEdit(); } }, '키 변경')));
+        h('button', { type: 'button', class: 'btn ghost small', onclick: function () { keysEdit(); } }, '키 변경')));
       return;
     }
     keysEdit();
@@ -1827,6 +1828,9 @@ var BAKED = [
     var box = $('sCtrl'); box.replaceChildren();
     if (!keys.yt && !keys.vimeo) return;
     var rerun = function () { finder.started = true; runFinder(false); };
+    box.append(h('span', { class: 'lbl' }, '사이트'));
+    box.append(chip('YouTube', null, finder.src.youtube, function () { finder.src.youtube = !finder.src.youtube; renderCtrl(); rerun(); }, 'var(--p-youtube)'));
+    box.append(chip('Vimeo' + (keys.vimeo ? ' 스태프픽' : ' (토큰 필요)'), null, finder.src.vimeo, function () { finder.src.vimeo = !finder.src.vimeo; renderCtrl(); rerun(); }, 'var(--p-vimeo)'));
     box.append(h('span', { class: 'lbl' }, '카테고리'));
     FIND_CATS.forEach(function (c) { box.append(chip(c, null, finder.cats[c], function () { finder.cats[c] = !finder.cats[c]; renderCtrl(); rerun(); })); });
     box.append(h('span', { class: 'lbl' }, '기간'));
@@ -1837,7 +1841,6 @@ var BAKED = [
     box.append(h('div', { class: 'seg' }, [['world', '전 세계'], ['kr', '한국']].map(function (d) {
       return h('button', { type: 'button', 'aria-pressed': String(finder.region === d[0]), onclick: function () { finder.region = d[0]; renderCtrl(); rerun(); } }, d[1]);
     })));
-    if (keys.vimeo) box.append(chip('Vimeo 스태프픽', null, finder.picks, function () { finder.picks = !finder.picks; renderCtrl(); rerun(); }, 'var(--p-vimeo)'));
   }
   function renderResults() {
     var grid = $('sGrid'); grid.replaceChildren();
