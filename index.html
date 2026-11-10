@@ -233,6 +233,8 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
+.stDates button.bt { font-size: 11px; margin-left: -8px; padding: 1px 6px; border: 1px solid var(--line); border-radius: 999px; }
+.stDates button.bt[aria-pressed="true"] { border-color: var(--ink); text-decoration: none; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
 .stMore { margin-top: 30px; }
@@ -1007,7 +1009,7 @@ var BAKED = [
   var LS_HIDDEN = 'reference-log-site-hidden';
   var LS_MODE = 'reference-log-site-mode';
 
-  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', fav: false, order: [] };
+  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', batch: '', fav: false, order: [] };
   var local = { items: {}, deleted: [], thumbs: {} };
   var persisted = true;
 
@@ -1471,6 +1473,19 @@ var BAKED = [
   }
   function renderStream() {
     var list = state.items.filter(function (it) { return matches(it); }).sort(cmpItems);
+    /* 선택한 날짜 안에서 추가된 시각(createdAt)이 30분 넘게 떨어지면 다른 회차로 본다. */
+    var batches = [];
+    if (state.date) {
+      list.slice().sort(function (a, b) { return a.createdAt - b.createdAt; }).forEach(function (it) {
+        var last = batches[batches.length - 1];
+        if (!last || it.createdAt - last.end > 30 * 60000) batches.push(last = { key: String(it.createdAt), start: it.createdAt, end: it.createdAt, ids: {} , n: 0 });
+        last.end = it.createdAt; last.ids[it.id] = 1; last.n++;
+      });
+    }
+    var curBatch = null;
+    batches.forEach(function (b) { if (b.key === state.batch) curBatch = b; });
+    if (!curBatch) state.batch = '';
+    else list = list.filter(function (it) { return curBatch.ids[it.id]; });
     state.order = list.filter(function (it) { return it.embed; }).map(function (it) { return it.id; });
     var srcCount = {}, catCount = {};
     state.items.forEach(function (it) {
@@ -1501,12 +1516,18 @@ var BAKED = [
     var dk = Object.keys(dc).sort().reverse();
     if (state.date && !dc[state.date]) dk.unshift(state.date);
     var db = $('stDates'); db.replaceChildren();
-    var pickDate = function (k) { state.date = k; render(); window.scrollTo(0, 0); updateFocus(); };
+    var pickDate = function (k) { state.date = k; state.batch = ''; render(); window.scrollTo(0, 0); updateFocus(); };
     db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, '전체 날짜'));
     dk.forEach(function (k) {
       var d = parseYmd(k);
       db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
         k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()] + ' · ' + (dc[k] || 0)));
+      if (state.date !== k || batches.length < 2) return;
+      batches.forEach(function (b) {
+        var t = new Date(b.start), lab = b.start ? pad(t.getHours()) + ':' + pad(t.getMinutes()) : '시각 없음';
+        db.append(h('button', { type: 'button', class: 'bt', title: '이 시각에 검색해 추가된 것만 보기', 'aria-pressed': String(state.batch === b.key),
+          onclick: function () { state.batch = state.batch === b.key ? '' : b.key; render(); window.scrollTo(0, 0); updateFocus(); } }, lab + ' · ' + b.n));
+      });
     });
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
