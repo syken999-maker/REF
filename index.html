@@ -238,10 +238,10 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .rrail { left: auto; right: 22px; align-items: flex-end; text-align: right; gap: 2px; max-width: none; }
-.rrail .grp { position: relative; display: flex; justify-content: flex-end; width: 110px; }
+.rrail .grp { position: relative; display: flex; flex-direction: column; align-items: flex-end; }
 .rrail .hd { border: 0; background: none; padding: 2px 0; cursor: pointer; font-family: var(--font-mono); font-size: 14px; letter-spacing: .02em; color: var(--muted); text-transform: uppercase; opacity: .75; }
 .rrail .grp:hover .hd, .rrail .grp:focus-within .hd, .rrail .grp.open .hd { color: var(--ink); opacity: 1; }
-.rrail .subs { display: none; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); padding-right: 16px; flex-direction: column; align-items: flex-end; gap: 0; white-space: nowrap; }
+.rrail .subs { display: none; padding: 2px 0 8px; flex-direction: column; align-items: flex-end; gap: 0; white-space: nowrap; }
 .rrail .grp:hover .subs, .rrail .grp:focus-within .subs, .rrail .grp.open .subs { display: flex; }
 .rrail .subs a { padding: 1px 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--muted); text-decoration: none; text-transform: none; }
 .rrail .subs a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
@@ -259,7 +259,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
   .rrail { position: fixed; top: auto; bottom: 0; left: 0; right: 0; transform: none; z-index: 18; flex-direction: row; align-items: center; justify-content: space-around; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 90%, transparent); }
   .rrail .grp { position: static; width: auto; }
   .rrail .hd { font-size: 12px; }
-  .rrail .subs { right: 12px; left: 12px; top: auto; bottom: 100%; transform: none; padding: 10px 14px; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px 14px; background: var(--surface); border-top: 1px solid var(--line); }
+  .rrail .subs { position: absolute; right: 12px; left: 12px; top: auto; bottom: 100%; transform: none; padding: 10px 14px; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px 14px; background: var(--surface); border-top: 1px solid var(--line); }
   .sCol { gap: 90px; }
   .fig { width: 76vw; }
   .fig.on { transform: scale(1.25); }
@@ -466,7 +466,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350267963
+  "createdAt": 1794350832622
  },
  {
   "id": "b788f35bfb8",
@@ -484,7 +484,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350268963
+  "createdAt": 1794350833622
  },
  {
   "id": "b116f423c3a",
@@ -502,7 +502,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350269963
+  "createdAt": 1794350834622
  },
  {
   "id": "b773f84e964",
@@ -520,7 +520,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350270963
+  "createdAt": 1794350835622
  },
  {
   "id": "b62c89b33e9",
@@ -539,7 +539,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350271963
+  "createdAt": 1794350836622
  },
  {
   "id": "be5da6d39f1",
@@ -558,7 +558,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350272963
+  "createdAt": 1794350837622
  },
  {
   "id": "b15ea467418",
@@ -576,7 +576,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350273963
+  "createdAt": 1794350838622
  },
  {
   "id": "b2f0ab2f292",
@@ -594,7 +594,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350274963
+  "createdAt": 1794350839622
  },
  {
   "id": "b53daa598e8",
@@ -614,7 +614,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350275963
+  "createdAt": 1794350840622
  },
  {
   "id": "bab16188b64",
@@ -634,7 +634,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350276963
+  "createdAt": 1794350841622
  },
  {
   "id": "b872d637627",
@@ -654,7 +654,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350277963
+  "createdAt": 1794350842622
  },
  {
   "id": "b2b212e5e39",
@@ -674,7 +674,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794350278963
+  "createdAt": 1794350843622
  },
  {
   "id": "b0f28eb629d",
@@ -694,7 +694,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794350279963
+  "createdAt": 1794350844622
  },
  {
   "id": "b9ca6421b85",
@@ -714,7 +714,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350280963
+  "createdAt": 1794350845622
  },
  {
   "id": "b94839daa7e",
@@ -734,7 +734,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350281963
+  "createdAt": 1794350846622
  },
  {
   "id": "bf769f7ee32",
@@ -754,7 +754,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350282963
+  "createdAt": 1794350847622
  },
  {
   "id": "b6c020bd000",
@@ -773,7 +773,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350283963
+  "createdAt": 1794350848622
  },
  {
   "id": "b7d55c220b3",
@@ -793,7 +793,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350284963
+  "createdAt": 1794350849622
  },
  {
   "id": "bf10705d9fb",
@@ -812,7 +812,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350285963
+  "createdAt": 1794350850622
  },
  {
   "id": "be1c412efc3",
@@ -831,7 +831,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350286963
+  "createdAt": 1794350851622
  },
  {
   "id": "bd9f80ef1a3",
@@ -850,7 +850,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350287963
+  "createdAt": 1794350852622
  },
  {
   "id": "b27a7b48db5",
@@ -869,7 +869,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350288963
+  "createdAt": 1794350853622
  },
  {
   "id": "b9652534508",
@@ -888,7 +888,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350289963
+  "createdAt": 1794350854622
  },
  {
   "id": "b8a84d5f627",
@@ -907,7 +907,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350290963
+  "createdAt": 1794350855622
  },
  {
   "id": "b7f4f8ef8d6",
@@ -926,7 +926,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350291963
+  "createdAt": 1794350856622
  },
  {
   "id": "b99fb9c1d82",
@@ -945,7 +945,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794350292963
+  "createdAt": 1794350857622
  },
  {
   "id": "b4fb06bed2d",
@@ -964,7 +964,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794350293963
+  "createdAt": 1794350858622
  },
  {
   "id": "b6be94f80a0",
@@ -984,7 +984,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350294963
+  "createdAt": 1794350859622
  },
  {
   "id": "b50d1bdada1",
@@ -1002,7 +1002,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794350295963
+  "createdAt": 1794350860622
  }
 ];
 </script>
@@ -1507,7 +1507,7 @@ var BAKED = [
           links.push({ label: 'Vimeo · ' + c, url: searchUrl('VIMEO', SEARCH_Q[c]) });
         } else links.push({ label: c, url: searchUrl(g, SEARCH_Q[c]) });
       });
-      if (g === 'VIMEO') links.push({ label: '스태프픽', url: 'https://vimeo.com/channels/staffpicks' });
+      if (g === 'VIMEO') links.push({ label: '스태프픽', url: 'https://vimeo.com/channels/staffpicks' }, { label: 'My FEED', url: 'https://vimeo.com/my-feed' });
       out.push({ name: g, links: links });
     });
     var pin = function (q) { return 'https://www.pinterest.com/search/pins/?q=' + encodeURIComponent(q); };
