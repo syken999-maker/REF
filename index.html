@@ -238,12 +238,13 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .rrail { left: auto; right: 22px; align-items: flex-end; text-align: right; gap: 2px; max-width: none; }
-.rrail .grp { position: relative; display: flex; justify-content: flex-end; width: 110px; }
+.rrail .grp { display: flex; flex-direction: column; align-items: flex-end; }
 .rrail .hd { border: 0; background: none; padding: 2px 0; cursor: pointer; font-family: var(--font-mono); font-size: 14px; letter-spacing: .02em; color: var(--muted); text-transform: uppercase; opacity: .75; }
-.rrail .grp:hover .hd, .rrail .grp:focus-within .hd, .rrail .grp.open .hd { color: var(--ink); opacity: 1; }
-.rrail .subs { display: none; position: absolute; right: 100%; top: 50%; transform: translateY(-50%); padding-right: 16px; flex-direction: column; align-items: flex-end; gap: 0; white-space: nowrap; }
-.rrail .grp:hover .subs, .rrail .grp:focus-within .subs, .rrail .grp.open .subs { display: flex; }
-.rrail .subs a { padding: 1px 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.6; color: var(--muted); text-decoration: none; text-transform: none; }
+.rrail .hd:hover { color: var(--ink); opacity: 1; }
+.rrail .grp.open .hd { font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1.05; color: var(--ink); opacity: 1; margin: 2px 0; }
+.rrail .subs { display: none; flex-direction: column; align-items: flex-end; gap: 0; white-space: nowrap; margin: 0 14px 6px 0; }
+.rrail .grp.open .subs { display: flex; }
+.rrail .subs a { padding: 1px 0; font-family: var(--font-mono); font-size: 12px; line-height: 1.5; color: var(--muted); text-decoration: none; text-transform: none; }
 .rrail .subs a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
 .stMore { margin-top: 30px; }
@@ -257,9 +258,10 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
   .rail button.sub, .rail button.sub[aria-pressed="true"] { margin: 0; }
   .stTop { padding: 12px 16px; }
   .rrail { position: fixed; top: auto; bottom: 0; left: 0; right: 0; transform: none; z-index: 18; flex-direction: row; align-items: center; justify-content: space-around; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 90%, transparent); }
-  .rrail .grp { position: static; width: auto; }
-  .rrail .hd { font-size: 12px; }
-  .rrail .subs { position: absolute; right: 12px; left: 12px; top: auto; bottom: 100%; transform: none; padding: 10px 14px; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px 14px; background: var(--surface); border-top: 1px solid var(--line); }
+  .rrail .grp { position: static; }
+  .rrail .hd, .rrail .grp.open .hd { font-family: var(--font-mono); font-size: 12px; font-weight: 500; margin: 0; }
+  .rrail .grp.open .hd { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .rrail .subs { position: absolute; right: 12px; left: 12px; bottom: 100%; margin: 0; padding: 10px 14px; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px 14px; background: var(--surface); border-top: 1px solid var(--line); }
   .sCol { gap: 90px; }
   .fig { width: 76vw; }
   .fig.on { transform: scale(1.25); }
@@ -466,7 +468,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351253702
+  "createdAt": 1794351292319
  },
  {
   "id": "b788f35bfb8",
@@ -484,7 +486,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351254702
+  "createdAt": 1794351293319
  },
  {
   "id": "b116f423c3a",
@@ -502,7 +504,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351255702
+  "createdAt": 1794351294319
  },
  {
   "id": "b773f84e964",
@@ -520,7 +522,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351256702
+  "createdAt": 1794351295319
  },
  {
   "id": "b62c89b33e9",
@@ -539,7 +541,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351257702
+  "createdAt": 1794351296319
  },
  {
   "id": "be5da6d39f1",
@@ -558,7 +560,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351258702
+  "createdAt": 1794351297319
  },
  {
   "id": "b15ea467418",
@@ -576,7 +578,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351259702
+  "createdAt": 1794351298319
  },
  {
   "id": "b2f0ab2f292",
@@ -594,7 +596,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351260702
+  "createdAt": 1794351299319
  },
  {
   "id": "b53daa598e8",
@@ -614,7 +616,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351261702
+  "createdAt": 1794351300319
  },
  {
   "id": "bab16188b64",
@@ -634,7 +636,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351262702
+  "createdAt": 1794351301319
  },
  {
   "id": "b872d637627",
@@ -654,7 +656,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351263702
+  "createdAt": 1794351302319
  },
  {
   "id": "b2b212e5e39",
@@ -674,7 +676,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794351264702
+  "createdAt": 1794351303319
  },
  {
   "id": "b0f28eb629d",
@@ -694,7 +696,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794351265702
+  "createdAt": 1794351304319
  },
  {
   "id": "b9ca6421b85",
@@ -714,7 +716,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351266702
+  "createdAt": 1794351305319
  },
  {
   "id": "b94839daa7e",
@@ -734,7 +736,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351267702
+  "createdAt": 1794351306319
  },
  {
   "id": "bf769f7ee32",
@@ -754,7 +756,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351268702
+  "createdAt": 1794351307319
  },
  {
   "id": "b6c020bd000",
@@ -773,7 +775,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351269702
+  "createdAt": 1794351308319
  },
  {
   "id": "b7d55c220b3",
@@ -793,7 +795,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351270702
+  "createdAt": 1794351309319
  },
  {
   "id": "bf10705d9fb",
@@ -812,7 +814,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351271702
+  "createdAt": 1794351310319
  },
  {
   "id": "be1c412efc3",
@@ -831,7 +833,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351272702
+  "createdAt": 1794351311319
  },
  {
   "id": "bd9f80ef1a3",
@@ -850,7 +852,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351273702
+  "createdAt": 1794351312319
  },
  {
   "id": "b27a7b48db5",
@@ -869,7 +871,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351274702
+  "createdAt": 1794351313319
  },
  {
   "id": "b9652534508",
@@ -888,7 +890,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351275702
+  "createdAt": 1794351314319
  },
  {
   "id": "b8a84d5f627",
@@ -907,7 +909,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351276702
+  "createdAt": 1794351315319
  },
  {
   "id": "b7f4f8ef8d6",
@@ -926,7 +928,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351277702
+  "createdAt": 1794351316319
  },
  {
   "id": "b99fb9c1d82",
@@ -945,7 +947,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794351278702
+  "createdAt": 1794351317319
  },
  {
   "id": "b4fb06bed2d",
@@ -964,7 +966,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351279702
+  "createdAt": 1794351318319
  },
  {
   "id": "b6be94f80a0",
@@ -984,7 +986,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351280702
+  "createdAt": 1794351319319
  },
  {
   "id": "b50d1bdada1",
@@ -1002,7 +1004,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351281702
+  "createdAt": 1794351320319
  }
 ];
 </script>
