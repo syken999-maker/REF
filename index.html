@@ -237,6 +237,11 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
+.stSearch { position: absolute; top: 56px; left: 50%; transform: translateX(-50%); width: min(900px, calc(100vw - 32px)); display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; z-index: 5; text-transform: none; font-size: 12px; }
+.stSearch .lbl { color: var(--muted); }
+.stSearch a { color: var(--ink); text-underline-offset: 3px; }
+.stSearch a:hover { color: var(--accent); }
+.stNote.low { top: 92px; }
 .stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
 .stMore { margin-top: 30px; }
 @media (prefers-reduced-motion: no-preference) { .fig { transition: transform .35s ease, opacity .35s ease; } .fig figcaption .t { transition: opacity .3s; } }
@@ -453,7 +458,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348786237
+  "createdAt": 1794349525969
  },
  {
   "id": "b788f35bfb8",
@@ -471,7 +476,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348787237
+  "createdAt": 1794349526969
  },
  {
   "id": "b116f423c3a",
@@ -489,7 +494,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348788237
+  "createdAt": 1794349527969
  },
  {
   "id": "b773f84e964",
@@ -507,7 +512,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348789237
+  "createdAt": 1794349528969
  },
  {
   "id": "b62c89b33e9",
@@ -526,7 +531,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348790237
+  "createdAt": 1794349529969
  },
  {
   "id": "be5da6d39f1",
@@ -545,7 +550,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348791237
+  "createdAt": 1794349530969
  },
  {
   "id": "b15ea467418",
@@ -563,7 +568,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348792237
+  "createdAt": 1794349531969
  },
  {
   "id": "b2f0ab2f292",
@@ -581,7 +586,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348793237
+  "createdAt": 1794349532969
  },
  {
   "id": "b53daa598e8",
@@ -601,7 +606,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348794237
+  "createdAt": 1794349533969
  },
  {
   "id": "bab16188b64",
@@ -621,7 +626,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348795237
+  "createdAt": 1794349534969
  },
  {
   "id": "b872d637627",
@@ -641,7 +646,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348796237
+  "createdAt": 1794349535969
  },
  {
   "id": "b2b212e5e39",
@@ -661,7 +666,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794348797237
+  "createdAt": 1794349536969
  },
  {
   "id": "b0f28eb629d",
@@ -681,7 +686,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794348798237
+  "createdAt": 1794349537969
  },
  {
   "id": "b9ca6421b85",
@@ -701,7 +706,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348799237
+  "createdAt": 1794349538969
  },
  {
   "id": "b94839daa7e",
@@ -721,7 +726,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348800237
+  "createdAt": 1794349539969
  },
  {
   "id": "bf769f7ee32",
@@ -741,7 +746,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348801237
+  "createdAt": 1794349540969
  },
  {
   "id": "b6c020bd000",
@@ -760,7 +765,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348802237
+  "createdAt": 1794349541969
  },
  {
   "id": "b7d55c220b3",
@@ -780,7 +785,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348803237
+  "createdAt": 1794349542969
  },
  {
   "id": "bf10705d9fb",
@@ -799,7 +804,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348804237
+  "createdAt": 1794349543969
  },
  {
   "id": "be1c412efc3",
@@ -818,7 +823,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348805237
+  "createdAt": 1794349544969
  },
  {
   "id": "bd9f80ef1a3",
@@ -837,7 +842,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348806237
+  "createdAt": 1794349545969
  },
  {
   "id": "b27a7b48db5",
@@ -856,7 +861,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348807237
+  "createdAt": 1794349546969
  },
  {
   "id": "b9652534508",
@@ -875,7 +880,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348808237
+  "createdAt": 1794349547969
  },
  {
   "id": "b8a84d5f627",
@@ -894,7 +899,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348809237
+  "createdAt": 1794349548969
  },
  {
   "id": "b7f4f8ef8d6",
@@ -913,7 +918,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348810237
+  "createdAt": 1794349549969
  },
  {
   "id": "b99fb9c1d82",
@@ -932,7 +937,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794348811237
+  "createdAt": 1794349550969
  },
  {
   "id": "b4fb06bed2d",
@@ -951,7 +956,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794348812237
+  "createdAt": 1794349551969
  },
  {
   "id": "b6be94f80a0",
@@ -971,7 +976,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348813237
+  "createdAt": 1794349552969
  },
  {
   "id": "b50d1bdada1",
@@ -989,7 +994,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794348814237
+  "createdAt": 1794349553969
  }
 ];
 </script>
@@ -1476,6 +1481,27 @@ var BAKED = [
   });
 
 
+  /* ---------- 사이트별 검색 링크 ---------- */
+  var SEARCH_Q = { '뮤직비디오': 'official music video 2026', '광고': 'commercial ad campaign film 2026', '시네마틱 필름': 'cinematic short film 2026', '모션그래픽': 'motion graphics title sequence 2026', '애니메이션': 'animated short film 2026', 'FILM': 'AI short film 2026' };
+  function searchUrl(site, q) {
+    var e = encodeURIComponent(q);
+    return site === 'YOUTUBE' ? 'https://www.youtube.com/results?search_query=' + e + '&sp=CAI%253D' : 'https://vimeo.com/search?q=' + e;
+  }
+  function searchLinks() {
+    var out = [], g = state.src;
+    if (!g || g === '기타') return out;
+    var cats = state.category ? [state.category] : (SRC_CATS[g] || []);
+    cats.forEach(function (c) {
+      if (!SEARCH_Q[c]) return;
+      if (g === 'AI') {
+        out.push({ label: 'YouTube · ' + c, url: searchUrl('YOUTUBE', SEARCH_Q[c]) });
+        out.push({ label: 'Vimeo · ' + c, url: searchUrl('VIMEO', SEARCH_Q[c]) });
+      } else out.push({ label: c, url: searchUrl(g, SEARCH_Q[c]) });
+    });
+    if (g === 'VIMEO') out.push({ label: '스태프픽', url: 'https://vimeo.com/channels/staffpicks' });
+    return out;
+  }
+
   /* ---------- 스트림 보기 ---------- */
   function blockedText() {
     if (state.blocked) return '이 화면(미리보기 등)은 보안 설정 때문에 외부 영상과 썸네일을 막아요. 저장한 파일을 브라우저에서 웹 주소로 열어야 정상적으로 보입니다.';
@@ -1529,8 +1555,11 @@ var BAKED = [
     });
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
+    var sl = searchLinks();
+    if (sl.length) col.append(h('div', { class: 'stSearch' }, h('span', { class: 'lbl' }, (state.src === 'AI' ? 'AI' : state.src) + ' 검색 ↗'),
+      sl.map(function (l) { return h('a', { href: l.url, target: '_blank', rel: 'noopener noreferrer' }, l.label); })));
     var note = blockedText();
-    if (note) col.append(h('p', { class: 'stNote' }, note));
+    if (note) col.append(h('p', { class: 'stNote' + (sl.length ? ' low' : '') }, note));
     if (!list.length) col.append(h('div', { class: 'stEmpty' }, state.items.length ? '이 카테고리에는 아직 영상이 없어요.' : '아직 영상이 없어요.'));
     list.forEach(function (it, i) {
       var url = normUrl(it.url), thumb = thumbNode(it), media;
