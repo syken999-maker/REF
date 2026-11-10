@@ -207,9 +207,9 @@ body[data-mode="stream"] > .bars, body[data-mode="stream"] #logView { display: n
 body[data-mode="log"] #stream { display: none; }
 html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 #stream { font-family: var(--font-mono); font-size: 13px; text-transform: uppercase; letter-spacing: .02em; min-height: 100vh; }
-.stTop { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 14px 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
+.stTop { position: fixed; top: 0; left: 0; right: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 22px; padding: 14px 22px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
 .stTop .mark { font-weight: 500; font-size: 14px; letter-spacing: .06em; }
-.stTop nav { display: flex; gap: 18px; flex: none; }
+.stTop nav { display: flex; gap: 18px; flex: none; grid-column: 3; justify-self: end; }
 .lk { border: 0; padding: 0; background: none; cursor: pointer; text-transform: inherit; letter-spacing: inherit; font-family: inherit; font-size: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .lk:hover { color: var(--accent); }
 .sbar { display: contents; }
@@ -229,12 +229,16 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .fig figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--muted); }
 .fig figcaption .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: 0; }
 .fig.on figcaption .t { opacity: 1; }
-.stDates { flex: 1; min-width: 0; display: flex; justify-content: flex-start; gap: 18px; overflow-x: auto; scrollbar-width: none; }
+.stDates { grid-column: 2; grid-row: 1; min-width: 0; max-width: 56vw; display: flex; justify-content: safe center; gap: 18px; overflow-x: auto; scrollbar-width: none; }
 .stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
-.stDates button.bt { font-size: 11px; margin-left: -8px; padding: 1px 6px; border: 1px solid var(--line); border-radius: 999px; }
-.stDates button.bt[aria-pressed="true"] { border-color: var(--ink); text-decoration: none; }
+.stTimes { grid-column: 1 / -1; grid-row: 2; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-height: 0; opacity: 0; overflow: hidden; transform: translateY(-6px); pointer-events: none; }
+.stTimes.open { max-height: 80px; opacity: 1; transform: none; margin-top: 10px; pointer-events: auto; }
+.stTimes button { border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
+.stTimes button:hover { color: var(--ink); border-color: var(--muted); }
+.stTimes button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+@media (prefers-reduced-motion: no-preference) { .stTimes { transition: max-height .25s ease, opacity .25s ease, transform .25s ease, margin-top .25s ease; } }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .stNote { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(560px, calc(100vw - 32px)); margin: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: none; letter-spacing: 0; line-height: 1.5; color: var(--muted); font-family: var(--font-body); font-size: 12.5px; z-index: 5; }
 .stMore { margin-top: 30px; }
@@ -246,7 +250,11 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
   .rail button, .rail button[aria-pressed="true"] { font-family: var(--font-mono); font-size: 12px; font-weight: 500; white-space: nowrap; line-height: 1.4; margin: 0; }
   .rail button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 3px; }
   .rail button.sub, .rail button.sub[aria-pressed="true"] { margin: 0; }
-  .stTop { padding: 12px 16px; }
+  .stTop { padding: 12px 16px; grid-template-columns: 0 minmax(0, 1fr) auto; column-gap: 0; }
+  .stTop nav { margin-left: 12px; }
+  .stTop .stDates { justify-content: flex-start; max-width: none; }
+  body.hasTimes .sbar { top: 84px; }
+  body.hasTimes .stNote { top: 136px; }
   .sCol { gap: 90px; }
   .fig { width: 76vw; }
   .fig.on { transform: scale(1.25); }
@@ -275,6 +283,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 <div id="stream" aria-label="스트림">
   <div class="stTop">
     <div class="stDates" id="stDates" role="group" aria-label="날짜 선택"></div>
+    <div class="stTimes" id="stTimes" role="group" aria-label="추가된 시각 선택"></div>
     <nav>
       <button type="button" class="lk" id="stLog">로그</button>
       <button type="button" class="lk" id="stAdd">+ 추가</button>
@@ -1521,14 +1530,21 @@ var BAKED = [
     dk.forEach(function (k) {
       var d = parseYmd(k);
       db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
-        k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()] + ' · ' + (dc[k] || 0)));
-      if (state.date !== k || batches.length < 2) return;
+        k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()]));
+    });
+    /* 날짜를 고르면 그 아래로 추가된 시각(회차)이 내려온다. */
+    var tb = $('stTimes'); tb.replaceChildren();
+    var showTimes = !!state.date && batches.length > 1;
+    if (showTimes) {
+      var pickBatch = function (key) { state.batch = key; render(); window.scrollTo(0, 0); updateFocus(); };
+      tb.append(h('button', { type: 'button', 'aria-pressed': String(!state.batch), onclick: function () { pickBatch(''); } }, '전체 시간'));
       batches.forEach(function (b) {
         var t = new Date(b.start), lab = b.start ? pad(t.getHours()) + ':' + pad(t.getMinutes()) : '시각 없음';
-        db.append(h('button', { type: 'button', class: 'bt', title: '이 시각에 검색해 추가된 것만 보기', 'aria-pressed': String(state.batch === b.key),
-          onclick: function () { state.batch = state.batch === b.key ? '' : b.key; render(); window.scrollTo(0, 0); updateFocus(); } }, lab + ' · ' + b.n));
+        tb.append(h('button', { type: 'button', title: '이 시각에 추가된 것만 보기', 'aria-pressed': String(state.batch === b.key), onclick: function () { pickBatch(state.batch === b.key ? '' : b.key); } }, lab));
       });
-    });
+    }
+    tb.classList.toggle('open', showTimes);
+    document.body.classList.toggle('hasTimes', showTimes);
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
     var note = blockedText();
