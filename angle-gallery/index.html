@@ -17,7 +17,16 @@ button.c:hover{border-color:var(--mut)}
 button.c.on{background:var(--acc);color:#171719;border-color:var(--acc);font-weight:700}button.c:hover{border-color:var(--acc)}button.c.on i{opacity:.7}
 button.c.fav{outline:2px solid var(--acc);outline-offset:1px}button.c .st{margin-left:7px;opacity:.35;font-size:12px;cursor:pointer}button.c .st:hover,button.c.fav .st{opacity:1}button.c.fav:not(.on) .st{color:var(--acc)}button.c i{font-style:normal;opacity:.65;margin-left:5px;font-size:11.5px}
 input.q{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 10px;font:inherit;font-size:13px;width:220px;max-width:100%}
-main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:16px 24px 60px}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:16px 24px 60px} 
+.fs{font:inherit;cursor:pointer;border:0;border-radius:0;background:rgba(0,0,0,.62);color:#fff;line-height:1}
+.fs.tile{position:absolute;right:6px;top:6px;z-index:3;font-size:15px;padding:3px 6px;opacity:0;transition:opacity .12s}
+a.t:hover .fs.tile,div.t:hover .fs.tile,.t.isf .fs.tile,.fs.tile:focus-visible{opacity:1}
+@media(hover:none){.fs.tile{opacity:1}}
+.fs.on{color:var(--acc)}
+.fs.hd{margin-left:10px;font-size:17px;padding:3px 8px;background:var(--bg)}
+.fs.lb{margin-left:12px;font-size:17px;padding:2px 8px}
+a.t.isf,div.t.isf{outline:2px solid var(--acc);outline-offset:-2px}
+.feed.isf{border-color:var(--acc)}
 main .emp{grid-column:1/-1;color:var(--mut);text-align:center;padding:80px 0;line-height:1.8}
 main.feeds{display:block;max-width:1200px;margin:0 auto}
 a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:0;overflow:hidden;text-decoration:none;color:inherit;cursor:pointer}
@@ -96,10 +105,15 @@ let CS='c',FV=new Set();try{FV=new Set(JSON.parse(localStorage.nx_fav||'[]'))}ca
 const fk=v=>CS+':'+v,isFav=v=>FV.has(fk(v));
 function favSave(){try{localStorage.nx_fav=JSON.stringify([...FV])}catch(e){}}
 function favFirst(a,f){const g=a.filter(x=>isFav(f(x))),r=a.filter(x=>!isFav(f(x)));return g.concat(r)}
-function chip(box,label,val,n,cur,fn){const sc=CS,b=document.createElement('button');b.className='c'+(cur===val?' on':'')+(val!=='all'&&val!=='fav'&&sc!=='x'&&isFav(val)?' fav':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.onclick=()=>fn(val);
+const ik=x=>(x.p==='wh'||!x.u)?x.i:x.u;
+let favCountFn=()=>{};
+function starBtn(k,cls,cb){const b=document.createElement('button');b.type='button';b.className='fs '+cls;
+ const sy=()=>{const f=FV.has('i:'+k);b.textContent=f?'★':'☆';b.classList.toggle('on',f);b.title=f?'즐겨찾기 해제':'즐겨찾기'};sy();
+ b.onclick=e=>{e.preventDefault();e.stopPropagation();const s='i:'+k;FV.has(s)?FV.delete(s):FV.add(s);favSave();sy();favCountFn();cb&&cb(FV.has(s))};return b}
+function chip(box,label,val,n,cur,fn){const sc=CS,b=document.createElement('button');b.className='c'+(cur===val?' on':'')+(val!=='all'&&val!=='fav'&&sc!=='x'&&isFav(val)?' fav':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.dataset.v=val;b.onclick=()=>fn(val);
  if(val!=='all'&&val!=='fav'&&sc!=='x'){const st=document.createElement('span');st.className='st';st.textContent=isFav(val)?'★':'☆';st.title='즐겨찾기';st.onclick=e=>{e.stopPropagation();const k=sc+':'+val;FV.has(k)?FV.delete(k):FV.add(k);favSave();render()};b.appendChild(st)}
  box.appendChild(b)}
-function openLb(list,i){lbList=list;lbIdx=i;const x=list[i];const im=$('#lbi');im.onerror=()=>{im.onerror=null;if(x.i)im.src=x.i};im.src=x.full||x.i;$('#lbm').innerHTML=(x.t?'<b>'+esc(x.t)+'</b> ':'')+(x.ts?'<span>'+x.ts+'</span> ':'')+(x.u?'<a href="'+x.u+'" target="_blank" rel="noopener noreferrer">원본 열기 ↗</a>':'');$('#lb').classList.add('on')}
+function openLb(list,i){lbList=list;lbIdx=i;const x=list[i];const im=$('#lbi');im.onerror=()=>{im.onerror=null;if(x.i)im.src=x.i};im.src=x.full||x.i;$('#lbm').innerHTML=(x.t?'<b>'+esc(x.t)+'</b> ':'')+(x.ts?'<span>'+x.ts+'</span> ':'')+(x.u?'<a href="'+x.u+'" target="_blank" rel="noopener noreferrer">원본 열기 ↗</a>':'');{const bt=starBtn(ik(x),'lb',()=>{if(fp==='fav')render()});$('#lbm').appendChild(bt)}$('#lb').classList.add('on')}
 $('#lbx').onclick=()=>$('#lb').classList.remove('on');
 $('#lb').onclick=e=>{if(e.target.id==='lb')$('#lb').classList.remove('on')};
 document.addEventListener('keydown',e=>{if(!$('#lb').classList.contains('on'))return;if(e.key==='Escape')$('#lb').classList.remove('on');if(e.key==='ArrowRight'&&lbIdx<lbList.length-1)openLb(lbList,lbIdx+1);if(e.key==='ArrowLeft'&&lbIdx>0)openLb(lbList,lbIdx-1)});
@@ -112,11 +126,13 @@ function tile(x,list){
  const tg=document.createElement('span');tg.className='tag '+(x.p==='wh'?'ig':x.p);tg.textContent=x.c;a.appendChild(tg);
  if(x.t){const cp=document.createElement('div');cp.className='cap';if(x.p==='cap'||x.p==='yt'){const b=document.createElement('b');b.textContent=x.t;cp.appendChild(b)}const s=document.createElement('span');s.textContent=x.p==='cap'?(x.ts+' · '+x.ch):x.p==='yt'?x.ch:x.t;cp.appendChild(s);a.appendChild(cp)}
  if(x.d){const d=document.createElement('span');d.className='dur';d.textContent=x.d;a.appendChild(d)}
+ {const k=ik(x);if(FV.has('i:'+k))a.classList.add('isf');a.appendChild(starBtn(k,'tile',on=>{a.classList.toggle('isf',on);if(fp==='fav'&&!on)render()}))}
  return a}
 function feedEl(a,p){
  const el=document.createElement('article');el.className='feed';
  const link='https://www.instagram.com/p/'+p.c+'/';
  el.innerHTML='<div class="hd"><b>@'+esc(a.u)+'</b><span>'+esc(dstr(p.ts))+(p.lk!=null?' · ♥ '+p.lk.toLocaleString():'')+(p.n>p.s.length?' · 슬라이드 '+p.n+'장 중 '+p.s.length+'장':'')+'</span><a href="'+link+'" target="_blank" rel="noopener noreferrer">게시물 열기 ↗</a></div>'+(p.cap?'<p class="cp">'+esc(p.cap)+'</p>':'');
+ if(FV.has('i:'+link))el.classList.add('isf');el.querySelector('.hd').appendChild(starBtn(link,'hd',on=>el.classList.toggle('isf',on)));
  const sl=document.createElement('div');sl.className='sl';
  const imgs=p.s.filter(s=>s.k==='i'||(s.k==='v'&&!s.f)).map(s=>({i:s.f||s.p,t:'@'+a.u,u:link}));
  const ilist=p.s.filter(s=>s.k==='i').map(s=>({i:s.f,t:'@'+a.u,u:link}));
@@ -162,8 +178,9 @@ function render(){
  const igTiles=[];
  AR.forEach(a=>a.posts.forEach(p=>{const s=p.s.find(z=>z.k==='i')||p.s[0];const f=s&&(s.f||s.p);if(f)igTiles.push({p:'ig',c:'@'+a.u,u:'https://www.instagram.com/p/'+p.c+'/',i:f,t:'@'+a.u,sq:true})}));
  WH.forEach(w=>igTiles.push({p:'ig',c:'workhard · '+WN[w[0]],i:'wh/'+w[1],t:'workhard',sq:false,wh:1,wk:w[0]}));
- const favItem=x=>FV.has('p:'+x.p)||(x.p==='ig'?(x.wh?(FV.has('w:'+x.wk)||FV.has('a:workhard')):FV.has('a:'+x.t.slice(1))):FV.has('c:'+x.c));
+ const favItem=x=>FV.has('i:'+ik(x))||FV.has('p:'+x.p)||(x.p==='ig'?(x.wh?(FV.has('w:'+x.wk)||FV.has('a:workhard')):FV.has('a:'+x.t.slice(1))):FV.has('c:'+x.c));
  const favList=items.concat(igTiles).filter(favItem);
+ favCountFn=()=>{const n=items.concat(igTiles).filter(favItem).length;const b=document.querySelector('#plat button[data-v="fav"] i');if(b)b.textContent=n};
  const counts={pin:items.filter(x=>x.p==='pin').length,ig:igCount,yt:items.filter(x=>x.p==='yt').length,cap:items.filter(x=>x.p==='cap').length};
  const total=counts.pin+counts.ig+counts.yt+counts.cap;
  CS='p';chip(pl,'전체','all',total,fp,v=>{fp=v;fc='all';fa='all';render()});
