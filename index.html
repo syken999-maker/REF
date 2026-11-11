@@ -1649,7 +1649,7 @@ var BAKED = [
   window.addEventListener('scroll', function () { if (!focusTick) { focusTick = true; requestAnimationFrame(updateFocus); } }, { passive: true });
   window.addEventListener('resize', updateFocus);
   document.addEventListener('keydown', function (e) {
-    var k = e.key, down = k === 'ArrowDown' || k === 's' || k === 'S', up = k === 'ArrowUp' || k === 'w' || k === 'W';
+    var k = e.key, c = e.code, down = k === 'ArrowDown' || k === 's' || k === 'S' || k === 'ㄴ' || c === 'KeyS', up = k === 'ArrowUp' || k === 'w' || k === 'W' || k === 'ㅈ' || c === 'KeyW';
     if (state.mode !== 'stream' || (!down && !up) || e.ctrlKey || e.metaKey || e.altKey) return;
     if (pdlg.open || dlg.open || sdlg.open || /^(INPUT|TEXTAREA|SELECT)$/.test((e.target && e.target.tagName) || '')) return;
     var figs = [].slice.call(document.querySelectorAll('#sCol .fig')), i = figs.findIndex(function (f) { return f.classList.contains('on'); });
