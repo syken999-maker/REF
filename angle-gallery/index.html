@@ -2,27 +2,28 @@
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <title>NEWX REF SITE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0e0f12;--panel:#16181d;--line:#262a32;--fg:#e9e7e2;--mut:#8b909b;--acc:#d9b36c;--pin:#e0524a;--ig:#c561a8;--yt:#e8e8e8;--cap:#5aa7d8;color-scheme:dark}
+:root{--bg:#171719;--panel:#1f1f22;--line:#2f2f33;--fg:#edebe6;--mut:#8e8e93;--acc:#d3fd6a;--pin:#e0524a;--ig:#c561a8;--yt:#e8e8e8;--cap:#5aa7d8;color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif}
 header{padding:28px 24px 14px}
-h1{margin:0;font-size:24px;letter-spacing:.04em;font-weight:700}
-.bar{position:sticky;top:0;z-index:5;background:rgba(14,15,18,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 24px;display:flex;flex-direction:column;gap:8px}
+h1{margin:0;font:900 clamp(30px,5vw,46px)/1 Archivo,"Arial Black",Impact,sans-serif;letter-spacing:-.025em;color:var(--fg)}h1 span{color:var(--acc)}
+.bar{position:sticky;top:0;z-index:5;background:rgba(23,23,25,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:10px 24px;display:flex;flex-direction:column;gap:8px}
 .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .row.scroll{max-height:96px;overflow:auto}
-button.c{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
+button.c{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
 button.c:hover{border-color:var(--mut)}
-button.c.on{background:var(--acc);color:#15120a;border-color:var(--acc);font-weight:600}
+button.c.on{background:var(--acc);color:#171719;border-color:var(--acc);font-weight:700}button.c:hover{border-color:var(--acc)}button.c.on i{opacity:.7}
 button.c i{font-style:normal;opacity:.65;margin-left:5px;font-size:11.5px}
-input.q{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 10px;font:inherit;font-size:13px;width:220px;max-width:100%}
+input.q{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 10px;font:inherit;font-size:13px;width:220px;max-width:100%}
 main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:16px 24px 60px}
 main.feeds{display:block;max-width:1200px;margin:0 auto}
-a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:4px;overflow:hidden;text-decoration:none;color:inherit;cursor:pointer}
+a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:0;overflow:hidden;text-decoration:none;color:inherit;cursor:pointer}
 .t img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
 .t:hover img{transform:scale(1.04)}
 .t:focus-visible{outline:2px solid var(--acc)}
-.tag{position:absolute;left:6px;top:6px;font-size:10.5px;padding:1px 6px;border-radius:3px;background:rgba(0,0,0,.72);color:#fff;letter-spacing:.03em;max-width:90%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{position:absolute;left:6px;top:6px;font-size:10.5px;padding:1px 6px;border-radius:0;background:rgba(0,0,0,.72);color:#fff;letter-spacing:.03em;max-width:90%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tag.pin{border-left:3px solid var(--pin)}.tag.ig{border-left:3px solid var(--ig)}.tag.yt{border-left:3px solid var(--yt)}.tag.cap{border-left:3px solid var(--cap)}
 .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 6px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:11.5px;line-height:1.3;opacity:0;transition:opacity .2s}
 .t:hover .cap,.t:focus-visible .cap{opacity:1}
@@ -32,7 +33,7 @@ a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--pan
 .fb strong{color:var(--fg);font-size:12.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .fb span{max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .t.err .fb{display:flex}
-.dur{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.8);padding:0 5px;border-radius:3px;font-size:11px}
+.dur{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.8);padding:0 5px;border-radius:0;font-size:11px}
 .t.sq{aspect-ratio:4/5}
 /* 인스타 작가별 피드 */
 .artist{margin:0 0 56px}
@@ -40,7 +41,7 @@ a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--pan
 .artist>h2 a{color:var(--fg);text-decoration:none}
 .artist>h2 small{color:var(--mut);font-weight:400;font-size:13px}
 .artist>h2 .prof{margin-left:auto;font-size:12.5px;color:var(--acc);font-weight:400}
-.feed{margin:0 0 34px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:6px}
+.feed{margin:0 0 34px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:0}
 .feed .hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:6px;font-size:13px}
 .feed .hd b{font-weight:600}
 .feed .hd span{color:var(--mut)}
@@ -48,21 +49,21 @@ a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--pan
 .feed .hd a:hover{text-decoration:underline}
 .feed p.cp{margin:0 0 12px;color:var(--mut);font-size:12.5px;max-width:90ch;overflow-wrap:anywhere}
 .sl{display:flex;flex-wrap:wrap;gap:8px}
-.sl img,.sl video{height:340px;width:auto;max-width:100%;border-radius:3px;background:#0b0c0e;display:block;cursor:zoom-in}
+.sl img,.sl video{height:340px;width:auto;max-width:100%;border-radius:0;background:#0b0c0e;display:block;cursor:zoom-in}
 .sl video{cursor:default}
 .sl .more{align-self:center;color:var(--mut);font-size:12.5px}
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
 .wgrid .t{aspect-ratio:4/5}
 #lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.93);display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:20px}
 #lb.on{display:flex}
-#lb img{max-width:94vw;max-height:78vh;object-fit:contain;border-radius:3px}
+#lb img{max-width:94vw;max-height:78vh;object-fit:contain;border-radius:0}
 #lb .m{color:#ddd;font-size:13px;text-align:center;max-width:90ch}
 #lb .m a{color:var(--acc)}
 #lb .x{position:absolute;right:18px;top:12px;font-size:26px;cursor:pointer;color:#fff;background:none;border:0}
 @media(max-width:560px){.bar{position:static}header,.bar,main{padding-left:16px;padding-right:16px}main{grid-template-columns:repeat(2,1fr)}main.feeds{display:block}.sl img,.sl video{height:240px}.feed{padding:12px}}
 @media(hover:none){.t .cap{opacity:1}}
 </style></head><body>
-<header><h1>NEWX REF SITE</h1></header>
+<header><h1>NEWX <span>REF</span> SITE</h1></header>
 <div class="bar"><div class="row" id="plat"></div><div class="row" id="cats"></div></div>
 <main id="grid"></main>
 <div id="lb"><button class="x" id="lbx" aria-label="닫기">×</button><img id="lbi" alt=""><div class="m" id="lbm"></div></div>
