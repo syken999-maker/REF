@@ -240,6 +240,8 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .stDates button { display: flex; flex-direction: column; align-items: center; gap: 1px; line-height: 1.25; }
 .stDates .dc { font-size: 11px; opacity: .65; }
 .fig .sf .no { position: absolute; top: 6px; left: 6px; z-index: 1; padding: 1px 6px; font-family: var(--font-mono); font-size: 11px; line-height: 1.4; color: #fff; background: rgba(10, 12, 16, .6); pointer-events: none; }
+.stDates.stHours { top: 56px; padding: 4px 12px; background: color-mix(in srgb, var(--surface) 82%, transparent); backdrop-filter: blur(6px); }
+.stDates.stHours[hidden] { display: none; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
@@ -264,6 +266,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
   .rail button.sub, .rail button.sub[aria-pressed="true"] { margin: 0; }
   .stTop { padding: 12px 16px; }
   .stDates { position: static; transform: none; max-width: none; flex: 1; justify-content: center; }
+  .stDates.stHours { position: fixed; top: 56px; left: 0; right: 0; flex: none; }
   .rrail { position: fixed; top: auto; bottom: 0; left: 0; right: 0; transform: none; z-index: 18; flex-direction: row; align-items: center; justify-content: space-around; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 90%, transparent); }
   .rrail .grp { position: static; }
   .rrail .hd, .rrail .grp.open .hd { font-family: var(--font-mono); font-size: 12px; font-weight: 500; margin: 0; }
@@ -297,6 +300,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 <div id="stream" aria-label="스트림">
   <div class="stTop">
     <div class="stDates" id="stDates" role="group" aria-label="날짜 선택"></div>
+    <div class="stDates stHours" id="stHours" role="group" aria-label="시간대 선택" hidden></div>
     <nav>
       <button type="button" class="lk" id="stLog">로그</button>
       <button type="button" class="lk" id="stFind">✦ 더 찾기</button>
@@ -1035,7 +1039,7 @@ var BAKED = [
   var LS_HIDDEN = 'reference-log-site-hidden';
   var LS_MODE = 'reference-log-site-mode';
 
-  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', fav: false, order: [] };
+  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', hour: '', fav: false, order: [] };
   var local = { items: {}, deleted: [], thumbs: {} };
   var persisted = true;
 
@@ -1184,12 +1188,14 @@ var BAKED = [
   function removeItem(id) { delete local.items[id]; if (local.deleted.indexOf(id) < 0) local.deleted.push(id); persist(); refreshItems(); render(); }
 
   /* ---------- 필터 / 정렬 ---------- */
+  function hourOf(it) { return it.createdAt > 0 ? String(new Date(it.createdAt).getHours()) : 'x'; }
   function matches(it, skip) {
     if (skip !== 'platform' && state.platform && it.p.key !== state.platform) return false;
     if (skip !== 'category' && state.category && it.category !== state.category) return false;
     if (skip !== 'src' && state.src && groupOf(it) !== state.src) return false;
     if (skip !== 'region' && state.region && it.region !== state.region) return false;
     if (skip !== 'date' && state.date && it.date !== state.date) return false;
+    if (skip !== 'hour' && skip !== 'date' && state.date && state.hour !== '' && hourOf(it) !== state.hour) return false;
     if (state.fav && !it.fav) return false;
     if (state.q) {
       var hay = (it.title + ' ' + it.credit + ' ' + it.category + ' ' + it.tags.join(' ') + ' ' + it.note + ' ' + it.p.host + ' ' + it.region + ' ' + it.url).toLowerCase();
@@ -1317,7 +1323,7 @@ var BAKED = [
     document.querySelectorAll('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.g === state.group)); });
     $('favBtn').setAttribute('aria-pressed', String(state.fav));
   }
-  function resetFilters() { state.q = ''; state.platform = ''; state.category = ''; state.region = ''; state.date = ''; state.fav = false; $('q').value = ''; render(); }
+  function resetFilters() { state.q = ''; state.platform = ''; state.category = ''; state.region = ''; state.date = ''; state.hour = ''; state.fav = false; $('q').value = ''; render(); }
 
   function card(it, nums) {
     var url = normUrl(it.url), p = it.p, c = 'var(--p-' + p.key + ')', em = it.embed;
@@ -1595,7 +1601,7 @@ var BAKED = [
     var dk = Object.keys(dc).sort().reverse();
     if (state.date && !dc[state.date]) dk.unshift(state.date);
     var db = $('stDates'); db.replaceChildren();
-    var pickDate = function (k) { state.date = k; render(); window.scrollTo(0, 0); updateFocus(); };
+    var pickDate = function (k) { state.date = k; state.hour = ''; render(); window.scrollTo(0, 0); updateFocus(); };
     var dtotal = dk.reduce(function (a, k) { return a + (dc[k] || 0); }, 0);
     db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, h('span', { class: 'dl' }, '전체 날짜'), h('span', { class: 'dc' }, dtotal)));
     dk.forEach(function (k) {
@@ -1603,6 +1609,18 @@ var BAKED = [
       db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
         h('span', { class: 'dl' }, k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()]), h('span', { class: 'dc' }, dc[k] || 0)));
     });
+    var hb = $('stHours'); hb.replaceChildren();
+    if (state.date) {
+      var hc = {}, htot = 0;
+      state.items.forEach(function (it) { if (matches(it, 'hour') && it.date === state.date) { var k2 = hourOf(it); hc[k2] = (hc[k2] || 0) + 1; htot++; } });
+      var hk = Object.keys(hc).sort(function (a, b) { return (a === 'x' ? 99 : +a) - (b === 'x' ? 99 : +b); });
+      hb.append(h('button', { type: 'button', 'aria-pressed': String(state.hour === ''), onclick: function () { state.hour = ''; render(); window.scrollTo(0, 0); updateFocus(); } }, h('span', { class: 'dl' }, '전체 시간'), h('span', { class: 'dc' }, htot)));
+      hk.forEach(function (k2) {
+        hb.append(h('button', { type: 'button', 'aria-pressed': String(state.hour === k2), onclick: function () { state.hour = k2; render(); window.scrollTo(0, 0); updateFocus(); } },
+          h('span', { class: 'dl' }, k2 === 'x' ? '시간 없음' : (k2.length < 2 ? '0' : '') + k2 + '시'), h('span', { class: 'dc' }, hc[k2])));
+      });
+      hb.hidden = false;
+    } else hb.hidden = true;
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
     var sr = $('sSearch'); sr.replaceChildren();
