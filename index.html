@@ -1188,7 +1188,7 @@ var BAKED = [
   function removeItem(id) { delete local.items[id]; if (local.deleted.indexOf(id) < 0) local.deleted.push(id); persist(); refreshItems(); render(); }
 
   /* ---------- 필터 / 정렬 ---------- */
-  function hourOf(it) { return it.createdAt > 0 ? String(new Date(it.createdAt).getHours()) : 'x'; }
+  function hourOf(it) { return it.createdAt > 0 ? (new Date(it.createdAt).getHours() < 12 ? 'am' : 'pm') : 'x'; }
   function matches(it, skip) {
     if (skip !== 'platform' && state.platform && it.p.key !== state.platform) return false;
     if (skip !== 'category' && state.category && it.category !== state.category) return false;
@@ -1613,11 +1613,11 @@ var BAKED = [
     if (state.date) {
       var hc = {}, htot = 0;
       state.items.forEach(function (it) { if (matches(it, 'hour') && it.date === state.date) { var k2 = hourOf(it); hc[k2] = (hc[k2] || 0) + 1; htot++; } });
-      var hk = Object.keys(hc).sort(function (a, b) { return (a === 'x' ? 99 : +a) - (b === 'x' ? 99 : +b); });
+      var hk = Object.keys(hc).sort(function (a, b) { return ['am', 'pm', 'x'].indexOf(a) - ['am', 'pm', 'x'].indexOf(b); });
       hb.append(h('button', { type: 'button', 'aria-pressed': String(state.hour === ''), onclick: function () { state.hour = ''; render(); window.scrollTo(0, 0); updateFocus(); } }, h('span', { class: 'dl' }, '전체 시간'), h('span', { class: 'dc' }, htot)));
       hk.forEach(function (k2) {
         hb.append(h('button', { type: 'button', 'aria-pressed': String(state.hour === k2), onclick: function () { state.hour = k2; render(); window.scrollTo(0, 0); updateFocus(); } },
-          h('span', { class: 'dl' }, k2 === 'x' ? '시간 없음' : (k2.length < 2 ? '0' : '') + k2 + '시'), h('span', { class: 'dc' }, hc[k2])));
+          h('span', { class: 'dl' }, k2 === 'am' ? '오전' : k2 === 'pm' ? '오후' : '시간 없음'), h('span', { class: 'dc' }, hc[k2])));
       });
       hb.hidden = false;
     } else hb.hidden = true;
