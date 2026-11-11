@@ -18,6 +18,7 @@ button.c.on{background:var(--acc);color:#171719;border-color:var(--acc);font-wei
 button.c.fav{outline:2px solid var(--acc);outline-offset:1px}button.c .st{margin-left:7px;opacity:.35;font-size:12px;cursor:pointer}button.c .st:hover,button.c.fav .st{opacity:1}button.c.fav:not(.on) .st{color:var(--acc)}button.c i{font-style:normal;opacity:.65;margin-left:5px;font-size:11.5px}
 input.q{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 10px;font:inherit;font-size:13px;width:220px;max-width:100%}
 main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:16px 24px 60px}
+main .emp{grid-column:1/-1;color:var(--mut);text-align:center;padding:80px 0;line-height:1.8}
 main.feeds{display:block;max-width:1200px;margin:0 auto}
 a.t,div.t{position:relative;display:block;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--line);border-radius:0;overflow:hidden;text-decoration:none;color:inherit;cursor:pointer}
 .t img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
@@ -95,8 +96,8 @@ let CS='c',FV=new Set();try{FV=new Set(JSON.parse(localStorage.nx_fav||'[]'))}ca
 const fk=v=>CS+':'+v,isFav=v=>FV.has(fk(v));
 function favSave(){try{localStorage.nx_fav=JSON.stringify([...FV])}catch(e){}}
 function favFirst(a,f){const g=a.filter(x=>isFav(f(x))),r=a.filter(x=>!isFav(f(x)));return g.concat(r)}
-function chip(box,label,val,n,cur,fn){const sc=CS,b=document.createElement('button');b.className='c'+(cur===val?' on':'')+(val!=='all'&&isFav(val)?' fav':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.onclick=()=>fn(val);
- if(val!=='all'){const st=document.createElement('span');st.className='st';st.textContent=isFav(val)?'★':'☆';st.title='즐겨찾기';st.onclick=e=>{e.stopPropagation();const k=sc+':'+val;FV.has(k)?FV.delete(k):FV.add(k);favSave();render()};b.appendChild(st)}
+function chip(box,label,val,n,cur,fn){const sc=CS,b=document.createElement('button');b.className='c'+(cur===val?' on':'')+(val!=='all'&&val!=='fav'&&sc!=='x'&&isFav(val)?' fav':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.onclick=()=>fn(val);
+ if(val!=='all'&&val!=='fav'&&sc!=='x'){const st=document.createElement('span');st.className='st';st.textContent=isFav(val)?'★':'☆';st.title='즐겨찾기';st.onclick=e=>{e.stopPropagation();const k=sc+':'+val;FV.has(k)?FV.delete(k):FV.add(k);favSave();render()};b.appendChild(st)}
  box.appendChild(b)}
 function openLb(list,i){lbList=list;lbIdx=i;const x=list[i];const im=$('#lbi');im.onerror=()=>{im.onerror=null;if(x.i)im.src=x.i};im.src=x.full||x.i;$('#lbm').innerHTML=(x.t?'<b>'+esc(x.t)+'</b> ':'')+(x.ts?'<span>'+x.ts+'</span> ':'')+(x.u?'<a href="'+x.u+'" target="_blank" rel="noopener noreferrer">원본 열기 ↗</a>':'');$('#lb').classList.add('on')}
 $('#lbx').onclick=()=>$('#lb').classList.remove('on');
@@ -158,15 +159,22 @@ function renderIG(g){
 function render(){
  const g=$('#grid');g.innerHTML='';g.className='';
  const pl=$('#plat');pl.innerHTML='';
+ const igTiles=[];
+ AR.forEach(a=>a.posts.forEach(p=>{const s=p.s.find(z=>z.k==='i')||p.s[0];const f=s&&(s.f||s.p);if(f)igTiles.push({p:'ig',c:'@'+a.u,u:'https://www.instagram.com/p/'+p.c+'/',i:f,t:'@'+a.u,sq:true})}));
+ WH.forEach(w=>igTiles.push({p:'ig',c:'workhard · '+WN[w[0]],i:'wh/'+w[1],t:'workhard',sq:false,wh:1,wk:w[0]}));
+ const favItem=x=>FV.has('p:'+x.p)||(x.p==='ig'?(x.wh?(FV.has('w:'+x.wk)||FV.has('a:workhard')):FV.has('a:'+x.t.slice(1))):FV.has('c:'+x.c));
+ const favList=items.concat(igTiles).filter(favItem);
  const counts={pin:items.filter(x=>x.p==='pin').length,ig:igCount,yt:items.filter(x=>x.p==='yt').length,cap:items.filter(x=>x.p==='cap').length};
  const total=counts.pin+counts.ig+counts.yt+counts.cap;
  CS='p';chip(pl,'전체','all',total,fp,v=>{fp=v;fc='all';fa='all';render()});
+ chip(pl,'★ 즐겨찾기','fav',favList.length,fp,v=>{fp=v;fc='all';fa='all';render();window.scrollTo(0,0)});
  for(const k of favFirst(Object.keys(PN),x=>x))chip(pl,PN[k],k,counts[k],fp,v=>{fp=v;fc='all';fa='all';render();window.scrollTo(0,0)});
  const cs=$('#cats');cs.innerHTML='';cs.className='row';
  if(fp==='ig'){renderIG(g);return}
- const igTiles=[];
- AR.forEach(a=>a.posts.forEach(p=>{const s=p.s.find(z=>z.k==='i')||p.s[0];const f=s&&(s.f||s.p);if(f)igTiles.push({p:'ig',c:'@'+a.u,u:'https://www.instagram.com/p/'+p.c+'/',i:f,t:'@'+a.u,sq:true})}));
- WH.forEach(w=>igTiles.push({p:'ig',c:'workhard · '+WN[w[0]],i:'wh/'+w[1],t:'workhard',sq:false,wh:1}));
+ if(fp==='fav'){CS='x';const fm=new Map();favList.forEach(x=>fm.set(x.c,(fm.get(x.c)||0)+1));
+  if(!favList.length){g.innerHTML='<p class="emp">아직 즐겨찾기가 없어요.<br>분류·작가 칩의 ☆를 눌러 추가하면 여기에 모아 보여줘요.</p>';return}
+  chip(cs,'모든 즐겨찾기','all',favList.length,fc,v=>{fc=v;render()});[...fm.entries()].forEach(([c,n])=>chip(cs,c,c,n,fc,v=>{fc=v;render()}));cs.className='row scroll';
+  const fl=favList.filter(x=>fc==='all'||x.c===fc).map(x=>x.wh?Object.assign({},x,{p:'wh'}):x);const lb2=fl.filter(x=>x.p==='cap'||x.p==='wh');const ff=document.createDocumentFragment();fl.forEach(x=>ff.appendChild(tile(x,lb2)));g.appendChild(ff);return}
  let base=items.filter(x=>fp==='all'||x.p===fp);
  if(fp==='all')base=base.concat(igTiles.filter(x=>!x.wh));
  const cm=new Map();base.forEach(x=>cm.set(x.c,(cm.get(x.c)||0)+1));
