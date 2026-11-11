@@ -175,6 +175,9 @@ dialog form { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .dfoot .grow { flex: 1; }
 
 #pdlg, #sdlg { width: min(1040px, calc(100vw - 24px)); background: var(--bg); }
+#pdlg { max-width: calc(100vw - 12px); max-height: calc(100vh - 12px); }
+.rsz { position: absolute; right: 2px; bottom: 2px; width: 22px; height: 22px; cursor: nwse-resize; touch-action: none; z-index: 3; background: linear-gradient(135deg, transparent 52%, var(--muted) 52%, var(--muted) 58%, transparent 58%, transparent 70%, var(--muted) 70%, var(--muted) 76%, transparent 76%); opacity: .7; }
+.rsz:hover { opacity: 1; }
 .pbox, .sbox { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 .phead { display: flex; align-items: flex-start; gap: 12px; }
 .phead .tt { flex: 1; min-width: 0; }
@@ -380,6 +383,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
       <a class="btn small" id="pOpen" href="#" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;text-decoration:none">원본에서 열기 ↗</a>
     </div>
   </div>
+  <div class="rsz" id="pResize" title="드래그해서 크기 조절 · 더블클릭: 처음 크기"></div>
 </dialog>
 
 <dialog id="sdlg" aria-labelledby="sTitle">
@@ -468,7 +472,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351352622
+  "createdAt": 1794409165812
  },
  {
   "id": "b788f35bfb8",
@@ -486,7 +490,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351353622
+  "createdAt": 1794409166812
  },
  {
   "id": "b116f423c3a",
@@ -504,7 +508,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351354622
+  "createdAt": 1794409167812
  },
  {
   "id": "b773f84e964",
@@ -522,7 +526,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351355622
+  "createdAt": 1794409168812
  },
  {
   "id": "b62c89b33e9",
@@ -541,7 +545,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351356622
+  "createdAt": 1794409169812
  },
  {
   "id": "be5da6d39f1",
@@ -560,7 +564,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351357622
+  "createdAt": 1794409170812
  },
  {
   "id": "b15ea467418",
@@ -578,7 +582,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351358622
+  "createdAt": 1794409171812
  },
  {
   "id": "b2f0ab2f292",
@@ -596,7 +600,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351359622
+  "createdAt": 1794409172812
  },
  {
   "id": "b53daa598e8",
@@ -616,7 +620,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351360622
+  "createdAt": 1794409173812
  },
  {
   "id": "bab16188b64",
@@ -636,7 +640,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351361622
+  "createdAt": 1794409174812
  },
  {
   "id": "b872d637627",
@@ -656,7 +660,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351362622
+  "createdAt": 1794409175812
  },
  {
   "id": "b2b212e5e39",
@@ -676,7 +680,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794351363622
+  "createdAt": 1794409176812
  },
  {
   "id": "b0f28eb629d",
@@ -696,7 +700,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794351364622
+  "createdAt": 1794409177812
  },
  {
   "id": "b9ca6421b85",
@@ -716,7 +720,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351365622
+  "createdAt": 1794409178812
  },
  {
   "id": "b94839daa7e",
@@ -736,7 +740,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351366622
+  "createdAt": 1794409179812
  },
  {
   "id": "bf769f7ee32",
@@ -756,7 +760,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351367622
+  "createdAt": 1794409180812
  },
  {
   "id": "b6c020bd000",
@@ -775,7 +779,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351368622
+  "createdAt": 1794409181812
  },
  {
   "id": "b7d55c220b3",
@@ -795,7 +799,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351369622
+  "createdAt": 1794409182812
  },
  {
   "id": "bf10705d9fb",
@@ -814,7 +818,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351370622
+  "createdAt": 1794409183812
  },
  {
   "id": "be1c412efc3",
@@ -833,7 +837,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351371622
+  "createdAt": 1794409184812
  },
  {
   "id": "bd9f80ef1a3",
@@ -852,7 +856,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351372622
+  "createdAt": 1794409185812
  },
  {
   "id": "b27a7b48db5",
@@ -871,7 +875,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351373622
+  "createdAt": 1794409186812
  },
  {
   "id": "b9652534508",
@@ -890,7 +894,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351374622
+  "createdAt": 1794409187812
  },
  {
   "id": "b8a84d5f627",
@@ -909,7 +913,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351375622
+  "createdAt": 1794409188812
  },
  {
   "id": "b7f4f8ef8d6",
@@ -928,7 +932,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351376622
+  "createdAt": 1794409189812
  },
  {
   "id": "b99fb9c1d82",
@@ -947,7 +951,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794351377622
+  "createdAt": 1794409190812
  },
  {
   "id": "b4fb06bed2d",
@@ -966,7 +970,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794351378622
+  "createdAt": 1794409191812
  },
  {
   "id": "b6be94f80a0",
@@ -986,7 +990,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351379622
+  "createdAt": 1794409192812
  },
  {
   "id": "b50d1bdada1",
@@ -1004,7 +1008,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794351380622
+  "createdAt": 1794409193812
  }
 ];
 </script>
@@ -1452,7 +1456,7 @@ var BAKED = [
     $('pLink').href = lk || '#'; $('pLink').textContent = lk; $('pCopy').textContent = '복사'; $('pCopy').dataset.url = lk;
     var open = $('pOpen'); open.href = normUrl(it.url) || '#'; open.textContent = it.p.label + '에서 열기 ↗';
     var stage = $('stage'); stage.replaceChildren();
-    stage.style.aspectRatio = em.ratio; stage.style.maxWidth = '100%'; stage.style.maxHeight = '72vh';
+    stage.style.aspectRatio = em.ratio; stage.style.maxWidth = '100%'; stage.style.maxHeight = 'calc(100vh - 190px)';
     var host = h('div'); stage.append(host);
     failTimer = setTimeout(function () { if (tok === playTok) showFail(false); }, 12000);
     if (em.kind === 'youtube') startYT(em, host, tok); else startVimeo(em, host, tok);
@@ -1470,6 +1474,25 @@ var BAKED = [
   function closePlayer() { if (pdlg.open) pdlg.close(); }
   pdlg.addEventListener('close', function () { playTok++; teardown(); $('stage').replaceChildren(); curId = null; });
   pdlg.addEventListener('click', function (e) { if (e.target === pdlg) closePlayer(); });
+  /* 플레이어 창 크기 조절: 오른쪽 아래 모서리를 드래그(가로 기준, 영상 비율은 유지) */
+  (function () {
+    var KEY = 'reference-log-site-pw', rz = $('pResize');
+    function apply(w) { if (w) pdlg.style.width = w + 'px'; else pdlg.style.width = ''; }
+    try { var sv = parseInt(localStorage.getItem(KEY), 10); if (sv > 0) apply(sv); } catch (e) {}
+    var drag = null;
+    rz.addEventListener('pointerdown', function (e) {
+      drag = { x: e.clientX, w: pdlg.getBoundingClientRect().width }; rz.setPointerCapture(e.pointerId); e.preventDefault();
+    });
+    rz.addEventListener('pointermove', function (e) {
+      if (!drag) return;
+      var w = drag.w + (e.clientX - drag.x) * 2;
+      w = Math.max(420, Math.min(w, window.innerWidth - 12));
+      apply(Math.round(w));
+    });
+    function end() { if (!drag) return; drag = null; try { localStorage.setItem(KEY, String(Math.round(pdlg.getBoundingClientRect().width))); } catch (e) {} }
+    rz.addEventListener('pointerup', end); rz.addEventListener('pointercancel', end);
+    rz.addEventListener('dblclick', function () { apply(0); try { localStorage.removeItem(KEY); } catch (e) {} });
+  })();
   $('pClose').addEventListener('click', closePlayer);
   $('pCopy').addEventListener('click', function () {
     var btn = $('pCopy'), url = btn.dataset.url || '';
