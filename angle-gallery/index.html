@@ -99,10 +99,10 @@ function tile(x,list){
  const lb=x.p==='cap'||x.p==='wh';
  const a=document.createElement(lb?'div':'a');a.className='t'+(x.sq?' sq':'');
  if(lb){a.tabIndex=0;a.onclick=()=>openLb(list,list.indexOf(x));a.onkeydown=e=>{if(e.key==='Enter')a.onclick()}}else{a.href=x.u;a.target='_blank';a.rel='noopener noreferrer'}
- if(x.p==='yt'){a.classList.add('err');const fb=document.createElement('div');fb.className='fb';fb.innerHTML='<strong>'+esc(x.t)+'</strong><span>'+esc(x.ch)+'</span>';a.appendChild(fb)}
- else{const im=document.createElement('img');im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';im.alt='';im.src=x.i;a.appendChild(im)}
+ {const im=document.createElement('img');im.loading='lazy';im.decoding='async';im.referrerPolicy='no-referrer';im.alt='';im.src=x.i;if(x.p==='yt'){im.onerror=()=>a.classList.add('err')}a.appendChild(im)}
+ if(x.p==='yt'){const fb=document.createElement('div');fb.className='fb';fb.innerHTML='<strong>'+esc(x.t)+'</strong><span>'+esc(x.ch)+'</span>';a.appendChild(fb)}
  const tg=document.createElement('span');tg.className='tag '+(x.p==='wh'?'ig':x.p);tg.textContent=x.c;a.appendChild(tg);
- if(x.t&&x.p!=='yt'){const cp=document.createElement('div');cp.className='cap';if(x.p==='cap'){const b=document.createElement('b');b.textContent=x.t;cp.appendChild(b)}const s=document.createElement('span');s.textContent=x.p==='cap'?(x.ts+' · '+x.ch):x.t;cp.appendChild(s);a.appendChild(cp)}
+ if(x.t){const cp=document.createElement('div');cp.className='cap';if(x.p==='cap'||x.p==='yt'){const b=document.createElement('b');b.textContent=x.t;cp.appendChild(b)}const s=document.createElement('span');s.textContent=x.p==='cap'?(x.ts+' · '+x.ch):x.p==='yt'?x.ch:x.t;cp.appendChild(s);a.appendChild(cp)}
  if(x.d){const d=document.createElement('span');d.className='dur';d.textContent=x.d;a.appendChild(d)}
  return a}
 function feedEl(a,p){
