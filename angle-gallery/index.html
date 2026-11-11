@@ -15,7 +15,7 @@ h1{margin:0;font:900 clamp(30px,5vw,46px)/1 Archivo,"Arial Black",Impact,sans-se
 button.c{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 11px;font:inherit;font-size:13px;cursor:pointer}
 button.c:hover{border-color:var(--mut)}
 button.c.on{background:var(--acc);color:#171719;border-color:var(--acc);font-weight:700}button.c:hover{border-color:var(--acc)}button.c.on i{opacity:.7}
-button.c i{font-style:normal;opacity:.65;margin-left:5px;font-size:11.5px}
+button.c.fav{outline:2px solid var(--acc);outline-offset:1px}button.c .st{margin-left:7px;opacity:.35;font-size:12px;cursor:pointer}button.c .st:hover,button.c.fav .st{opacity:1}button.c.fav:not(.on) .st{color:var(--acc)}button.c i{font-style:normal;opacity:.65;margin-left:5px;font-size:11.5px}
 input.q{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:0;padding:5px 10px;font:inherit;font-size:13px;width:220px;max-width:100%}
 main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:16px 24px 60px}
 main.feeds{display:block;max-width:1200px;margin:0 auto}
@@ -91,7 +91,13 @@ const AR=NX.ig.artists; // [{u,fn,posts:[...]}]
 const WH=NX.wh; // [[g,file,ratio]]
 const igCount=AR.reduce((n,a)=>n+a.posts.length,0)+WH.length;
 let fp='all',fc='all',fa='all',fq='',lbList=[],lbIdx=0;
-function chip(box,label,val,n,cur,fn){const b=document.createElement('button');b.className='c'+(cur===val?' on':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.onclick=()=>fn(val);box.appendChild(b)}
+let CS='c',FV=new Set();try{FV=new Set(JSON.parse(localStorage.nx_fav||'[]'))}catch(e){}
+const fk=v=>CS+':'+v,isFav=v=>FV.has(fk(v));
+function favSave(){try{localStorage.nx_fav=JSON.stringify([...FV])}catch(e){}}
+function favFirst(a,f){const g=a.filter(x=>isFav(f(x))),r=a.filter(x=>!isFav(f(x)));return g.concat(r)}
+function chip(box,label,val,n,cur,fn){const sc=CS,b=document.createElement('button');b.className='c'+(cur===val?' on':'')+(val!=='all'&&isFav(val)?' fav':'');b.innerHTML=esc(label)+(n!=null?'<i>'+n+'</i>':'');b.onclick=()=>fn(val);
+ if(val!=='all'){const st=document.createElement('span');st.className='st';st.textContent=isFav(val)?'★':'☆';st.title='즐겨찾기';st.onclick=e=>{e.stopPropagation();const k=sc+':'+val;FV.has(k)?FV.delete(k):FV.add(k);favSave();render()};b.appendChild(st)}
+ box.appendChild(b)}
 function openLb(list,i){lbList=list;lbIdx=i;const x=list[i];const im=$('#lbi');im.onerror=()=>{im.onerror=null;if(x.i)im.src=x.i};im.src=x.full||x.i;$('#lbm').innerHTML=(x.t?'<b>'+esc(x.t)+'</b> ':'')+(x.ts?'<span>'+x.ts+'</span> ':'')+(x.u?'<a href="'+x.u+'" target="_blank" rel="noopener noreferrer">원본 열기 ↗</a>':'');$('#lb').classList.add('on')}
 $('#lbx').onclick=()=>$('#lb').classList.remove('on');
 $('#lb').onclick=e=>{if(e.target.id==='lb')$('#lb').classList.remove('on')};
@@ -121,9 +127,9 @@ function feedEl(a,p){
 function renderIG(g){
  const cs=$('#cats');cs.innerHTML='';
  const names=['all','workhard'].concat(AR.map(a=>a.u));
- chip(cs,'전체 작가','all',igCount,fa,v=>{fa=v;render()});
+ CS='a';chip(cs,'전체 작가','all',igCount,fa,v=>{fa=v;render()});
  chip(cs,'workhard','workhard',WH.length,fa,v=>{fa=v;render()});
- const top=AR.slice(0,30);
+ const top=favFirst(AR.filter(a=>isFav(a.u)).concat(AR.slice(0,30).filter(a=>!isFav(a.u))),a=>a.u);
  top.forEach(a=>chip(cs,'@'+a.u,a.u,a.posts.length,fa,v=>{fa=v;render()}));
  if(fa!=='all'&&fa!=='workhard'&&!top.some(a=>a.u===fa)){const a=AR.find(z=>z.u===fa);if(a)chip(cs,'@'+a.u,a.u,a.posts.length,fa,v=>{fa=v;render()})}
  cs.className='row scroll';
@@ -138,7 +144,7 @@ function renderIG(g){
   const sub=document.createElement('div');sub.className='row';sub.style.marginBottom='14px';
   sec.appendChild(sub);
   const gr=document.createElement('div');gr.className='wgrid';sec.appendChild(gr);
-  const draw=()=>{sub.innerHTML='';chip(sub,'전체','all',WH.length,fc,v=>{fc=v;draw()});for(const k in WN)chip(sub,WN[k],k,WH.filter(w=>w[0]===k).length,fc,v=>{fc=v;draw()});
+  const draw=()=>{sub.innerHTML='';CS='w';chip(sub,'전체','all',WH.length,fc,v=>{fc=v;draw()});for(const k of favFirst(Object.keys(WN),x=>x))chip(sub,WN[k],k,WH.filter(w=>w[0]===k).length,fc,v=>{fc=v;draw()});
    gr.innerHTML='';const L=WH.filter(w=>fc==='all'||w[0]===fc).map(w=>({p:'wh',c:WN[w[0]],i:'wh/'+w[1],sq:true}));L.forEach(x=>gr.appendChild(tile(x,L)))};
   draw();return sec};
  const secA=a=>{
@@ -154,8 +160,8 @@ function render(){
  const pl=$('#plat');pl.innerHTML='';
  const counts={pin:items.filter(x=>x.p==='pin').length,ig:igCount,yt:items.filter(x=>x.p==='yt').length,cap:items.filter(x=>x.p==='cap').length};
  const total=counts.pin+counts.ig+counts.yt+counts.cap;
- chip(pl,'전체','all',total,fp,v=>{fp=v;fc='all';fa='all';render()});
- for(const k in PN)chip(pl,PN[k],k,counts[k],fp,v=>{fp=v;fc='all';fa='all';render();window.scrollTo(0,0)});
+ CS='p';chip(pl,'전체','all',total,fp,v=>{fp=v;fc='all';fa='all';render()});
+ for(const k of favFirst(Object.keys(PN),x=>x))chip(pl,PN[k],k,counts[k],fp,v=>{fp=v;fc='all';fa='all';render();window.scrollTo(0,0)});
  const cs=$('#cats');cs.innerHTML='';cs.className='row';
  if(fp==='ig'){renderIG(g);return}
  const igTiles=[];
@@ -164,8 +170,8 @@ function render(){
  let base=items.filter(x=>fp==='all'||x.p===fp);
  if(fp==='all')base=base.concat(igTiles.filter(x=>!x.wh));
  const cm=new Map();base.forEach(x=>cm.set(x.c,(cm.get(x.c)||0)+1));
- chip(cs,'모든 분류','all',base.length,fc,v=>{fc=v;render()});
- const ents=[...cm.entries()];
+ CS='c';chip(cs,'모든 분류','all',base.length,fc,v=>{fc=v;render()});
+ const ents=favFirst([...cm.entries()],e=>e[0]);
  (fp==='all'?ents.filter(e=>!e[0].startsWith('@')):ents).forEach(([c,n])=>chip(cs,c,c,n,fc,v=>{fc=v;render()}));
  cs.className='row scroll';
  const list=base.filter(x=>fc==='all'||x.c===fc);
