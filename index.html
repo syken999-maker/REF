@@ -237,6 +237,9 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .fig.on figcaption .t { opacity: 1; }
 .stDates { position: absolute; left: 50%; transform: translateX(-50%); max-width: calc(100vw - 420px); min-width: 0; display: flex; justify-content: flex-start; gap: 18px; overflow-x: auto; scrollbar-width: none; }
 .stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
+.stDates button { display: flex; flex-direction: column; align-items: center; gap: 1px; line-height: 1.25; }
+.stDates .dc { font-size: 11px; opacity: .65; }
+.fig .sf .no { position: absolute; top: 6px; left: 6px; z-index: 1; padding: 1px 6px; font-family: var(--font-mono); font-size: 11px; line-height: 1.4; color: #fff; background: rgba(10, 12, 16, .6); pointer-events: none; }
 .stDates button:hover { color: var(--ink); }
 .stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
@@ -1593,11 +1596,12 @@ var BAKED = [
     if (state.date && !dc[state.date]) dk.unshift(state.date);
     var db = $('stDates'); db.replaceChildren();
     var pickDate = function (k) { state.date = k; render(); window.scrollTo(0, 0); updateFocus(); };
-    db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, '전체 날짜'));
+    var dtotal = dk.reduce(function (a, k) { return a + (dc[k] || 0); }, 0);
+    db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, h('span', { class: 'dl' }, '전체 날짜'), h('span', { class: 'dc' }, dtotal)));
     dk.forEach(function (k) {
       var d = parseYmd(k);
       db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
-        k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()] + ' · ' + (dc[k] || 0)));
+        h('span', { class: 'dl' }, k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()]), h('span', { class: 'dc' }, dc[k] || 0)));
     });
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
@@ -1621,8 +1625,9 @@ var BAKED = [
       if (it.embed) media = h('button', { type: 'button', class: 'sf', 'aria-label': (it.title || it.p.label) + ' 재생', onclick: click }, thumb);
       else if (url) media = h('a', { class: 'sf', href: url, target: '_blank', rel: 'noopener noreferrer', 'aria-label': (it.title || it.p.label) + ' 열기', onclick: click }, thumb);
       else media = h('div', { class: 'sf' }, thumb);
+      media.append(h('span', { class: 'no', 'aria-hidden': 'true' }, i + 1));
       col.append(h('figure', { class: 'fig' + (i === 0 ? ' on' : '') }, media,
-        h('figcaption', null, h('span', null, '(' + (i + 1) + ')'), h('span', { class: 't' }, it.title))));
+        h('figcaption', null, h('span', { class: 't' }, it.title))));
     });
     if (list.length) col.append(h('button', { type: 'button', class: 'lk stMore', onclick: openFinder }, '✦ 더 찾기'));
     updateFocus();
