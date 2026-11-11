@@ -236,10 +236,15 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 .fig figcaption { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; font-size: 11px; color: var(--muted); }
 .fig figcaption .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; opacity: 0; }
 .fig.on figcaption .t { opacity: 1; }
-.stDates { position: absolute; left: 50%; transform: translateX(-50%); max-width: calc(100vw - 420px); min-width: 0; display: flex; justify-content: flex-start; gap: 18px; overflow-x: auto; scrollbar-width: none; }
-.stDates button { flex: none; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
-.stDates button:hover { color: var(--ink); }
-.stDates button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; font-weight: 500; }
+.stDates { position: absolute; left: 50%; top: 10px; transform: translateX(-50%); max-width: calc(100vw - 420px); min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.stRow { display: flex; align-items: flex-start; gap: 12px; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.stRow button { flex: none; display: flex; flex-direction: column; align-items: center; gap: 1px; border: 0; padding: 2px 0; background: none; cursor: pointer; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .02em; color: var(--muted); white-space: nowrap; }
+.stRow button .n { font-size: 11px; opacity: .65; }
+.stRow button:hover { color: var(--ink); }
+.stRow button[aria-pressed="true"] { color: var(--ink); font-weight: 500; }
+.stRow button[aria-pressed="true"] .lb { text-decoration: underline; text-underline-offset: 4px; }
+.stRow .sep { flex: none; padding-top: 2px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); opacity: .5; user-select: none; }
+.stRow.times { padding-top: 6px; border-top: 1px solid var(--line); }
 .stEmpty { padding: 20px 0; text-align: center; color: var(--muted); }
 .rrail { left: auto; right: 22px; align-items: flex-end; text-align: right; gap: 2px; max-width: none; }
 .rrail .grp { display: flex; flex-direction: column; align-items: flex-end; }
@@ -261,7 +266,7 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
   .rail button[aria-pressed="true"] { text-decoration: underline; text-underline-offset: 3px; }
   .rail button.sub, .rail button.sub[aria-pressed="true"] { margin: 0; }
   .stTop { padding: 12px 16px; }
-  .stDates { position: static; transform: none; max-width: none; flex: 1; justify-content: center; }
+  .stDates { position: static; transform: none; max-width: none; flex: 1; min-width: 0; }
   .rrail { position: fixed; top: auto; bottom: 0; left: 0; right: 0; transform: none; z-index: 18; flex-direction: row; align-items: center; justify-content: space-around; gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: color-mix(in srgb, var(--surface) 90%, transparent); }
   .rrail .grp { position: static; }
   .rrail .hd, .rrail .grp.open .hd { font-family: var(--font-mono); font-size: 12px; font-weight: 500; margin: 0; }
@@ -473,7 +478,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433514935
+  "createdAt": 1794438891904
  },
  {
   "id": "b788f35bfb8",
@@ -491,7 +496,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433515935
+  "createdAt": 1794438892904
  },
  {
   "id": "b116f423c3a",
@@ -509,7 +514,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433516935
+  "createdAt": 1794438893904
  },
  {
   "id": "b773f84e964",
@@ -527,7 +532,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433517935
+  "createdAt": 1794438894904
  },
  {
   "id": "b62c89b33e9",
@@ -546,7 +551,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433518935
+  "createdAt": 1794438895904
  },
  {
   "id": "be5da6d39f1",
@@ -565,7 +570,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433519935
+  "createdAt": 1794438896904
  },
  {
   "id": "b15ea467418",
@@ -583,7 +588,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433520935
+  "createdAt": 1794438897904
  },
  {
   "id": "b2f0ab2f292",
@@ -601,7 +606,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433521935
+  "createdAt": 1794438898904
  },
  {
   "id": "b53daa598e8",
@@ -621,7 +626,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433522935
+  "createdAt": 1794438899904
  },
  {
   "id": "bab16188b64",
@@ -641,7 +646,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433523935
+  "createdAt": 1794438900904
  },
  {
   "id": "b872d637627",
@@ -661,7 +666,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433524935
+  "createdAt": 1794438901904
  },
  {
   "id": "b2b212e5e39",
@@ -681,7 +686,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794433525935
+  "createdAt": 1794438902904
  },
  {
   "id": "b0f28eb629d",
@@ -701,7 +706,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794433526935
+  "createdAt": 1794438903904
  },
  {
   "id": "b9ca6421b85",
@@ -721,7 +726,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433527935
+  "createdAt": 1794438904904
  },
  {
   "id": "b94839daa7e",
@@ -741,7 +746,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433528935
+  "createdAt": 1794438905904
  },
  {
   "id": "bf769f7ee32",
@@ -761,7 +766,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433529935
+  "createdAt": 1794438906904
  },
  {
   "id": "b6c020bd000",
@@ -780,7 +785,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433530935
+  "createdAt": 1794438907904
  },
  {
   "id": "b7d55c220b3",
@@ -800,7 +805,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433531935
+  "createdAt": 1794438908904
  },
  {
   "id": "bf10705d9fb",
@@ -819,7 +824,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433532935
+  "createdAt": 1794438909904
  },
  {
   "id": "be1c412efc3",
@@ -838,7 +843,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433533935
+  "createdAt": 1794438910904
  },
  {
   "id": "bd9f80ef1a3",
@@ -857,7 +862,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433534935
+  "createdAt": 1794438911904
  },
  {
   "id": "b27a7b48db5",
@@ -876,7 +881,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433535935
+  "createdAt": 1794438912904
  },
  {
   "id": "b9652534508",
@@ -895,7 +900,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433536935
+  "createdAt": 1794438913904
  },
  {
   "id": "b8a84d5f627",
@@ -914,7 +919,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433537935
+  "createdAt": 1794438914904
  },
  {
   "id": "b7f4f8ef8d6",
@@ -933,7 +938,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433538935
+  "createdAt": 1794438915904
  },
  {
   "id": "b99fb9c1d82",
@@ -952,7 +957,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794433539935
+  "createdAt": 1794438916904
  },
  {
   "id": "b4fb06bed2d",
@@ -971,7 +976,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794433540935
+  "createdAt": 1794438917904
  },
  {
   "id": "b6be94f80a0",
@@ -991,7 +996,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433541935
+  "createdAt": 1794438918904
  },
  {
   "id": "b50d1bdada1",
@@ -1009,7 +1014,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794433542935
+  "createdAt": 1794438919904
  }
 ];
 </script>
@@ -1033,7 +1038,7 @@ var BAKED = [
   var LS_HIDDEN = 'reference-log-site-hidden';
   var LS_MODE = 'reference-log-site-mode';
 
-  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', fav: false, order: [] };
+  var state = { mode: 'stream', blocked: false, src: '', items: [], group: 'date', q: '', platform: '', category: '', region: '', date: '', time: '', fav: false, order: [] };
   var local = { items: {}, deleted: [], thumbs: {} };
   var persisted = true;
 
@@ -1188,6 +1193,7 @@ var BAKED = [
     if (skip !== 'src' && state.src && groupOf(it) !== state.src) return false;
     if (skip !== 'region' && state.region && it.region !== state.region) return false;
     if (skip !== 'date' && state.date && it.date !== state.date) return false;
+    if (skip !== 'date' && skip !== 'time' && state.date && state.time !== '' && slotOf(it) !== state.time) return false;
     if (state.fav && !it.fav) return false;
     if (state.q) {
       var hay = (it.title + ' ' + it.credit + ' ' + it.category + ' ' + it.tags.join(' ') + ' ' + it.note + ' ' + it.p.host + ' ' + it.region + ' ' + it.url).toLowerCase();
@@ -1196,6 +1202,9 @@ var BAKED = [
     }
     return true;
   }
+  /* 수집 시각(KST) 기준 시간대: 'HH' 문자열, 시각 정보가 없으면 '' */
+  function slotOf(it) { if (!it.createdAt) return ''; var h = new Date(it.createdAt + 9 * 3600000).getUTCHours(); return (h < 10 ? '0' : '') + h; }
+  function slotLabel(k) { var h = parseInt(k, 10); return (h < 12 ? '오전 ' : '오후 ') + ((h % 12) || 12) + '시'; }
   function cmpItems(a, b) { return b.date.localeCompare(a.date) || a.createdAt - b.createdAt; }
   function catRank(c) { var i = DEFAULT_CATS.indexOf(c); return i < 0 ? 100 : i; }
   function cmpCat(a, b) { return catRank(a) - catRank(b) || a.localeCompare(b, 'ko'); }
@@ -1620,14 +1629,28 @@ var BAKED = [
     state.items.forEach(function (it) { if (matches(it, 'date')) dc[it.date] = (dc[it.date] || 0) + 1; });
     var dk = Object.keys(dc).sort().reverse();
     if (state.date && !dc[state.date]) dk.unshift(state.date);
+    var tc = {};
+    if (state.date) state.items.forEach(function (it) { if (matches(it, 'time') && it.date === state.date) { var sk = slotOf(it); if (sk) tc[sk] = (tc[sk] || 0) + 1; } });
+    var tk = Object.keys(tc).sort();
+    if (state.time !== '' && !tc[state.time]) state.time = '';
     var db = $('stDates'); db.replaceChildren();
-    var pickDate = function (k) { state.date = k; render(); window.scrollTo(0, 0); updateFocus(); };
-    db.append(h('button', { type: 'button', 'aria-pressed': String(!state.date), onclick: function () { pickDate(''); } }, '전체 날짜'));
+    var pickDate = function (k) { state.date = k; state.time = ''; render(); window.scrollTo(0, 0); updateFocus(); };
+    var pickTime = function (k) { state.time = k; render(); window.scrollTo(0, 0); updateFocus(); };
+    var cell = function (label, n, on, fn) { return h('button', { type: 'button', 'aria-pressed': String(on), onclick: fn }, h('span', { class: 'lb' }, label), h('span', { class: 'n' }, String(n))); };
+    var join = function (row, cells) { cells.forEach(function (c, i) { if (i) row.append(h('span', { class: 'sep', 'aria-hidden': 'true' }, '/')); row.append(c); }); return row; };
+    var total = 0; dk.forEach(function (k) { total += dc[k] || 0; });
+    var dcells = [cell('전체 날짜', total, !state.date, function () { pickDate(''); })];
     dk.forEach(function (k) {
       var d = parseYmd(k);
-      db.append(h('button', { type: 'button', 'aria-pressed': String(state.date === k), onclick: function () { pickDate(k); } },
-        k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()] + ' · ' + (dc[k] || 0)));
+      dcells.push(cell(k.slice(5).replace('-', '.') + ' ' + WEEK[d.getDay()], dc[k] || 0, state.date === k, function () { pickDate(k); }));
     });
+    db.append(join(h('div', { class: 'stRow' }), dcells));
+    if (state.date && tk.length) {
+      var all = 0; tk.forEach(function (k) { all += tc[k]; });
+      var tcells = [cell('전체 시간', all, state.time === '', function () { pickTime(''); })];
+      tk.forEach(function (k) { tcells.push(cell(slotLabel(k), tc[k], state.time === k, function () { pickTime(k); })); });
+      db.append(join(h('div', { class: 'stRow times' }), tcells));
+    }
     rail.append(h('button', { type: 'button', onclick: function () { window.open('https://tvcf.co.kr/worked/video?mediaType_value=1&page=1&rows=50&sort_by=published_date&country_code_value=410&lang=ko', '_blank', 'noopener'); } }, 'TVCF ↗'));
     var col = $('sCol'); col.replaceChildren();
     var sr = $('sSearch'); sr.replaceChildren();
