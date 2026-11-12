@@ -179,7 +179,10 @@ dialog form { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
 .rsz { position: absolute; right: 2px; bottom: 2px; width: 22px; height: 22px; cursor: nwse-resize; touch-action: none; z-index: 3; background: linear-gradient(135deg, transparent 52%, var(--muted) 52%, var(--muted) 58%, transparent 58%, transparent 70%, var(--muted) 70%, var(--muted) 76%, transparent 76%); opacity: .7; }
 .rsz:hover { opacity: 1; }
 .pbox, .sbox { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
-.pbar { display: flex; justify-content: center; gap: 10px; }
+.pbar { display: flex; justify-content: center; gap: 25px; margin: 4px 0; }
+.pbar .btn.big { height: 70px; padding: 0 25px; font-size: 30px; border-radius: 20px; }
+#pdlg .phead { justify-content: center; text-align: center; }
+#pdlg .plink { justify-content: center; }
 .phead { display: flex; align-items: flex-start; gap: 12px; }
 .phead .tt { flex: 1; min-width: 0; }
 .phead h2 { margin: 0; font-size: 18px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
@@ -371,13 +374,13 @@ html:has(body[data-mode="stream"]) { scroll-snap-type: y proximity; }
 
 <dialog id="pdlg" aria-label="영상 재생">
   <div class="pbox">
-    <div class="pbar"><button type="button" class="btn small" id="pCopy">복사</button><button type="button" class="btn small" id="pClose">닫기</button></div>
     <div class="phead">
       <div class="tt">
         <div class="plink"><a id="pLink" href="#" target="_blank" rel="noopener noreferrer"></a></div>
         <h2 id="pTitle"></h2><p class="cr" id="pCredit"></p>
       </div>
     </div>
+    <div class="pbar"><button type="button" class="btn small big" id="pCopy">복사</button><button type="button" class="btn small big" id="pClose">닫기</button></div>
     <div class="stage" id="stage"></div>
     <p class="fail" id="pFail" role="status" hidden></p>
     <p class="pnote" id="pNote"></p>
@@ -478,7 +481,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438891904
+  "createdAt": 1794441617288
  },
  {
   "id": "b788f35bfb8",
@@ -496,7 +499,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438892904
+  "createdAt": 1794441618288
  },
  {
   "id": "b116f423c3a",
@@ -514,7 +517,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438893904
+  "createdAt": 1794441619288
  },
  {
   "id": "b773f84e964",
@@ -532,7 +535,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438894904
+  "createdAt": 1794441620288
  },
  {
   "id": "b62c89b33e9",
@@ -551,7 +554,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438895904
+  "createdAt": 1794441621288
  },
  {
   "id": "be5da6d39f1",
@@ -570,7 +573,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438896904
+  "createdAt": 1794441622288
  },
  {
   "id": "b15ea467418",
@@ -588,7 +591,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438897904
+  "createdAt": 1794441623288
  },
  {
   "id": "b2f0ab2f292",
@@ -606,7 +609,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438898904
+  "createdAt": 1794441624288
  },
  {
   "id": "b53daa598e8",
@@ -626,7 +629,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438899904
+  "createdAt": 1794441625288
  },
  {
   "id": "bab16188b64",
@@ -646,7 +649,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438900904
+  "createdAt": 1794441626288
  },
  {
   "id": "b872d637627",
@@ -666,7 +669,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438901904
+  "createdAt": 1794441627288
  },
  {
   "id": "b2b212e5e39",
@@ -686,7 +689,7 @@ var BAKED = [
   "region": "국내",
   "year": 2020,
   "fav": false,
-  "createdAt": 1794438902904
+  "createdAt": 1794441628288
  },
  {
   "id": "b0f28eb629d",
@@ -706,7 +709,7 @@ var BAKED = [
   "region": "해외",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794438903904
+  "createdAt": 1794441629288
  },
  {
   "id": "b9ca6421b85",
@@ -726,7 +729,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438904904
+  "createdAt": 1794441630288
  },
  {
   "id": "b94839daa7e",
@@ -746,7 +749,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438905904
+  "createdAt": 1794441631288
  },
  {
   "id": "bf769f7ee32",
@@ -766,7 +769,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438906904
+  "createdAt": 1794441632288
  },
  {
   "id": "b6c020bd000",
@@ -785,7 +788,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438907904
+  "createdAt": 1794441633288
  },
  {
   "id": "b7d55c220b3",
@@ -805,7 +808,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438908904
+  "createdAt": 1794441634288
  },
  {
   "id": "bf10705d9fb",
@@ -824,7 +827,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438909904
+  "createdAt": 1794441635288
  },
  {
   "id": "be1c412efc3",
@@ -843,7 +846,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438910904
+  "createdAt": 1794441636288
  },
  {
   "id": "bd9f80ef1a3",
@@ -862,7 +865,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438911904
+  "createdAt": 1794441637288
  },
  {
   "id": "b27a7b48db5",
@@ -881,7 +884,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438912904
+  "createdAt": 1794441638288
  },
  {
   "id": "b9652534508",
@@ -900,7 +903,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438913904
+  "createdAt": 1794441639288
  },
  {
   "id": "b8a84d5f627",
@@ -919,7 +922,7 @@ var BAKED = [
   "region": "국내",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438914904
+  "createdAt": 1794441640288
  },
  {
   "id": "b7f4f8ef8d6",
@@ -938,7 +941,7 @@ var BAKED = [
   "region": "국내",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438915904
+  "createdAt": 1794441641288
  },
  {
   "id": "b99fb9c1d82",
@@ -957,7 +960,7 @@ var BAKED = [
   "region": "국내",
   "year": 2026,
   "fav": false,
-  "createdAt": 1794438916904
+  "createdAt": 1794441642288
  },
  {
   "id": "b4fb06bed2d",
@@ -976,7 +979,7 @@ var BAKED = [
   "region": "해외",
   "year": 2025,
   "fav": false,
-  "createdAt": 1794438917904
+  "createdAt": 1794441643288
  },
  {
   "id": "b6be94f80a0",
@@ -996,7 +999,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438918904
+  "createdAt": 1794441644288
  },
  {
   "id": "b50d1bdada1",
@@ -1014,7 +1017,7 @@ var BAKED = [
   "region": "해외",
   "year": 2024,
   "fav": false,
-  "createdAt": 1794438919904
+  "createdAt": 1794441645288
  }
 ];
 </script>
