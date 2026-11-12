@@ -2098,14 +2098,17 @@ var BAKED = [
       .then(function (r) { if (!r.ok) throw new Error('none'); return r.json(); })
       .then(function (list) {
         if (!Array.isArray(list)) return;
-        var known = knownUrls(), added = 0;
+        var known = knownUrls(), added = 0, moved = 0;
         list.forEach(function (b) {
           if (!b || typeof b.id !== 'string' || typeof b.url !== 'string') return;
           var n = normUrl(b.url);
+          /* 이미 받은 피드 항목은 날짜만 피드 기준으로 맞춘다(날짜 정정 반영). */
+          var ex = local.items[b.id];
+          if (ex && parseYmd(b.date) && ex.date !== b.date) { ex.date = b.date; moved++; return; }
           if (!n || known[n] || local.items[b.id] || local.deleted.indexOf(b.id) >= 0) return;
           local.items[b.id] = stripItem(clean(b.id, b)); known[n] = 1; added++;
         });
-        if (added) { persist(); refreshItems(); render(); toast('새 레퍼런스 ' + added + '개가 도착했어요.'); }
+        if (added || moved) { persist(); refreshItems(); render(); if (added) toast('새 레퍼런스 ' + added + '개가 도착했어요.'); }
       })
       .catch(function () { /* feed.json 없음 */ });
   }
