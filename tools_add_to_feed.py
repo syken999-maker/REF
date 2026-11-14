@@ -1,9 +1,20 @@
 """매일 수집한 후보를 feed.json 에 합친다.
 사용: python3 add_to_feed.py <site폴더> <후보.json> <YYYY-MM-DD>
-후보 항목: url, title, category, region, year, verified(true만 반영). credit·note·tags는 쓰지 않는다.
+후보 항목: url, title, category, region, year, published(YYYY-MM-DD 업로드 날짜, 선택), verified(true만 반영). credit·note·tags는 쓰지 않는다.
 """
 import hashlib, json, re, sys, time
 from pathlib import Path
+
+import urllib.request
+
+def vimeo_date(url):
+    m = re.search(r"vimeo\.com/(\d+)", url)
+    if not m: return ""
+    try:
+        j = json.load(urllib.request.urlopen("https://vimeo.com/api/oembed.json?url=https://vimeo.com/" + m.group(1), timeout=15))
+        return str(j.get("upload_date", ""))[:10]
+    except Exception:
+        return ""
 
 base, cand_path, date = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
 CATS = {"뮤직비디오", "광고", "시네마틱 필름", "모션그래픽", "애니메이션", "FILM"}
@@ -35,6 +46,7 @@ for r in json.loads(cand_path.read_text(encoding="utf8")):
         "category": r["category"], "date": date, "region": r.get("region", ""),
         "year": r.get("year", 0), "tags": [],
         "note": "", "fav": False, "createdAt": t0 + added,
+        "published": (r.get("published") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(r.get("published") or "")) else vimeo_date(url)),
     })
     added += 1
 feed_path.write_text(json.dumps(feed, ensure_ascii=False, indent=1), encoding="utf8")
