@@ -2149,6 +2149,8 @@ var BAKED = [
           if (!b || typeof b.id !== 'string' || typeof b.url !== 'string') return;
           var n = normUrl(b.url);
           if (b.published && /^\d{4}-\d{2}-\d{2}$/.test(b.published) && !pubCache[b.id]) pubCache[b.id] = b.published;
+          /* feed.json이 날짜를 바로잡은 항목(redate)은 이미 받아 둔 것도 날짜를 맞춘다. */
+          if (b.redate && local.items[b.id] && parseYmd(b.date) && local.items[b.id].date !== b.date) { local.items[b.id].date = b.date; added++; return; }
           if (!n || known[n] || local.items[b.id] || local.deleted.indexOf(b.id) >= 0) return;
           local.items[b.id] = stripItem(clean(b.id, b)); known[n] = 1; added++;
         });
