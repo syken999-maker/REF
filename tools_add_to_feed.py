@@ -2,8 +2,9 @@
 사용: python3 add_to_feed.py <site폴더> <후보.json> <YYYY-MM-DD>
 후보 항목: url, title, category, region, year, published(YYYY-MM-DD 업로드 날짜, 선택), verified(true만 반영). credit·note·tags는 쓰지 않는다.
 각 후보는 이 스크립트가 YouTube/Vimeo oEmbed를 직접 호출해 실재·임베드 가능 여부를 확인하고(실패하면 oembed-fail로 거부), 제목은 oEmbed 제목으로 저장한다.
+공개일(published 또는 Vimeo upload_date)이 90일보다 오래되면 too-old로 거부한다(대표 레퍼런스 예외는 후보에 classic:true).
 """
-import hashlib, json, re, sys, time
+import datetime, hashlib, json, re, sys, time
 from pathlib import Path
 
 import urllib.error, urllib.parse, urllib.request
@@ -57,6 +58,10 @@ for r in json.loads(cand_path.read_text(encoding="utf8")):
     pub = str(r.get("published") or "")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", pub):
         pub = str(meta.get("upload_date") or "")[:10]   # Vimeo만 제공
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", pub) and not r.get("classic"):
+        age = (datetime.date.fromisoformat(date) - datetime.date.fromisoformat(pub)).days
+        if age > 90:                             # 90일보다 오래된 작품은 classic:true 예외만 허용
+            rejected.append((url, "too-old " + pub)); continue
     known.add(url)
     feed.append({
         "id": "f" + hashlib.sha1(url.encode()).hexdigest()[:10], "url": url,
