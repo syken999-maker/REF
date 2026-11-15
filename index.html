@@ -1247,7 +1247,8 @@ var BAKED = [
   /* 수집 시각(KST) 기준 시간대: 'HH' 문자열, 시각 정보가 없으면 '' */
   function slotOf(it) { if (!it.createdAt) return ''; var h = new Date(it.createdAt + 9 * 3600000).getUTCHours(); return (h < 10 ? '0' : '') + h; }
   function slotLabel(k) { var h = parseInt(k, 10); return (h < 12 ? '오전 ' : '오후 ') + ((h % 12) || 12) + '시'; }
-  function cmpItems(a, b) { return b.date.localeCompare(a.date) || a.createdAt - b.createdAt; }
+  /* 날짜는 최신순, 같은 날짜 안에서는 나중에 추가한 것이 위로 온다. */
+  function cmpItems(a, b) { return b.date.localeCompare(a.date) || b.createdAt - a.createdAt || a.id.localeCompare(b.id); }
   function catRank(c) { var i = DEFAULT_CATS.indexOf(c); return i < 0 ? 100 : i; }
   function cmpCat(a, b) { return catRank(a) - catRank(b) || a.localeCompare(b, 'ko'); }
   function allCategories() {
