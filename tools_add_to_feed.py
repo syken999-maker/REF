@@ -1,20 +1,31 @@
 """매일 수집한 후보를 feed.json 에 합친다.
 사용: python3 add_to_feed.py <site폴더> <후보.json> <YYYY-MM-DD>
 후보 항목: url, title, category, region, year, published(YYYY-MM-DD 업로드 날짜, 선택), verified(true만 반영). credit·note·tags는 쓰지 않는다.
+각 후보는 이 스크립트가 YouTube/Vimeo oEmbed를 직접 호출해 실재·임베드 가능 여부를 확인하고(실패하면 oembed-fail로 거부), 제목은 oEmbed 제목으로 저장한다.
 """
 import hashlib, json, re, sys, time
 from pathlib import Path
 
-import urllib.request
+import urllib.error, urllib.parse, urllib.request
 
-def vimeo_date(url):
-    m = re.search(r"vimeo\.com/(\d+)", url)
-    if not m: return ""
-    try:
-        j = json.load(urllib.request.urlopen("https://vimeo.com/api/oembed.json?url=https://vimeo.com/" + m.group(1), timeout=15))
-        return str(j.get("upload_date", ""))[:10]
-    except Exception:
-        return ""
+def oembed(url):
+    """oEmbed로 영상이 실제로 있고 임베드 가능한지 확인한다. 실패하면 None."""
+    if "vimeo.com" in url:
+        api = "https://vimeo.com/api/oembed.json?url=" + urllib.parse.quote(url, safe="")
+    else:
+        api = "https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(url, safe="")
+    req = urllib.request.Request(api, headers={"User-Agent": "Mozilla/5.0 (ref-feed-checker)"})
+    for attempt in range(3):
+        try:
+            j = json.load(urllib.request.urlopen(req, timeout=20))
+            return j if str(j.get("title", "")).strip() else None
+        except urllib.error.HTTPError as e:
+            if e.code in (400, 401, 403, 404):   # 없음·비공개·임베드 불가
+                return None
+            time.sleep(2 * (attempt + 1))
+        except Exception:
+            time.sleep(2 * (attempt + 1))
+    return None
 
 base, cand_path, date = Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3]
 CATS = {"뮤직비디오", "광고", "시네마틱 필름", "모션그래픽", "애니메이션", "FILM"}
@@ -37,16 +48,23 @@ for r in json.loads(cand_path.read_text(encoding="utf8")):
     elif not (yt.match(url) or vm.match(url)): why = "bad-url"
     elif url in known: why = "duplicate"
     elif r.get("category") not in CATS: why = "bad-category"
+    meta = None
+    if not why:
+        meta = oembed(url)                      # 스크립트가 직접 존재·제목을 확인
+        if not meta: why = "oembed-fail"
     if why:
         rejected.append((url, why)); continue
+    pub = str(r.get("published") or "")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", pub):
+        pub = str(meta.get("upload_date") or "")[:10]   # Vimeo만 제공
     known.add(url)
     feed.append({
         "id": "f" + hashlib.sha1(url.encode()).hexdigest()[:10], "url": url,
-        "title": r.get("title", "").strip(), "credit": "",
+        "title": str(meta["title"]).strip(), "credit": "",
         "category": r["category"], "date": date, "region": r.get("region", ""),
         "year": r.get("year", 0), "tags": [],
         "note": "", "fav": False, "createdAt": t0 + added,
-        "published": (r.get("published") if re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(r.get("published") or "")) else vimeo_date(url)),
+        "published": pub,
     })
     added += 1
 feed_path.write_text(json.dumps(feed, ensure_ascii=False, indent=1), encoding="utf8")
